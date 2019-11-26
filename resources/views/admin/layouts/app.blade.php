@@ -13,7 +13,6 @@
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <!-- Theme style -->
     @php $locale = session()->get('locale'); @endphp
-
     @switch($locale)
         @case('en')
         <link rel="stylesheet" href="{{asset('css/AdminLTE.min_EN.css')}}">
@@ -312,7 +311,10 @@
                                     <a href="#" class="btn btn-default btn-flat">Profile</a>
                                 </div>
                                 <div class="pull-left">
-                                    <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                                    <form action="{{route('logout')}}" method="post">
+                                        @csrf
+                                        <button href="#" class="btn btn-default btn-flat">Sign out</button>
+                                    </form>
                                 </div>
                             </li>
                         </ul>
@@ -382,11 +384,34 @@
             </ol>
         </section>
 
+
         <!-- Main content -->
         <section class="content">
             <!-- Small boxes (Stat box) -->
-            @yield('content')
-        </section><!-- /.Left col -->
+            <div class="box">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Title</h3>
+
+                    <div class="box-tools pull-right">
+                        <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="" data-original-title="Collapse">
+                            <i class="fa fa-minus"></i></button>
+                        <button type="button" class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="" data-original-title="Remove">
+                            <i class="fa fa-times"></i></button>
+                    </div>
+                </div>
+                <div class="box-body">
+                    @yield('content')
+                </div>
+                <!-- /.box-body -->
+                <div class="box-footer">
+                    Footer
+                </div>
+                <!-- /.box-footer-->
+            </div>
+
+        </section>
+
+        <!-- /.Left col -->
         <!-- right col (We are only adding the ID to make the widgets sortable)-->
         <section class="col-lg-5 connectedSortable">
         </section><!-- right col -->
