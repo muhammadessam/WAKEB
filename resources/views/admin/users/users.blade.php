@@ -23,10 +23,11 @@
                         </div>
                         <div class="row">
                             <div class="col-sm-12">
-                                <table id="example2" class="table table-bordered table-hover dataTable" role="grid"
+                                <table id="example1" class="table table-bordered table-hover dataTable" role="grid"
                                        aria-describedby="example2_info">
                                     <thead>
                                     <tr role="row">
+                                        <th>#id</th>
                                         <th class="sorting_asc" tabindex="0" aria-controls="example2" rowspan="1"
                                             colspan="1"
                                             aria-sort="ascending"
@@ -40,11 +41,15 @@
                                             colspan="1"
                                             aria-label="Platform(s): activate to sort column ascending">{{trans('dashBoard.userAction')}}
                                         </th>
+
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    @foreach($users as $user)
+                                    @foreach($users as $key => $user)
+
+
                                         <tr role="row" class="odd">
+                                            <td>{{$key + 1}}</td>
                                             <td class="sorting_1">{{$user->name}}</td>
                                             <td>{{$user->email}}</td>
                                             <td>
@@ -64,6 +69,7 @@
                                     </tbody>
                                     <tfoot>
                                     <tr>
+                                        <th>#id</th>
                                         <th rowspan="1" colspan="1">{{trans('dashBoard.userName')}}</th>
                                         <th rowspan="1" colspan="1">{{trans('dashBoard.userEmail')}}</th>
                                         <th rowspan="1" colspan="1">{{trans('dashBoard.userAction')}}</th>
@@ -80,6 +86,20 @@
     </div>
 @endsection
 @section('scripts')
+
+    <script>
+        $(function () {
+            $('#example1').DataTable({
+                'paging'      : true,
+                'lengthChange': true,
+                'searching'   : true,
+                'ordering'    : true,
+                'info'        : true,
+                'autoWidth'   : false
+            })
+        })
+    </script>
+
     <script>
         function softDeletUser(id) {
             Swal.fire({

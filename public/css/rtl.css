@@ -2,3 +2,6 @@
 .sidebar-menu li .label, .sidebar-menu li .badge {
 	margin-top: -15px !important;
 }
+.dataTables_filter{
+    text-align: left;
+}
