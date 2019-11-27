@@ -83,228 +83,24 @@
                             <a href="{{route('changeLang', 'ar')}}" class="change_lang bring_left">Ar</a>
                         @endswitch
                     </li>
-                    <li class="dropdown messages-menu">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <i class="fa fa-envelope-o"></i>
-                            <span class="label label-success">4</span>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li class="header">You have 4 messages</li>
-                            <li>
-                                <!-- inner menu: contains the actual data -->
-                                <ul class="menu">
-                                    <li><!-- start message -->
-                                        <a href="#">
-                                            <div class="pull-right">
-                                                <img src="img/user2-160x160.jpg" class="img-circle" alt="User Image">
-                                            </div>
-                                            <h4>
-                                                Support Team
-                                                <small><i class="fa fa-clock-o"></i> 5 mins</small>
-                                            </h4>
-                                            <p>Why not buy a new awesome theme?</p>
-                                        </a>
-                                    </li><!-- end message -->
-                                    <li>
-                                        <a href="#">
-                                            <div class="pull-right">
-                                                <img src="img/user3-128x128.jpg" class="img-circle" alt="User Image">
-                                            </div>
-                                            <h4>
-                                                AdminLTE Design Team
-                                                <small><i class="fa fa-clock-o"></i> 2 hours</small>
-                                            </h4>
-                                            <p>Why not buy a new awesome theme?</p>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <div class="pull-right">
-                                                <img src="img/user4-128x128.jpg" class="img-circle" alt="User Image">
-                                            </div>
-                                            <h4>
-                                                Developers
-                                                <small><i class="fa fa-clock-o"></i> Today</small>
-                                            </h4>
-                                            <p>Why not buy a new awesome theme?</p>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <div class="pull-right">
-                                                <img src="img/user3-128x128.jpg" class="img-circle" alt="User Image">
-                                            </div>
-                                            <h4>
-                                                Sales Department
-                                                <small><i class="fa fa-clock-o"></i> Yesterday</small>
-                                            </h4>
-                                            <p>Why not buy a new awesome theme?</p>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <div class="pull-right">
-                                                <img src="img/user4-128x128.jpg" class="img-circle" alt="User Image">
-                                            </div>
-                                            <h4>
-                                                Reviewers
-                                                <small><i class="fa fa-clock-o"></i> 2 days</small>
-                                            </h4>
-                                            <p>Why not buy a new awesome theme?</p>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="footer"><a href="#">See All Messages</a></li>
-                        </ul>
-                    </li>
                     <!-- Notifications: style can be found in dropdown.less -->
-                    <li class="dropdown notifications-menu">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <i class="fa fa-bell-o"></i>
-                            <span class="label label-warning">۱۰</span>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li class="header">You have 10 notifications</li>
-                            <li>
-                                <!-- inner menu: contains the actual data -->
-                                <ul class="menu">
-                                    <li>
-                                        <a href="#">
-                                            <i class="fa fa-users text-aqua"></i> 5 new members joined today
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <i class="fa fa-warning text-yellow"></i> Very long description here that
-                                            may not fit into the page and may cause design problems
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <i class="fa fa-users text-red"></i> 5 new members joined
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <i class="fa fa-shopping-cart text-green"></i> 25 sales made
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <i class="fa fa-user text-red"></i> You changed your username
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="footer"><a href="#">View all</a></li>
-                        </ul>
-                    </li>
                     <!-- Tasks: style can be found in dropdown.less -->
-                    <li class="dropdown tasks-menu">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <i class="fa fa-flag-o"></i>
-                            <span class="label label-danger">۹</span>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li class="header">You have 9 tasks</li>
-                            <li>
-                                <!-- inner menu: contains the actual data -->
-                                <ul class="menu">
-                                    <li><!-- Task item -->
-                                        <a href="#">
-                                            <h3>
-                                                Design some buttons
-                                                <small class="pull-left">20%</small>
-                                            </h3>
-                                            <div class="progress xs">
-                                                <div class="progress-bar progress-bar-aqua" style="width: 20%"
-                                                     role="progressbar" aria-valuenow="20" aria-valuemin="0"
-                                                     aria-valuemax="100">
-                                                    <span class="sr-only">20% Complete</span>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </li><!-- end task item -->
-                                    <li><!-- Task item -->
-                                        <a href="#">
-                                            <h3>
-                                                Create a nice theme
-                                                <small class="pull-left">40%</small>
-                                            </h3>
-                                            <div class="progress xs">
-                                                <div class="progress-bar progress-bar-green" style="width: 40%"
-                                                     role="progressbar" aria-valuenow="20" aria-valuemin="0"
-                                                     aria-valuemax="100">
-                                                    <span class="sr-only">40% Complete</span>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </li><!-- end task item -->
-                                    <li><!-- Task item -->
-                                        <a href="#">
-                                            <h3>
-                                                Some task I need to do
-                                                <small class="pull-left">60%</small>
-                                            </h3>
-                                            <div class="progress xs">
-                                                <div class="progress-bar progress-bar-red" style="width: 60%"
-                                                     role="progressbar" aria-valuenow="20" aria-valuemin="0"
-                                                     aria-valuemax="100">
-                                                    <span class="sr-only">60% Complete</span>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </li><!-- end task item -->
-                                    <li><!-- Task item -->
-                                        <a href="#">
-                                            <h3>
-                                                Make beautiful transitions
-                                                <small class="pull-left">80%</small>
-                                            </h3>
-                                            <div class="progress xs">
-                                                <div class="progress-bar progress-bar-yellow" style="width: 80%"
-                                                     role="progressbar" aria-valuenow="20" aria-valuemin="0"
-                                                     aria-valuemax="100">
-                                                    <span class="sr-only">80% Complete</span>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </li><!-- end task item -->
-                                </ul>
-                            </li>
-                            <li class="footer">
-                                <a href="#">View all tasks</a>
-                            </li>
-                        </ul>
-                    </li>
                     <!-- User Account: style can be found in dropdown.less -->
                     <li class="dropdown user user-menu">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <img src="img/user2-160x160.jpg" class="user-image" alt="User Image">
-                            <span class="hidden-xs">محمد شریفی</span>
+                            <img src="{{asset('img/user2-160x160.jpg')}}" class="user-image" alt="User Image">
+                            <span class="hidden-xs">{{auth()->user()->name}}</span>
                         </a>
                         <ul class="dropdown-menu">
                             <!-- User image -->
                             <li class="user-header">
-                                <img src="img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                                <img src="{{asset('img/user2-160x160.jpg')}}" class="img-circle" alt="User Image">
                                 <p>
-                                    محمد شریفی - توسعه دهنده سمت کاربر
+                                    {{auth()->user()->email}}
                                     <small>Member since Nov. 2012</small>
                                 </p>
                             </li>
                             <!-- Menu Body -->
-                            <li class="user-body">
-                                <div class="col-xs-4 text-center">
-                                    <a href="#">Followers</a>
-                                </div>
-                                <div class="col-xs-4 text-center">
-                                    <a href="#">Sales</a>
-                                </div>
-                                <div class="col-xs-4 text-center">
-                                    <a href="#">Friends</a>
-                                </div>
-                            </li>
                             <!-- Menu Footer-->
                             <li class="user-footer">
                                 <div class="pull-right">
@@ -335,10 +131,10 @@
             <!-- Sidebar user panel -->
             <div class="user-panel">
                 <div class="pull-right image">
-                    <img src="img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                    <img src="{{asset('img/user2-160x160.jpg')}}" class="img-circle" alt="User Image">
                 </div>
                 <div class="pull-left info">
-                    <p>محمد شریفی</p>
+                    <p>{{auth()->user()->name}}</p>
                     <a href="#"><i class="fa fa-circle text-success"></i> آنلاین</a>
                 </div>
             </div>
@@ -357,11 +153,16 @@
             <ul class="sidebar-menu">
                 <li class="active treeview">
                     <a href="#">
-                        <i class="fa fa-dashboard"></i> <span>{{trans('dashBoard.users')}}</span> <i class="fa fa-angle-left pull-left"></i>
+                        <i class="fa fa-dashboard"></i> <span>{{trans('dashBoard.users')}}</span> <i
+                            class="fa fa-angle-left pull-left"></i>
                     </a>
                     <ul class="treeview-menu">
-                        <li class="active"><a href="{{route('showAllUsers')}}">{{trans('dashBoard.showAll')}}</a></li>
-                        <li><a href="{{route('createView')}}">{{trans('dashBoard.addUser')}}</a></li>
+                        <li class="{{Request::path()=='admin/users' ? "active":''}}"><a
+                                href="{{route('showAllUsers')}}">{{trans('dashBoard.showAll')}}</a></li>
+                        <li class="{{Request::path()=='admin/users/add' ? "active":''}}"><a
+                                href="{{route('createView')}}">{{trans('dashBoard.addUser')}}</a></li>
+                        <li class="{{Request::path()=='admin/users/deleted' ? "active":''}}"><a
+                                href="{{route('getDeletedUsers')}}">{{trans('dashBoard.deletedUsers')}}</a></li>
                     </ul>
                 </li>
 
@@ -372,43 +173,10 @@
 
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
-        <!-- Content Header (Page header) -->
-        <section class="content-header">
-            <h1>
-                پیشخوان
-                <small>پنل مدیریت</small>
-            </h1>
-            <ol class="breadcrumb">
-                <li><a href="#"><i class="fa fa-dashboard"></i> خانه</a></li>
-                <li class="active">پیشخوان</li>
-            </ol>
-        </section>
 
 
-        <!-- Main content -->
         <section class="content">
-            <!-- Small boxes (Stat box) -->
-            <div class="box">
-                <div class="box-header with-border">
-                    <h3 class="box-title">Title</h3>
-
-                    <div class="box-tools pull-right">
-                        <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="" data-original-title="Collapse">
-                            <i class="fa fa-minus"></i></button>
-                        <button type="button" class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="" data-original-title="Remove">
-                            <i class="fa fa-times"></i></button>
-                    </div>
-                </div>
-                <div class="box-body">
-                    @yield('content')
-                </div>
-                <!-- /.box-body -->
-                <div class="box-footer">
-                    Footer
-                </div>
-                <!-- /.box-footer-->
-            </div>
-
+            @yield('content')
         </section>
 
         <!-- /.Left col -->
@@ -420,14 +188,6 @@
     </section>
     <!-- /.content -->
 </div><!-- /.content-wrapper -->
-<footer class="main-footer">
-    <div class="pull-left hidden-xs">
-        <b>Version</b> 2.2.0
-    </div>
-    <strong>Copyright &copy; 2014-2015 <a href="http://almsaeedstudio.com">Almsaeed Studio</a>.</strong> All rights
-    reserved.
-</footer>
-
 <!-- Control Sidebar -->
 <aside class="control-sidebar control-sidebar-dark">
     <!-- Create the tabs -->
@@ -619,7 +379,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.2/moment.min.js"></script>
 <script src="{{asset('plugins/daterangepicker/daterangepicker.js')}}"></script>
 <!-- datepicker -->
-<script src="plugins/datepicker/bootstrap-datepicker.js"></script>
+<script src="{{asset('plugins/datepicker/bootstrap-datepicker.js')}}"></script>
 <!-- Bootstrap WYSIHTML5 -->
 <script src="{{asset('plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js')}}"></script>
 <!-- Slimscroll -->
@@ -631,7 +391,8 @@
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <!-- AdminLTE for demo purposes -->
 <script src="{{asset('js/demo.js')}}"></script>
-
+<script src="{{asset('js/sweetalert.js')}}"></script>
+<script src="{{asset('js/axios.min.js')}}"></script>
 @yield('scripts')
 </body>
 </html>

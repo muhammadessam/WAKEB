@@ -1,59 +1,83 @@
 @extends('admin.layouts.app')
 @section('content')
-    <h1 class="heading_title">{{trans('dashBoard.addUser')}}</h1>
+    <div class="box">
+        <div class="box-header with-border">
+            <h3 class="box-title">{{trans('dashBoard.addUser')}}</h3>
 
-    <div class="form">
-        <form class="form-horizontal" method="post" action="{{route('storeUser')}}">
-            @csrf
-            <div class="form-group">
-                @error('name')
-                <div class="alert alert-danger text-right" role="alert">{{$message}}</div>
-                @enderror
-                <label for="input0"
-                       class="col-sm-2 control-label bring_right left_text">{{trans('dashBoard.userName')}}</label>
-                <div class="col-sm-10">
-                    <input type="text" name="name" class="form-control" id="input0"
-                           placeholder="{{trans('dashBoard.userName')}}">
-                </div>
+            <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title=""
+                        data-original-title="Collapse">
+                    <i class="fa fa-minus"></i></button>
+                <button type="button" class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title=""
+                        data-original-title="Remove">
+                    <i class="fa fa-times"></i></button>
             </div>
-            <div class="form-group">
-                @error('email')
-                <div class="alert alert-danger text-right" role="alert">{{$message}}</div>
-                @enderror
-                <label for="input2"
-                       class="col-sm-2 control-label bring_right left_text">{{trans('dashBoard.userEmail')}}</label>
-                <div class="col-sm-10">
-                    <input type="email" name="email" class="form-control" id="input2"
-                           placeholder="{{trans('dashBoard.userEmail')}}">
-                </div>
-            </div>
-            <div class="form-group">
-                @error('password')
-                <div class="alert alert-danger text-right" role="alert">{{$message}}</div>
-                @enderror
-                <label for="input3"
-                       class="col-sm-2 control-label bring_right left_text">{{trans('dashBoard.userPassword')}}</label>
-                <div class="col-sm-10">
-                    <input type="password" name="password" class="form-control" id="input3"
-                           placeholder="{{trans('dashBoard.userPassword')}}">
-                </div>
-            </div>
-            <div class="form-group">
-                <div class="col-sm-12 left_text">
-                    <button type="submit" class="btn btn-danger">{{trans('dashBoard.addUser')}}</button>
-                    <button type="reset" class="btn btn-default">{{trans('dashBoard.rest')}}</button>
-                </div>
-            </div>
-        </form>
-    </div>
-    </div>
-    </div>
+        </div>
+        <div class="box-body">
+            <div class="box">
+                <div class="box-body">
+                    <div id="example2_wrapper" class="dataTables_wrapper dt-bootstrap">
+                        <div class="row">
+                            <div class="col-sm-6"></div>
+                            <div class="col-sm-6"></div>
+                        </div>
 
+                        <div class="row">
+                            <div class="col-md-6 col-md-offset-3">
+                                <div class="box box-primary">
+                                    <form role="form" action="{{route('storeUser')}}" method="post">
+                                        @csrf
+                                        <div class="box-body">
+                                            <div class="form-group">
+                                                <label for="exampleInputEmail1">{{trans('dashBoard.userName')}}</label>
+                                                <input type="text" name="name"
+                                                       class="form-control" id="exampleInputEmail1"
+                                                       placeholder="Enter email" value="{{old('name')}}">
+                                                @error('name')
+                                                <div class="alert alert-danger text-right"
+                                                     role="alert">{{$message}}</div>
+                                                @enderror
+                                            </div>
+                                            <div class="form-group">
+                                                <label
+                                                    for="exampleInputPassword1">{{trans('dashBoard.userEmail')}}</label>
+                                                <input type="email" name="email" value="{{old('email')}}"
+                                                       class="form-control" id="exampleInputPassword1"
+                                                       placeholder="Password" >
+                                                @error('email')
+                                                <div class="alert alert-danger text-right"
+                                                     role="alert">{{$message}}</div>
+                                                @enderror
+                                            </div>
+                                            <div class="form-group">
+                                                <label
+                                                    for="exampleInputPassword1">{{trans('dashBoard.userPassword')}}</label>
+                                                <input type="password" name="password"
+                                                       class="form-control" id="exampleInputPassword1"
+                                                       placeholder="Password">
+                                                @error('password')
+                                                <div class="alert alert-danger text-right"
+                                                     role="alert">{{$message}}</div>
+                                                @enderror
+                                            </div>
+                                        </div>
+                                        <div class="box-footer">
+                                            <button type="submit"
+                                                    class="btn btn-primary">{{trans('dashBoard.addUser')}}</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 @endsection
 
 @section('scripts')
     @if(session()->has('message'))
-        <script src="{{asset('js/sweetalert.js')}}"></script>
         <script>
             const Toast = Swal.mixin({
                 toast: true,

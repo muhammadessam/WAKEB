@@ -2,7 +2,7 @@
 @section('content')
     <div class="box">
         <div class="box-header with-border">
-            <h3 class="box-title">{{trans('dashBoard.showAll')}}</h3>
+            <h3 class="box-title">{{trans('dashBoard.deletedUsers')}}</h3>
 
             <div class="box-tools pull-right">
                 <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title=""
@@ -48,16 +48,19 @@
                                             <td class="sorting_1">{{$user->name}}</td>
                                             <td>{{$user->email}}</td>
                                             <td>
-                                                <a href="{{route('editView', $user)}}"
-                                                   class="mb-1 glyphicon glyphicon-pencil btn btn-primary"
-                                                   data-toggle="tooltip"
-                                                   data-placement="top" title="تعديل"></a>
-                                                <button onclick="softDeletUser({{$user->id}})"
-                                                        class="glyphicon glyphicon-remove btn btn-warning"
+                                                <button class="btn btn-primary glyphicon glyphicon-ok"
                                                         data-toggle="tooltip"
-                                                        data-placement="top" title="حذف"
-                                                        data-id="{{$user->id}}"
-                                                        id="{{$user->id}}"></button>
+                                                        data-placement="top"
+                                                        onclick="restoreUSer({{$user->id}})" id="restore{{$user->id}}"
+                                                        title="{{trans('dashBoard.restoreUser')}}">
+                                                </button>
+                                                <button onclick="softDeletUser({{$user->id}})"
+                                                        class="glyphicon glyphicon-remove btn btn-danger"
+                                                        data-toggle="tooltip"
+                                                        data-placement="top"
+                                                        title="{{trans('dashBoard.deleteForEver')}}"
+                                                        id="{{$user->id}}">
+                                                </button>
                                             </td>
                                         </tr>
                                     @endforeach
@@ -81,6 +84,21 @@
 @endsection
 @section('scripts')
     <script>
+        function restoreUSer(id) {
+            console.log(id)
+            axios({
+                method: 'post',
+                url: '{{route('restoreUser')}}',
+                data: {
+                    id: id,
+                    _token: "{{csrf_token()}}"
+                }
+            }).then((res) => {
+                console.log(res.data);
+                $('#restore' + id).parent().parent().remove();
+            });
+        }
+
         function softDeletUser(id) {
             Swal.fire({
                 title: 'Delet User',
@@ -90,7 +108,7 @@
                 preConfirm: () => {
                     axios({
                         method: 'delete',
-                        url: "{{route('deleteUser')}}",
+                        url: '{{route('forceDelete')}}',
                         data: {
                             id: id,
                             _token: "{{csrf_token()}}",

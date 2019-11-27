@@ -12,5 +12,11 @@ return [
     'userAction'=>'Actions',
     'userPassword'=>'Password',
     'rest'=>'Rest',
-    'userAddedSuccessfully' =>'User Added Successfully'
+    'userAddedSuccessfully' =>'User Added Successfully',
+    'cannotRemoveUser'=>'User is logged in',
+    'userRemoved'=>'User Removed',
+    'deletedUsers'=>'Deleted Users',
+    'restoreUser'=>'Restore User',
+    'deleteForEver'=>'Delete For Ever',
+
 ];
