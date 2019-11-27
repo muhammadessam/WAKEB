@@ -1,6 +1,7 @@
 <?php
 
 return [
+    'controlPanel'=>'لوحة التحكم',
     'welcome' => "مرحبا",
     'users' => "المستخدمين",
     'showAll'=>'عرض الكل',

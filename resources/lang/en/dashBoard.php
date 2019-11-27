@@ -1,5 +1,6 @@
 <?php
 return [
+    'controlPanel'=>'Control Panel',
     'welcome' => "Hello",
     'users' => "Users",
     'showAll'=>'Show All',
