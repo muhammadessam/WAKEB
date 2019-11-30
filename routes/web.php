@@ -23,10 +23,7 @@ Route::get('lang/{locale}', 'LangController@lang')->name('changeLang');
 Route::group(['middleware' => 'auth', 'prefix' => '/admin'], function () {
 
     require_once 'Users/users.php';
-
-    Route::prefix('/products')->group(function () {
-
-    });
+    require_once 'Products/products.php';
 
 
 });

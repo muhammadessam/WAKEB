@@ -2,7 +2,7 @@
 @section('content')
     <div class="box">
         <div class="box-header with-border">
-            <h3 class="box-title">{{trans('dashBoard.productsShowAll')}}</h3>
+            <h3 class="box-title">{{trans('dashBoard.deletedUsers')}}</h3>
 
             <div class="box-tools pull-right">
                 <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title=""
@@ -23,55 +23,52 @@
                         </div>
                         <div class="row">
                             <div class="col-sm-12">
-                                <table id="example1" class="table table-bordered table-hover dataTable" role="grid"
+                                <table id="example2" class="table table-bordered table-hover dataTable" role="grid"
                                        aria-describedby="example2_info">
                                     <thead>
                                     <tr role="row">
-                                        <th>#id</th>
                                         <th class="sorting_asc" tabindex="0" aria-controls="example2" rowspan="1"
                                             colspan="1"
                                             aria-sort="ascending"
-                                            aria-label="Rendering engine: activate to sort column descending">{{trans('dashBoard.productName')}}
+                                            aria-label="Rendering engine: activate to sort column descending">{{trans('dashBoard.userName')}}
                                         </th>
                                         <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1"
                                             colspan="1"
-                                            aria-label="Browser: activate to sort column ascending">{{trans('dashBoard.productDescription')}}
+                                            aria-label="Browser: activate to sort column ascending">{{trans('dashBoard.userEmail')}}
                                         </th>
                                         <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1"
                                             colspan="1"
                                             aria-label="Platform(s): activate to sort column ascending">{{trans('dashBoard.userAction')}}
                                         </th>
-
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    @foreach($products as $key => $product)
-
-
+                                    @foreach($users as $user)
                                         <tr role="row" class="odd">
-                                            <td>{{$key + 1}}</td>
-                                            <td class="sorting_1">{{$product->product_tans[0]->name}}</td>
-                                            <td>{{$product->product_tans[0]->description}}</td>
+                                            <td class="sorting_1">{{$user->name}}</td>
+                                            <td>{{$user->email}}</td>
                                             <td>
-                                                <a href="{{route('editView', $product)}}"
-                                                   class="mb-1 glyphicon glyphicon-pencil btn btn-primary"
-                                                   data-toggle="tooltip"
-                                                   data-placement="top" title="تعديل"></a>
-                                                <button onclick="softDeletUser({{$product->id}})"
-                                                        class="glyphicon glyphicon-remove btn btn-warning"
+                                                <button class="btn btn-primary glyphicon glyphicon-ok"
                                                         data-toggle="tooltip"
-                                                        data-placement="top" title="حذف"
-                                                        data-id="{{$product->id}}"
-                                                        id="{{$product->id}}"></button>
+                                                        data-placement="top"
+                                                        onclick="restoreUSer({{$user->id}})" id="restore{{$user->id}}"
+                                                        title="{{trans('dashBoard.restoreUser')}}">
+                                                </button>
+                                                <button onclick="softDeletUser({{$user->id}})"
+                                                        class="glyphicon glyphicon-remove btn btn-danger"
+                                                        data-toggle="tooltip"
+                                                        data-placement="top"
+                                                        title="{{trans('dashBoard.deleteForEver')}}"
+                                                        id="{{$user->id}}">
+                                                </button>
                                             </td>
                                         </tr>
                                     @endforeach
                                     </tbody>
                                     <tfoot>
                                     <tr>
-                                        <th>#id</th>
-                                        <th rowspan="1" colspan="1">{{trans('dashBoard.productName')}}</th>
-                                        <th rowspan="1" colspan="1">{{trans('dashBoard.productDescription')}}</th>
+                                        <th rowspan="1" colspan="1">{{trans('dashBoard.userName')}}</th>
+                                        <th rowspan="1" colspan="1">{{trans('dashBoard.userEmail')}}</th>
                                         <th rowspan="1" colspan="1">{{trans('dashBoard.userAction')}}</th>
                                     </tr>
                                     </tfoot>
@@ -86,21 +83,22 @@
     </div>
 @endsection
 @section('scripts')
-
     <script>
-        $(function () {
-            $('#example1').DataTable({
-                'paging'      : true,
-                'lengthChange': true,
-                'searching'   : true,
-                'ordering'    : true,
-                'info'        : true,
-                'autoWidth'   : false
-            })
-        })
-    </script>
+        function restoreUSer(id) {
+            console.log(id)
+            axios({
+                method: 'post',
+                url: '{{route('restoreUser')}}',
+                data: {
+                    id: id,
+                    _token: "{{csrf_token()}}"
+                }
+            }).then((res) => {
+                console.log(res.data);
+                $('#restore' + id).parent().parent().remove();
+            });
+        }
 
-    <script>
         function softDeletUser(id) {
             Swal.fire({
                 title: 'Delet User',
@@ -110,7 +108,7 @@
                 preConfirm: () => {
                     axios({
                         method: 'delete',
-                        url: "{{route('deleteUser')}}",
+                        url: '{{route('forceDelete')}}',
                         data: {
                             id: id,
                             _token: "{{csrf_token()}}",

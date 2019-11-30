@@ -173,11 +173,11 @@
                             class="fa fa-angle-left pull-left"></i>
                     </a>
                     <ul class="treeview-menu">
-                        <li class="{{Request::path()=='admin/users' ? "active":''}}"><a
-                                href="{{route('showAllUsers')}}">{{trans('dashBoard.productsShowAll')}}</a></li>
-                        <li class="{{Request::path()=='admin/users/add' ? "active":''}}"><a
+                        <li class="{{Request::path()=='admin/products' ? "active":''}}"><a
+                                href="{{route('showAllProducts')}}">{{trans('dashBoard.productsShowAll')}}</a></li>
+                        <li class="{{Request::path()=='admin/products/add' ? "active":''}}"><a
                                 href="{{route('createView')}}">{{trans('dashBoard.productsAdd')}}</a></li>
-                        <li class="{{Request::path()=='admin/users/deleted' ? "active":''}}"><a
+                        <li class="{{Request::path()=='admin/products/deleted' ? "active":''}}"><a
                                 href="{{route('getDeletedUsers')}}">{{trans('dashBoard.productsRemove')}}</a></li>
                     </ul>
                 </li>
@@ -200,7 +200,6 @@
         </section><!-- right col -->
     </div><!-- /.row (main row) -->
 
-    </section>
     <!-- /.content -->
 </div><!-- /.content-wrapper -->
 <!-- Control Sidebar -->

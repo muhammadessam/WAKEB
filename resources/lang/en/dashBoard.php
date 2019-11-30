@@ -25,5 +25,14 @@ return [
     'productsAdd' => 'Add Product',
     'productsRemove' => 'Remove Product',
     'productsRemoved' => 'Removed Products',
+    'productName'=>'Product Name',
+    'productDescription'=>'Product Description',
+    'productEdit'=>'Edit product',
+    'productAddSuccessfully'=>'Product Added Successfully',
+    'productImage'=>'Product image',
+    'productNameEnter'=>'please enter product name in arabic..',
+    'productDescriptionEnter'=>'please enter product description in arabic ..',
+    'productNameEnterEn'=>'please enter product name in english..',
+    'productDescriptionEnterEn'=>'please enter product description in english ..',
 
 ];
