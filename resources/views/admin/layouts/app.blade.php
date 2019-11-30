@@ -153,7 +153,7 @@
             <!-- /.search form -->
             <!-- sidebar menu: : style can be found in sidebar.less -->
             <ul class="sidebar-menu">
-                <li class="active treeview">
+                <li class="{{request()->is('admin/users*') ? "active":''}} treeview">
                     <a href="#">
                         <i class="fa fa-dashboard"></i> <span>{{trans('dashBoard.users')}}</span> <i
                             class="fa fa-angle-left pull-left"></i>
@@ -167,7 +167,20 @@
                                 href="{{route('getDeletedUsers')}}">{{trans('dashBoard.deletedUsers')}}</a></li>
                     </ul>
                 </li>
-
+                <li class="{{request()->is('admin/products*') ? "active":''}} treeview">
+                    <a href="#">
+                        <i class="fa fa-dashboard"></i> <span>{{trans('dashBoard.products')}}</span> <i
+                            class="fa fa-angle-left pull-left"></i>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li class="{{Request::path()=='admin/users' ? "active":''}}"><a
+                                href="{{route('showAllUsers')}}">{{trans('dashBoard.productsShowAll')}}</a></li>
+                        <li class="{{Request::path()=='admin/users/add' ? "active":''}}"><a
+                                href="{{route('createView')}}">{{trans('dashBoard.productsAdd')}}</a></li>
+                        <li class="{{Request::path()=='admin/users/deleted' ? "active":''}}"><a
+                                href="{{route('getDeletedUsers')}}">{{trans('dashBoard.productsRemove')}}</a></li>
+                    </ul>
+                </li>
             </ul>
         </section>
         <!-- /.sidebar -->
