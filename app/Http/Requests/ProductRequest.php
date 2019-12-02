@@ -29,7 +29,6 @@ class ProductRequest extends FormRequest
             'name_en'=>'required',
             'description_en'=>'required',
             'img'=>'required',
-
         ];
     }
 }

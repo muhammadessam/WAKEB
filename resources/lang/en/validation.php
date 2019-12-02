@@ -146,6 +146,14 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+        'name_ar' =>'Name in Arabic',
+        'name_en'=>'Name in English',
+        'description_ar'=>'Description in Arabic',
+        'description_en'=>'Description in English',
+        'name'=>'Name',
+        'email'=>'Email',
+
+    ],
 
 ];

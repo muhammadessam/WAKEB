@@ -28,6 +28,7 @@
                                     <thead>
                                     <tr role="row">
                                         <th>#id</th>
+                                        <th>Image</th>
                                         <th class="sorting_asc" tabindex="0" aria-controls="example2" rowspan="1"
                                             colspan="1"
                                             aria-sort="ascending"
@@ -46,18 +47,18 @@
                                     </thead>
                                     <tbody>
                                     @foreach($products as $key => $product)
-
-
                                         <tr role="row" class="odd">
                                             <td>{{$key + 1}}</td>
-                                            <td class="sorting_1">{{$product->product_tans[0]->name}}</td>
-                                            <td>{{$product->product_tans[0]->description}}</td>
+                                            <td><img style="width: 30px;height: 30px;"
+                                                     src="{{asset($product->img_url)}}" alt=""></td>
+                                            <td class="sorting_1">{{$product->product_trans[0]->name}}</td>
+                                            <td>{{$product->product_trans[0]->description}}</td>
                                             <td>
-                                                <a href="{{route('editView', $product)}}"
+                                                <a href="{{route('productEditView', $product)}}"
                                                    class="mb-1 glyphicon glyphicon-pencil btn btn-primary"
                                                    data-toggle="tooltip"
                                                    data-placement="top" title="تعديل"></a>
-                                                <button onclick="softDeletUser({{$product->id}})"
+                                                <button onclick="softDeleteProducts({{$product->id}})"
                                                         class="glyphicon glyphicon-remove btn btn-warning"
                                                         data-toggle="tooltip"
                                                         data-placement="top" title="حذف"
@@ -90,18 +91,18 @@
     <script>
         $(function () {
             $('#example1').DataTable({
-                'paging'      : true,
+                'paging': true,
                 'lengthChange': true,
-                'searching'   : true,
-                'ordering'    : true,
-                'info'        : true,
-                'autoWidth'   : false
+                'searching': true,
+                'ordering': true,
+                'info': true,
+                'autoWidth': false
             })
         })
     </script>
 
     <script>
-        function softDeletUser(id) {
+        function softDeleteProducts(id) {
             Swal.fire({
                 title: 'Delet User',
                 icon: 'warning',

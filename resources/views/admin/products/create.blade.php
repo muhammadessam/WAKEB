@@ -3,68 +3,64 @@
     <div class="box">
         <div class="box-header with-border">
             <h3 class="box-title">{{trans('dashBoard.productsAdd')}}</h3>
-
-            <div class="box-tools pull-right">
-                <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title=""
-                        data-original-title="Collapse">
-                    <i class="fa fa-minus"></i></button>
-                <button type="button" class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title=""
-                        data-original-title="Remove">
-                    <i class="fa fa-times"></i></button>
-            </div>
         </div>
-        <div class="box-body">
-            <div class="box">
-                <div class="box-body">
-                    <div id="example2_wrapper" class="dataTables_wrapper dt-bootstrap">
-                        <div class="row">
-                            <div class="col-sm-6"></div>
-                            <div class="col-sm-6"></div>
-                        </div>
-                        <div class="box box-primary">
-                            <form role="form">
-                                <div class="box-body">
-                                    <div class="form-group">
+
+        <div class="row col-sm-offset-1">
+            <div class="col-md-6">
+                <!-- Custom Tabs -->
+                <div class="nav-tabs-custom">
+                    <ul class="nav nav-tabs">
+                        @foreach($langs as $lang)
+                            <li class="{{$lang->id==1?'active':''}}"><a href="#tab{{$lang->id}}" data-toggle="tab"
+                                                                        aria-expanded="true">{{$lang->lang}}</a>
+                            </li>
+                        @endforeach
+                    </ul>
+                    <form role="form" action="{{route('storeProduct')}}" method="post"
+                          enctype="multipart/form-data">
+                        @csrf
+                        <div class="tab-content">
+                            @foreach($langs as $lang)
+                                <div class="tab-pane {{$lang->id==1 ?'active':''}}" id="tab{{$lang->id}}">
+                                    <div class="form-group {{$errors->has('name_'.$lang->lang) ? 'has-error' : ''}}">
                                         <label for="productName">{{trans('dashBoard.productName')}}</label>
-                                        <input type="text" class="form-control" id="productName" name="name_ar" placeholder="@lang('dashBoard.productNameEnterAr')">
+                                        <input type="text" class="form-control" id="productName"
+                                               name="name_{{$lang->lang}}"
+                                               placeholder="{{trans('dashBoard.productNameEnter_'.$lang->lang)}}">
+                                        @error('name_'.$lang->$lang)
+                                        <span class="help-block">{{$message}}</span>
+                                        @enderror
                                     </div>
-                                    <div class="form-group">
+                                    <div
+                                        class="form-group {{$errors->has('description_'.$lang->lang) ? 'has-error' : ''}}">
                                         <label for="description">{{trans('dashBoard.productDescription')}}</label>
-                                        <textarea class="form-control" id="description" name="description_ar" placeholder="@lang('dashBoard.productDescriptionEnterAr')"></textarea>
+                                        <textarea
+                                            class="form-control"
+                                            id="description" name="description_{{$lang->lang}}"
+                                            placeholder="{{trans('dashBoard.productDescriptionEnter_'.$lang->lang)}}"></textarea>
+                                        @error('description_'.$lang->lang)
+                                        <span class="help-block">{{$message}}</span>
+                                        @enderror
                                     </div>
                                 </div>
-
-                                <div class="box-body">
-                                    <div class="form-group">
-                                        <label for="productName">{{trans('dashBoard.productName')}}</label>
-                                        <input type="text" class="form-control" id="productName" name="name_en" placeholder="@lang('dashBoard.productNameEnterEn')">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="description">{{trans('dashBoard.productDescription')}}</label>
-                                        <textarea class="form-control" id="description" name="description_en" placeholder="@lang('dashBoard.productDescriptionEnterEn')"></textarea>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="image">{{trans('dashBoard.productImage')}}</label>
-                                        <input type="file" id="image" name="img">
-                                    </div>
-                                </div>
-
-                                <div class="box-footer">
-                                    <button type="submit" class="btn btn-primary">{{trans('dashBoard.productsAdd')}}</button>
-                                </div>
-                            </form>
+                            @endforeach
                         </div>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="box box-primary">
-
-                                </div>
-                            </div>
+                        <div class="form-group {{$errors->has('img') ? 'has-error' : ''}}">
+                            <label for="image">{{trans('dashBoard.productImage')}}</label>
+                            <input type="file" id="image" name="img">
+                            @error('img')
+                            <span class="help-block">{{$message}}</span>
+                            @enderror
                         </div>
-                    </div>
+                        <div class="box-footer">
+                            <button type="submit"
+                                    class="btn btn-primary">{{trans('dashBoard.productsAdd')}}</button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
+
     </div>
 @endsection
 
@@ -85,7 +81,7 @@
 
             Toast.fire({
                 icon: 'success',
-                title: '{{trans('dashBoard.prod')}}'
+                title: '{{trans('dashBoard.productAddSuccessfully')}}'
             })
         </script>
     @endif

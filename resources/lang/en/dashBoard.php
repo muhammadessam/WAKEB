@@ -30,9 +30,9 @@ return [
     'productEdit'=>'Edit product',
     'productAddSuccessfully'=>'Product Added Successfully',
     'productImage'=>'Product image',
-    'productNameEnter'=>'please enter product name in arabic..',
-    'productDescriptionEnter'=>'please enter product description in arabic ..',
-    'productNameEnterEn'=>'please enter product name in english..',
-    'productDescriptionEnterEn'=>'please enter product description in english ..',
+    'productNameEnter_ar'=>'please enter product name in arabic..',
+    'productDescriptionEnter_ar'=>'please enter product description in arabic ..',
+    'productNameEnter_en'=>'please enter product name in english..',
+    'productDescriptionEnter_en'=>'please enter product description in english ..',
 
 ];

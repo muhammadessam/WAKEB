@@ -10,10 +10,13 @@ class Product extends Model
 {
     protected $table = 'products';
 
-    public function product_tans()
+    protected $fillable = ['img_url', 'user_id'];
+
+    protected $primaryKey = 'id';
+
+
+    public function product_trans()
     {
-        $lang = App::getLocale();
-        $lang_id = Lang::where('lang', '=', $lang)->first()->id;
-        return $this->hasMany(Products_trans::class, 'product_id', 'id')->where('lang_id', '=', $lang_id);
+        return $this->hasMany(Products_trans::class, 'product_id', 'id');
     }
 }

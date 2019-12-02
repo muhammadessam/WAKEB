@@ -1,64 +1,67 @@
 @extends('admin.layouts.app')
 @section('content')
-
     <div class="box">
         <div class="box-header with-border">
             <h3 class="box-title">{{trans('dashBoard.productEdit')}}</h3>
-
-            <div class="box-tools pull-right">
-                <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title=""
-                        data-original-title="Collapse">
-                    <i class="fa fa-minus"></i></button>
-                <button type="button" class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title=""
-                        data-original-title="Remove">
-                    <i class="fa fa-times"></i></button>
-            </div>
         </div>
-        <div class="box-body">
-            <div class="box">
-                <div class="box-body">
-                    <div id="example2_wrapper" class="dataTables_wrapper dt-bootstrap">
-                        <div class="row">
-                            <div class="col-sm-6"></div>
-                            <div class="col-sm-6"></div>
-                        </div>
 
-                        <div class="row">
-                            <div class="col-md-6 col-md-offset-3">
-                                <div class="box box-primary">
-                                    <form role="form" action="{{route('updateProduct', $product)}}" method="post">
-                                        @csrf
-                                        @method('patch')
-                                        <div class="box-body">
-                                            <div class="form-group">
-                                                <label for="exampleInputEmail1">{{trans('dashBoard.productName')}}</label>
-                                                <input type="text" name="name" value="{{$product->product_tans[0]->name}}"
-                                                       class="form-control" id="exampleInputEmail1"
-                                                       placeholder="Enter email">
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="exampleInputPassword1">{{trans('dashBoard.productDescription')}}</label>
-                                                <textarea  name="email" value="{{$product->product_tans[0]->description}}"
-                                                       class="form-control" id="exampleInputPassword1"
-                                                           placeholder="Password"></textarea>
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="exampleInputPassword1">{{trans('dashBoard.userPassword')}}</label>
-                                                <input type="password" name="password" value=""
-                                                       class="form-control" id="exampleInputPassword1"
-                                                       placeholder="Password">
-                                            </div>
-                                        </div>
-                                        <div class="box-footer">
-                                            <button type="submit" class="btn btn-primary">{{trans('dashBoard.productEdit')}}</button>
-                                        </div>
-                                    </form>
+        <div class="row col-sm-offset-1">
+            <div class="col-md-6">
+                <!-- Custom Tabs -->
+                <div class="nav-tabs-custom">
+                    <ul class="nav nav-tabs">
+                        @foreach($langs as $lang)
+                            <li class="{{$lang->id==1?'active':''}}"><a href="#tab{{$lang->id}}" data-toggle="tab"
+                                                                        aria-expanded="true">{{$lang->lang}}</a>
+                            </li>
+                        @endforeach
+                    </ul>
+                    <form role="form" action="{{route('updateProduct', $product)}}" method="post"
+                          enctype="multipart/form-data">
+                        @csrf
+                        @method('patch')
+                        <div class="tab-content">
+                            @foreach($langs as $lang)
+                                <div class="tab-pane {{$lang->id==1 ?'active':''}}" id="tab{{$lang->id}}">
+                                    <div class="form-group {{$errors->has('name_'.$lang->lang) ? 'has-error' : ''}}">
+                                        <label for="productName">{{trans('dashBoard.productName')}}</label>
+                                        <input type="text" class="form-control" id="productName"
+                                               name="name_{{$lang->lang}}"
+                                               placeholder="{{trans('dashBoard.productNameEnter_'.$lang->lang)}}"
+                                               @foreach($product->product_trans as $trans) @if($trans->lang_id==$lang->id) value="{{$trans->name}}" @endif @endforeach>
+                                        @error('name_'.$lang->$lang)
+                                        <span class="help-block">{{$message}}</span>
+                                        @enderror
+                                    </div>
+                                    <div
+                                        class="form-group {{$errors->has('description_'.$lang->lang) ? 'has-error' : ''}}">
+                                        <label for="description">{{trans('dashBoard.productDescription')}}</label>
+                                        <textarea
+                                            class="form-control"
+                                            id="description" name="description_{{$lang->lang}}"
+                                            placeholder="{{trans('dashBoard.productDescriptionEnter_'.$lang->lang)}}">@foreach($product->product_trans as $trans){{$trans->lang_id == $lang->id ? $trans->description :''}}@endforeach</textarea>
+                                        @error('description_'.$lang->lang)
+                                        <span class="help-block">{{$message}}</span>
+                                        @enderror
+                                    </div>
                                 </div>
-                            </div>
+                            @endforeach
                         </div>
-                    </div>
+                        <div class="form-group {{$errors->has('img') ? 'has-error' : ''}}">
+                            <label for="image">{{trans('dashBoard.productImage')}}</label>
+                            <input type="file" id="image" name="img">
+                            @error('img')
+                            <span class="help-block">{{$message}}</span>
+                            @enderror
+                        </div>
+                        <div class="box-footer">
+                            <button type="submit"
+                                    class="btn btn-primary">{{trans('dashBoard.productEdit')}}</button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
+
     </div>
 @endsection

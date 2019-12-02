@@ -31,9 +31,9 @@ return [
     'productEdit'=>'تعديل المنتج',
     'productAddSuccessfully'=>'تم اضافة المنتج بنجاح',
     'productImage'=>'صورة المنتج',
-    'productNameEnterAr'=>'من فضلك ادخل اسم المنتح باللغة العربية',
-    'productDescriptionEnterAr'=>'من فضلك ادخل وصف المنتج باللغة العربية',
-    'productNameEnterEn'=>'من فضلك ادخل اسم المنتح باللغة الانجليزية',
-    'productDescriptionEnterEn'=>'من فضلك ادخل وصف المنتج باللغة الانجليزية',
+    'productNameEnter_ar'=>'من فضلك ادخل اسم المنتح باللغة العربية',
+    'productDescriptionEnter_ar'=>'من فضلك ادخل وصف المنتج باللغة العربية',
+    'productNameEnter_en'=>'من فضلك ادخل اسم المنتح باللغة الانجليزية',
+    'productDescriptionEnter_en'=>'من فضلك ادخل وصف المنتج باللغة الانجليزية',
 
 ];
