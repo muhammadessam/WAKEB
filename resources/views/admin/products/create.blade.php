@@ -26,7 +26,9 @@
                                         <label for="productName">{{trans('dashBoard.productName')}}</label>
                                         <input type="text" class="form-control" id="productName"
                                                name="name_{{$lang->lang}}"
-                                               placeholder="{{trans('dashBoard.productNameEnter_'.$lang->lang)}}">
+                                               placeholder="{{trans('dashBoard.productNameEnter_'.$lang->lang)}}"
+                                               value="{{old('name_'.$lang->lang)}}"
+                                        >
                                         @error('name_'.$lang->$lang)
                                         <span class="help-block">{{$message}}</span>
                                         @enderror
@@ -37,7 +39,7 @@
                                         <textarea
                                             class="form-control"
                                             id="description" name="description_{{$lang->lang}}"
-                                            placeholder="{{trans('dashBoard.productDescriptionEnter_'.$lang->lang)}}"></textarea>
+                                            placeholder="{{trans('dashBoard.productDescriptionEnter_'.$lang->lang)}}">{{old('description_'.$lang->lang)}}</textarea>
                                         @error('description_'.$lang->lang)
                                         <span class="help-block">{{$message}}</span>
                                         @enderror

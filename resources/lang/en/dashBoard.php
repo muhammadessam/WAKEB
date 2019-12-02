@@ -34,5 +34,5 @@ return [
     'productDescriptionEnter_ar'=>'please enter product description in arabic ..',
     'productNameEnter_en'=>'please enter product name in english..',
     'productDescriptionEnter_en'=>'please enter product description in english ..',
-
+    'productDoneRemoving'=>'Successfully deleted the product',
 ];

@@ -104,55 +104,37 @@
     <script>
         function softDeleteProducts(id) {
             Swal.fire({
-                title: 'Delet User',
+                title: 'Delete Product',
                 icon: 'warning',
                 showCancelButton: true,
                 confirmButtonText: 'Delete',
                 preConfirm: () => {
                     axios({
                         method: 'delete',
-                        url: "{{route('deleteUser')}}",
+                        url: "{{route('deleteProduct')}}",
                         data: {
                             id: id,
                             _token: "{{csrf_token()}}",
                         }
                     }).then((res) => {
-                        if (res.data[0] == 'error') {
-                            const Toast = Swal.mixin({
-                                toast: true,
-                                position: 'top-end',
-                                showConfirmButton: false,
-                                timer: 3000,
-                                timerProgressBar: true,
-                                onOpen: (toast) => {
-                                    toast.addEventListener('mouseenter', Swal.stopTimer)
-                                    toast.addEventListener('mouseleave', Swal.resumeTimer)
-                                }
-                            })
+                        console.log(res.data);
+                        $('#' + id).parent().parent().remove();
+                        const Toast = Swal.mixin({
+                            toast: true,
+                            position: 'top-end',
+                            showConfirmButton: false,
+                            timer: 3000,
+                            timerProgressBar: true,
+                            onOpen: (toast) => {
+                                toast.addEventListener('mouseenter', Swal.stopTimer)
+                                toast.addEventListener('mouseleave', Swal.resumeTimer)
+                            }
+                        })
 
-                            Toast.fire({
-                                icon: 'error',
-                                title: '{{trans('dashBoard.cannotRemoveUser')}}'
-                            })
-                        } else {
-                            $('#' + id).parent().parent().remove();
-                            const Toast = Swal.mixin({
-                                toast: true,
-                                position: 'top-end',
-                                showConfirmButton: false,
-                                timer: 3000,
-                                timerProgressBar: true,
-                                onOpen: (toast) => {
-                                    toast.addEventListener('mouseenter', Swal.stopTimer)
-                                    toast.addEventListener('mouseleave', Swal.resumeTimer)
-                                }
-                            })
-
-                            Toast.fire({
-                                icon: 'success',
-                                title: '{{trans('dashBoard.userRemoved')}}'
-                            })
-                        }
+                        Toast.fire({
+                            icon: 'success',
+                            title: '{{trans('dashBoard.productDoneRemoving')}}'
+                        })
                     });
                 }
             })

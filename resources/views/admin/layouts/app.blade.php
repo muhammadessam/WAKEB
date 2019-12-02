@@ -179,7 +179,8 @@
                                 href="{{route('showAllProducts')}}">{{trans('dashBoard.productsShowAll')}}</a></li>
                         <li class="{{Request::path()=='admin/products/add' ? "active":''}}"><a
                                 href="{{route('productCreateView')}}">{{trans('dashBoard.productsAdd')}}</a></li>
-
+                        <li class="{{Request::path()=='admin/products/deleted' ? "active":''}}"><a
+                                href="{{route('getDeletedProducts')}}">{{trans('dashBoard.productsRemoved')}}</a></li>
                     </ul>
                 </li>
 

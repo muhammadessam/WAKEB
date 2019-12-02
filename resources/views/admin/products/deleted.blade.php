@@ -2,7 +2,7 @@
 @section('content')
     <div class="box">
         <div class="box-header with-border">
-            <h3 class="box-title">{{trans('dashBoard.deletedUsers')}}</h3>
+            <h3 class="box-title">{{trans('dashBoard.productsRemoved')}}</h3>
 
             <div class="box-tools pull-right">
                 <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title=""
@@ -23,43 +23,50 @@
                         </div>
                         <div class="row">
                             <div class="col-sm-12">
-                                <table id="example2" class="table table-bordered table-hover dataTable" role="grid"
+                                <table id="example1" class="table table-bordered table-hover dataTable" role="grid"
                                        aria-describedby="example2_info">
                                     <thead>
                                     <tr role="row">
+                                        <th>#id</th>
+                                        <th>Image</th>
                                         <th class="sorting_asc" tabindex="0" aria-controls="example2" rowspan="1"
                                             colspan="1"
                                             aria-sort="ascending"
-                                            aria-label="Rendering engine: activate to sort column descending">{{trans('dashBoard.userName')}}
+                                            aria-label="Rendering engine: activate to sort column descending">{{trans('dashBoard.productName')}}
                                         </th>
                                         <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1"
                                             colspan="1"
-                                            aria-label="Browser: activate to sort column ascending">{{trans('dashBoard.userEmail')}}
+                                            aria-label="Browser: activate to sort column ascending">{{trans('dashBoard.productDescription')}}
                                         </th>
                                         <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1"
                                             colspan="1"
                                             aria-label="Platform(s): activate to sort column ascending">{{trans('dashBoard.userAction')}}
                                         </th>
+
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    @foreach($users as $user)
+                                    @foreach($products as $key => $product)
                                         <tr role="row" class="odd">
-                                            <td class="sorting_1">{{$user->name}}</td>
-                                            <td>{{$user->email}}</td>
+                                            <td>{{$key + 1}}</td>
+                                            <td><img style="width: 30px;height: 30px;"
+                                                     src="{{asset($product->img_url)}}" alt=""></td>
+                                            <td class="sorting_1">{{$product->product_trans[0]->name}}</td>
+                                            <td>{{$product->product_trans[0]->description}}</td>
                                             <td>
                                                 <button class="btn btn-primary glyphicon glyphicon-ok"
                                                         data-toggle="tooltip"
                                                         data-placement="top"
-                                                        onclick="restoreUSer({{$user->id}})" id="restore{{$user->id}}"
+                                                        onclick="restoreProduct({{$product->id}})"
+                                                        id="restore{{$product->id}}"
                                                         title="{{trans('dashBoard.restoreUser')}}">
                                                 </button>
-                                                <button onclick="softDeletUser({{$user->id}})"
+                                                <button onclick="softDeleteProduct({{$product->id}})"
                                                         class="glyphicon glyphicon-remove btn btn-danger"
                                                         data-toggle="tooltip"
                                                         data-placement="top"
                                                         title="{{trans('dashBoard.deleteForEver')}}"
-                                                        id="{{$user->id}}">
+                                                        id="{{$product->id}}">
                                                 </button>
                                             </td>
                                         </tr>
@@ -67,8 +74,9 @@
                                     </tbody>
                                     <tfoot>
                                     <tr>
-                                        <th rowspan="1" colspan="1">{{trans('dashBoard.userName')}}</th>
-                                        <th rowspan="1" colspan="1">{{trans('dashBoard.userEmail')}}</th>
+                                        <th>#id</th>
+                                        <th rowspan="1" colspan="1">{{trans('dashBoard.productName')}}</th>
+                                        <th rowspan="1" colspan="1">{{trans('dashBoard.productDescription')}}</th>
                                         <th rowspan="1" colspan="1">{{trans('dashBoard.userAction')}}</th>
                                     </tr>
                                     </tfoot>
@@ -83,12 +91,26 @@
     </div>
 @endsection
 @section('scripts')
+
     <script>
-        function restoreUSer(id) {
+        $(function () {
+            $('#example1').DataTable({
+                'paging': true,
+                'lengthChange': true,
+                'searching': true,
+                'ordering': true,
+                'info': true,
+                'autoWidth': false
+            })
+        })
+    </script>
+
+    <script>
+        function restoreProduct(id) {
             console.log(id)
             axios({
                 method: 'post',
-                url: '{{route('restoreUser')}}',
+                url: '{{route('restoreProduct')}}',
                 data: {
                     id: id,
                     _token: "{{csrf_token()}}"
@@ -99,7 +121,7 @@
             });
         }
 
-        function softDeletUser(id) {
+        function softDeleteProduct(id) {
             Swal.fire({
                 title: 'Delet User',
                 icon: 'warning',
@@ -108,51 +130,34 @@
                 preConfirm: () => {
                     axios({
                         method: 'delete',
-                        url: '{{route('forceDelete')}}',
+                        url: '{{route('productForceDelete')}}',
                         data: {
                             id: id,
                             _token: "{{csrf_token()}}",
                         }
                     }).then((res) => {
-                        if (res.data[0] == 'error') {
-                            const Toast = Swal.mixin({
-                                toast: true,
-                                position: 'top-end',
-                                showConfirmButton: false,
-                                timer: 3000,
-                                timerProgressBar: true,
-                                onOpen: (toast) => {
-                                    toast.addEventListener('mouseenter', Swal.stopTimer)
-                                    toast.addEventListener('mouseleave', Swal.resumeTimer)
-                                }
-                            })
+                        console.log(res.data)
+                        $('#' + id).parent().parent().remove();
+                        const Toast = Swal.mixin({
+                            toast: true,
+                            position: 'top-end',
+                            showConfirmButton: false,
+                            timer: 3000,
+                            timerProgressBar: true,
+                            onOpen: (toast) => {
+                                toast.addEventListener('mouseenter', Swal.stopTimer)
+                                toast.addEventListener('mouseleave', Swal.resumeTimer)
+                            }
+                        })
 
-                            Toast.fire({
-                                icon: 'error',
-                                title: '{{trans('dashBoard.cannotRemoveUser')}}'
-                            })
-                        } else {
-                            $('#' + id).parent().parent().remove();
-                            const Toast = Swal.mixin({
-                                toast: true,
-                                position: 'top-end',
-                                showConfirmButton: false,
-                                timer: 3000,
-                                timerProgressBar: true,
-                                onOpen: (toast) => {
-                                    toast.addEventListener('mouseenter', Swal.stopTimer)
-                                    toast.addEventListener('mouseleave', Swal.resumeTimer)
-                                }
-                            })
-
-                            Toast.fire({
-                                icon: 'success',
-                                title: '{{trans('dashBoard.userRemoved')}}'
-                            })
-                        }
+                        Toast.fire({
+                            icon: 'success',
+                            title: '{{trans('dashBoard.productDoneRemoving')}}'
+                        })
                     });
                 }
             })
         }
     </script>
 @endsection
+

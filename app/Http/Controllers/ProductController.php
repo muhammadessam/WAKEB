@@ -9,6 +9,7 @@ use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Support\Facades\File;
 
 
 class ProductController extends Controller
@@ -82,4 +83,27 @@ class ProductController extends Controller
 
     }
 
+    public function delete(Request $request){
+        Product::find($request->id)->delete();
+        return null;
+
+    }
+
+    public function showAllDeletedProducts(){
+        $products = Product::onlyTrashed()->get();
+        return view('admin.products.deleted', compact('products'));
+    }
+
+    public function restoreProduct(Request $request){
+        $product = Product::onlyTrashed()->find($request->id);
+        $product->restore();
+        return ['message'=>'restored Successfully'];
+    }
+
+    public function forceDelete(Request $request){
+        $product = Product::onlyTrashed()->find($request->id);
+        unlink(public_path().$product->img_url);
+        $product->forceDelete();
+        return ['message'=>'deleted Successfully'];
+    }
 }
