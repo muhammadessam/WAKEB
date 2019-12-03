@@ -2,7 +2,7 @@
 @section('content')
     <div class="box">
         <div class="box-header with-border">
-            <h3 class="box-title">{{trans('dashBoard.deletedUsers')}}</h3>
+            <h3 class="box-title">{{trans('users.deletedUsers')}}</h3>
 
             <div class="box-tools pull-right">
                 <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title=""
@@ -30,15 +30,15 @@
                                         <th class="sorting_asc" tabindex="0" aria-controls="example2" rowspan="1"
                                             colspan="1"
                                             aria-sort="ascending"
-                                            aria-label="Rendering engine: activate to sort column descending">{{trans('dashBoard.userName')}}
+                                            aria-label="Rendering engine: activate to sort column descending">{{trans('users.userName')}}
                                         </th>
                                         <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1"
                                             colspan="1"
-                                            aria-label="Browser: activate to sort column ascending">{{trans('dashBoard.userEmail')}}
+                                            aria-label="Browser: activate to sort column ascending">{{trans('users.userEmail')}}
                                         </th>
                                         <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1"
                                             colspan="1"
-                                            aria-label="Platform(s): activate to sort column ascending">{{trans('dashBoard.userAction')}}
+                                            aria-label="Platform(s): activate to sort column ascending">{{trans('users.userAction')}}
                                         </th>
                                     </tr>
                                     </thead>
@@ -52,13 +52,13 @@
                                                         data-toggle="tooltip"
                                                         data-placement="top"
                                                         onclick="restoreUSer({{$user->id}})" id="restore{{$user->id}}"
-                                                        title="{{trans('dashBoard.restoreUser')}}">
+                                                        title="{{trans('users.restoreUser')}}">
                                                 </button>
                                                 <button onclick="softDeletUser({{$user->id}})"
                                                         class="glyphicon glyphicon-remove btn btn-danger"
                                                         data-toggle="tooltip"
                                                         data-placement="top"
-                                                        title="{{trans('dashBoard.deleteForEver')}}"
+                                                        title="{{trans('users.deleteForEver')}}"
                                                         id="{{$user->id}}">
                                                 </button>
                                             </td>
@@ -67,9 +67,9 @@
                                     </tbody>
                                     <tfoot>
                                     <tr>
-                                        <th rowspan="1" colspan="1">{{trans('dashBoard.userName')}}</th>
-                                        <th rowspan="1" colspan="1">{{trans('dashBoard.userEmail')}}</th>
-                                        <th rowspan="1" colspan="1">{{trans('dashBoard.userAction')}}</th>
+                                        <th rowspan="1" colspan="1">{{trans('users.userName')}}</th>
+                                        <th rowspan="1" colspan="1">{{trans('users.userEmail')}}</th>
+                                        <th rowspan="1" colspan="1">{{trans('users.userAction')}}</th>
                                     </tr>
                                     </tfoot>
                                 </table>
@@ -129,7 +129,7 @@
 
                             Toast.fire({
                                 icon: 'error',
-                                title: '{{trans('dashBoard.cannotRemoveUser')}}'
+                                title: '{{trans('users.cannotRemoveUser')}}'
                             })
                         } else {
                             $('#' + id).parent().parent().remove();
@@ -147,7 +147,7 @@
 
                             Toast.fire({
                                 icon: 'success',
-                                title: '{{trans('dashBoard.userRemoved')}}'
+                                title: '{{trans('users.userRemoved')}}'
                             })
                         }
                     });

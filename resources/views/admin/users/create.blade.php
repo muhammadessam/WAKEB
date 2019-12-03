@@ -2,7 +2,7 @@
 @section('content')
     <div class="box">
         <div class="box-header with-border">
-            <h3 class="box-title">{{trans('dashBoard.addUser')}}</h3>
+            <h3 class="box-title">{{trans('users.addUser')}}</h3>
 
             <div class="box-tools pull-right">
                 <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title=""
@@ -29,7 +29,7 @@
                                         @csrf
                                         <div class="box-body">
                                             <div class="form-group">
-                                                <label for="exampleInputEmail1">{{trans('dashBoard.userName')}}</label>
+                                                <label for="exampleInputEmail1">{{trans('users.userName')}}</label>
                                                 <input type="text" name="name"
                                                        class="form-control" id="exampleInputEmail1"
                                                        placeholder="Enter email" value="{{old('name')}}">
@@ -40,7 +40,7 @@
                                             </div>
                                             <div class="form-group">
                                                 <label
-                                                    for="exampleInputPassword1">{{trans('dashBoard.userEmail')}}</label>
+                                                    for="exampleInputPassword1">{{trans('users.userEmail')}}</label>
                                                 <input type="email" name="email" value="{{old('email')}}"
                                                        class="form-control" id="exampleInputPassword1"
                                                        placeholder="Password" >
@@ -51,7 +51,7 @@
                                             </div>
                                             <div class="form-group">
                                                 <label
-                                                    for="exampleInputPassword1">{{trans('dashBoard.userPassword')}}</label>
+                                                    for="exampleInputPassword1">{{trans('users.userPassword')}}</label>
                                                 <input type="password" name="password"
                                                        class="form-control" id="exampleInputPassword1"
                                                        placeholder="Password">
@@ -63,7 +63,7 @@
                                         </div>
                                         <div class="box-footer">
                                             <button type="submit"
-                                                    class="btn btn-primary">{{trans('dashBoard.addUser')}}</button>
+                                                    class="btn btn-primary">{{trans('users.addUser')}}</button>
                                         </div>
                                     </form>
                                 </div>
@@ -93,7 +93,7 @@
 
             Toast.fire({
                 icon: 'success',
-                title: '{{trans('dashBoard.userAddedSuccessfully')}}'
+                title: '{{trans('users.userAddedSuccessfully')}}'
             })
         </script>
     @endif

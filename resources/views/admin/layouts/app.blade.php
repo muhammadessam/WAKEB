@@ -62,7 +62,7 @@
         <a href="index2.html" class="logo">
             <!-- mini logo for sidebar mini 50x50 pixels -->
             <!-- logo for regular state and mobile devices -->
-            <span class="logo-lg"><strong>{{trans('dashBoard.controlPanel')}}</strong></span>
+            <span class="logo-lg"><strong>{{trans('users.controlPanel')}}</strong></span>
         </a>
         <!-- Header Navbar: style can be found in header.less -->
         <nav class="navbar navbar-static-top" role="navigation">
@@ -156,31 +156,31 @@
 
                 <li class="{{request()->is('admin/users*') ? "active":''}} treeview">
                     <a href="#">
-                        <i class="fa fa-dashboard"></i> <span>{{trans('dashBoard.users')}}</span> <i
+                        <i class="fa fa-dashboard"></i> <span>{{trans('users.users')}}</span> <i
                             class="fa fa-angle-left pull-left"></i>
                     </a>
                     <ul class="treeview-menu">
                         <li class="{{Request::path()=='admin/users' ? "active":''}}"><a
-                                href="{{route('showAllUsers')}}">{{trans('dashBoard.showAll')}}</a></li>
+                                href="{{route('showAllUsers')}}">{{trans('users.showAll')}}</a></li>
                         <li class="{{Request::path()=='admin/users/add' ? "active":''}}"><a
-                                href="{{route('createView')}}">{{trans('dashBoard.addUser')}}</a></li>
+                                href="{{route('createView')}}">{{trans('users.addUser')}}</a></li>
                         <li class="{{Request::path()=='admin/users/deleted' ? "active":''}}"><a
-                                href="{{route('getDeletedUsers')}}">{{trans('dashBoard.deletedUsers')}}</a></li>
+                                href="{{route('getDeletedUsers')}}">{{trans('users.deletedUsers')}}</a></li>
                     </ul>
                 </li>
 
                 <li class="{{request()->is('admin/products*') ? "active":''}} treeview">
                     <a href="#">
-                        <i class="fa fa-dashboard"></i> <span>{{trans('dashBoard.products')}}</span> <i
+                        <i class="fa fa-dashboard"></i> <span>{{trans('products.products')}}</span> <i
                             class="fa fa-angle-left pull-left"></i>
                     </a>
                     <ul class="treeview-menu">
                         <li class="{{Request::path()=='admin/products' ? "active":''}}"><a
-                                href="{{route('showAllProducts')}}">{{trans('dashBoard.productsShowAll')}}</a></li>
+                                href="{{route('showAllProducts')}}">{{trans('products.productsShowAll')}}</a></li>
                         <li class="{{Request::path()=='admin/products/add' ? "active":''}}"><a
-                                href="{{route('productCreateView')}}">{{trans('dashBoard.productsAdd')}}</a></li>
+                                href="{{route('productCreateView')}}">{{trans('products.productsAdd')}}</a></li>
                         <li class="{{Request::path()=='admin/products/deleted' ? "active":''}}"><a
-                                href="{{route('getDeletedProducts')}}">{{trans('dashBoard.productsRemoved')}}</a></li>
+                                href="{{route('getDeletedProducts')}}">{{trans('products.productsRemoved')}}</a></li>
                     </ul>
                 </li>
 

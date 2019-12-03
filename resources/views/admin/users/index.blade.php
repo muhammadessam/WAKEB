@@ -2,7 +2,7 @@
 @section('content')
     <div class="box">
         <div class="box-header with-border">
-            <h3 class="box-title">{{trans('dashBoard.showAll')}}</h3>
+            <h3 class="box-title">{{trans('users.showAll')}}</h3>
 
             <div class="box-tools pull-right">
                 <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title=""
@@ -31,15 +31,15 @@
                                         <th class="sorting_asc" tabindex="0" aria-controls="example2" rowspan="1"
                                             colspan="1"
                                             aria-sort="ascending"
-                                            aria-label="Rendering engine: activate to sort column descending">{{trans('dashBoard.userName')}}
+                                            aria-label="Rendering engine: activate to sort column descending">{{trans('users.userName')}}
                                         </th>
                                         <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1"
                                             colspan="1"
-                                            aria-label="Browser: activate to sort column ascending">{{trans('dashBoard.userEmail')}}
+                                            aria-label="Browser: activate to sort column ascending">{{trans('users.userEmail')}}
                                         </th>
                                         <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1"
                                             colspan="1"
-                                            aria-label="Platform(s): activate to sort column ascending">{{trans('dashBoard.userAction')}}
+                                            aria-label="Platform(s): activate to sort column ascending">{{trans('users.userAction')}}
                                         </th>
 
                                     </tr>
@@ -70,9 +70,9 @@
                                     <tfoot>
                                     <tr>
                                         <th>#id</th>
-                                        <th rowspan="1" colspan="1">{{trans('dashBoard.userName')}}</th>
-                                        <th rowspan="1" colspan="1">{{trans('dashBoard.userEmail')}}</th>
-                                        <th rowspan="1" colspan="1">{{trans('dashBoard.userAction')}}</th>
+                                        <th rowspan="1" colspan="1">{{trans('users.userName')}}</th>
+                                        <th rowspan="1" colspan="1">{{trans('users.userEmail')}}</th>
+                                        <th rowspan="1" colspan="1">{{trans('users.userAction')}}</th>
                                     </tr>
                                     </tfoot>
                                 </table>
@@ -131,7 +131,7 @@
 
                             Toast.fire({
                                 icon: 'error',
-                                title: '{{trans('dashBoard.cannotRemoveUser')}}'
+                                title: '{{trans('users.cannotRemoveUser')}}'
                             })
                         } else {
                             $('#' + id).parent().parent().remove();
@@ -149,7 +149,7 @@
 
                             Toast.fire({
                                 icon: 'success',
-                                title: '{{trans('dashBoard.userRemoved')}}'
+                                title: '{{trans('users.userRemoved')}}'
                             })
                         }
                     });

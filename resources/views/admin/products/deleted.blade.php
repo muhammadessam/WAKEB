@@ -2,7 +2,7 @@
 @section('content')
     <div class="box">
         <div class="box-header with-border">
-            <h3 class="box-title">{{trans('dashBoard.productsRemoved')}}</h3>
+            <h3 class="box-title">{{trans('products.productsRemoved')}}</h3>
 
             <div class="box-tools pull-right">
                 <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title=""
@@ -28,19 +28,19 @@
                                     <thead>
                                     <tr role="row">
                                         <th>#id</th>
-                                        <th>Image</th>
+                                        <th>{{trans('products.productImage')}}</th>
                                         <th class="sorting_asc" tabindex="0" aria-controls="example2" rowspan="1"
                                             colspan="1"
                                             aria-sort="ascending"
-                                            aria-label="Rendering engine: activate to sort column descending">{{trans('dashBoard.productName')}}
+                                            aria-label="Rendering engine: activate to sort column descending">{{trans('products.productName')}}
                                         </th>
                                         <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1"
                                             colspan="1"
-                                            aria-label="Browser: activate to sort column ascending">{{trans('dashBoard.productDescription')}}
+                                            aria-label="Browser: activate to sort column ascending">{{trans('products.productDescription')}}
                                         </th>
                                         <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1"
                                             colspan="1"
-                                            aria-label="Platform(s): activate to sort column ascending">{{trans('dashBoard.userAction')}}
+                                            aria-label="Platform(s): activate to sort column ascending">{{trans('products.action')}}
                                         </th>
 
                                     </tr>
@@ -59,13 +59,13 @@
                                                         data-placement="top"
                                                         onclick="restoreProduct({{$product->id}})"
                                                         id="restore{{$product->id}}"
-                                                        title="{{trans('dashBoard.restoreUser')}}">
+                                                        title="{{trans('products.restoreUser')}}">
                                                 </button>
                                                 <button onclick="softDeleteProduct({{$product->id}})"
                                                         class="glyphicon glyphicon-remove btn btn-danger"
                                                         data-toggle="tooltip"
                                                         data-placement="top"
-                                                        title="{{trans('dashBoard.deleteForEver')}}"
+                                                        title="{{trans('products.deleteForEver')}}"
                                                         id="{{$product->id}}">
                                                 </button>
                                             </td>
@@ -75,9 +75,10 @@
                                     <tfoot>
                                     <tr>
                                         <th>#id</th>
-                                        <th rowspan="1" colspan="1">{{trans('dashBoard.productName')}}</th>
-                                        <th rowspan="1" colspan="1">{{trans('dashBoard.productDescription')}}</th>
-                                        <th rowspan="1" colspan="1">{{trans('dashBoard.userAction')}}</th>
+                                        <th>{{trans('products.productImage')}}</th>
+                                        <th rowspan="1" colspan="1">{{trans('products.productName')}}</th>
+                                        <th rowspan="1" colspan="1">{{trans('products.productDescription')}}</th>
+                                        <th rowspan="1" colspan="1">{{trans('products.action')}}</th>
                                     </tr>
                                     </tfoot>
                                 </table>
@@ -152,7 +153,7 @@
 
                         Toast.fire({
                             icon: 'success',
-                            title: '{{trans('dashBoard.productDoneRemoving')}}'
+                            title: '{{trans('products.productDoneRemoving')}}'
                         })
                     });
                 }

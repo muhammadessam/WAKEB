@@ -3,7 +3,7 @@
 
     <div class="box">
         <div class="box-header with-border">
-            <h3 class="box-title">{{trans('dashBoard.editUser')}}</h3>
+            <h3 class="box-title">{{trans('users.editUser')}}</h3>
 
             <div class="box-tools pull-right">
                 <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title=""
@@ -31,26 +31,26 @@
                                         @method('patch')
                                         <div class="box-body">
                                             <div class="form-group">
-                                                <label for="exampleInputEmail1">{{trans('dashBoard.userName')}}</label>
+                                                <label for="exampleInputEmail1">{{trans('users.userName')}}</label>
                                                 <input type="text" name="name" value="{{$user->name}}"
                                                        class="form-control" id="exampleInputEmail1"
                                                        placeholder="Enter email">
                                             </div>
                                             <div class="form-group">
-                                                <label for="exampleInputPassword1">{{trans('dashBoard.userEmail')}}</label>
+                                                <label for="exampleInputPassword1">{{trans('users.userEmail')}}</label>
                                                 <input type="email" name="email" value="{{$user->email}}"
                                                        class="form-control" id="exampleInputPassword1"
                                                        placeholder="Password">
                                             </div>
                                             <div class="form-group">
-                                                <label for="exampleInputPassword1">{{trans('dashBoard.userPassword')}}</label>
+                                                <label for="exampleInputPassword1">{{trans('users.userPassword')}}</label>
                                                 <input type="password" name="password" value=""
                                                        class="form-control" id="exampleInputPassword1"
                                                        placeholder="Password">
                                             </div>
                                         </div>
                                         <div class="box-footer">
-                                            <button type="submit" class="btn btn-primary">{{trans('dashBoard.editUser')}}</button>
+                                            <button type="submit" class="btn btn-primary">{{trans('users.editUser')}}</button>
                                         </div>
                                     </form>
                                 </div>

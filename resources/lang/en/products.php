@@ -1,0 +1,20 @@
+<?php
+return [
+    'action'=>'Action',
+    'products' => 'Products',
+    'productsShowAll' => 'All Products',
+    'productsAdd' => 'Add Product',
+    'productsRemove' => 'Remove Product',
+    'productsRemoved' => 'Removed Products',
+    'productName' => 'Product Name',
+    'productDescription' => 'Product Description',
+    'productEdit' => 'Edit product',
+    'productAddSuccessfully' => 'Product Added Successfully',
+    'productImage' => 'Product image',
+    'productNameEnter_ar' => 'please enter product name in arabic..',
+    'productDescriptionEnter_ar' => 'please enter product description in arabic ..',
+    'productNameEnter_en' => 'please enter product name in english..',
+    'productDescriptionEnter_en' => 'please enter product description in english ..',
+    'productDoneRemoving' => 'Successfully deleted the product',
+    'productImage'=>'Product Image',
+];
