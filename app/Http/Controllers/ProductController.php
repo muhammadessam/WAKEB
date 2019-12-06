@@ -16,10 +16,7 @@ class ProductController extends Controller
 {
     public function index(Request $request)
     {
-        $products = Product::with(['product_trans' => function ($query) {
-            $lang_id = Lang::where('lang', App::getLocale())->first()->id;
-            $query->where('lang_id', '=', $lang_id);
-        }])->get();
+        $products = Product::all();
         return view('admin.products.index', compact('products'));
     }
 
@@ -49,7 +46,7 @@ class ProductController extends Controller
                 'lang_id' => $lang->id,
             ]);
         }
-
+        $product->type = 'product';
         $product->save();
         return redirect()->back()->with(['message' => 'success']);
     }
@@ -57,7 +54,6 @@ class ProductController extends Controller
     public function edit(Product $product, Request $request)
     {
         $langs = Lang::all();
-        $product->load('product_trans');
         return view('admin.products.edit', compact(['product', 'langs']));
     }
 
@@ -86,22 +82,21 @@ class ProductController extends Controller
     public function delete(Request $request){
         Product::find($request->id)->delete();
         return null;
-
     }
 
     public function showAllDeletedProducts(){
-        $products = Product::onlyTrashed()->get();
+        $products = Product::onlyTrashed()->where('type', 'product')->get();
         return view('admin.products.deleted', compact('products'));
     }
 
     public function restoreProduct(Request $request){
-        $product = Product::onlyTrashed()->find($request->id);
+        $product = Product::onlyTrashed()->where('type','product')->find($request->id);
         $product->restore();
         return ['message'=>'restored Successfully'];
     }
 
     public function forceDelete(Request $request){
-        $product = Product::onlyTrashed()->find($request->id);
+        $product = Product::onlyTrashed()->where('type', 'product')->find($request->id);
         unlink(public_path().$product->img_url);
         $product->forceDelete();
         return ['message'=>'deleted Successfully'];

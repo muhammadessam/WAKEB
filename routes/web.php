@@ -24,6 +24,7 @@ Route::group(['middleware' => 'auth', 'prefix' => '/admin'], function () {
 
     require_once 'Users/users.php';
     require_once 'Products/products.php';
+    require_once 'Features/features.php';
 
 
 });

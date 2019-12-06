@@ -13,7 +13,7 @@ class AlterProductsTableToUseSoftDeletes extends Migration
      */
     public function up()
     {
-        Schema::table('products', function (Blueprint $table) {
+        Schema::table('types', function (Blueprint $table) {
             $table->softDeletes();
         });
     }
@@ -25,7 +25,7 @@ class AlterProductsTableToUseSoftDeletes extends Migration
      */
     public function down()
     {
-        Schema::table('products', function (Blueprint $table) {
+        Schema::table('types', function (Blueprint $table) {
             $table->dropSoftDeletes();
         });
     }

@@ -12,15 +12,34 @@ class Product extends Model
 
     use SoftDeletes;
 
-    protected $table = 'products';
+    protected $table = 'types';
 
-    protected $fillable = ['img_url', 'user_id'];
+    protected $with = ['product_trans_lang', 'product_trans'];
+
+    protected $fillable = ['img_url', 'user_id', 'type'];
 
     protected $primaryKey = 'id';
 
+    public static function all($columns = ['*'])
+    {
+        return parent::all($columns)->where('type', 'product');
+    }
 
     public function product_trans()
     {
-        return $this->hasMany(Products_trans::class, 'product_id', 'id');
+        return $this->hasMany(Product_trans::class, 'type_id', 'id');
     }
+
+    public function product_trans_lang()
+    {
+        $lang_id = Lang::where('lang', App::getLocale())->first()->id;
+        return $this->hasMany(Product_trans::class, 'type_id', 'id')->where('lang_id', $lang_id);
+    }
+
+    public function features()
+    {
+        return $this->morphMany(Feature::class, 'featurable');
+    }
+
+
 }

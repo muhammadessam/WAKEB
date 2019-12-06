@@ -184,6 +184,21 @@
                     </ul>
                 </li>
 
+                <li class="{{request()->is('admin/features*') ? "active":''}} treeview">
+                    <a href="#">
+                        <i class="fa fa-dashboard"></i> <span>{{trans('features.features')}}</span> <i
+                            class="fa fa-angle-left pull-left"></i>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li class="{{Request::path()=='admin/features' ? "active":''}}"><a
+                                href="{{route('showAllFeatures')}}">{{trans('features.all')}}</a></li>
+                        <li class="{{Request::path()=='admin/features/add' ? "active":''}}"><a
+                                href="{{route('showFeatureCreateView')}}">{{trans('features.Add')}}</a></li>
+                        <li class="{{Request::path()=='admin/features/deleted' ? "active":''}}"><a
+                                href="{{route('showDeletedFeatures')}}">{{trans('features.deleted')}}</a></li>
+                    </ul>
+                </li>
+
             </ul>
         </section>
         <!-- /.sidebar -->

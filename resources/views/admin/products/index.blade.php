@@ -51,8 +51,8 @@
                                             <td>{{$key + 1}}</td>
                                             <td><img style="width: 30px;height: 30px;"
                                                      src="{{asset($product->img_url)}}" alt=""></td>
-                                            <td class="sorting_1">{{$product->product_trans[0]->name}}</td>
-                                            <td>{{$product->product_trans[0]->description}}</td>
+                                            <td class="sorting_1">{{$product->product_trans_lang[0]->name}}</td>
+                                            <td>{{$product->product_trans_lang[0]->description}}</td>
                                             <td>
                                                 <a href="{{route('productEditView', $product)}}"
                                                    class="mb-1 glyphicon glyphicon-pencil btn btn-primary"
@@ -105,7 +105,7 @@
     <script>
         function softDeleteProducts(id) {
             Swal.fire({
-                title: 'Delete Product',
+                title: 'Delete Type',
                 icon: 'warning',
                 showCancelButton: true,
                 confirmButtonText: 'Delete',

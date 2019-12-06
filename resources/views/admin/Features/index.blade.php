@@ -2,7 +2,7 @@
 @section('content')
     <div class="box">
         <div class="box-header with-border">
-            <h3 class="box-title">{{trans('products.productsRemoved')}}</h3>
+            <h3 class="box-title">{{trans('features.features')}}</h3>
 
             <div class="box-tools pull-right">
                 <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title=""
@@ -27,58 +27,52 @@
                                        aria-describedby="example2_info">
                                     <thead>
                                     <tr role="row">
-                                        <th>#id</th>
-                                        <th>{{trans('products.productImage')}}</th>
-                                        <th class="sorting_asc" tabindex="0" aria-controls="example2" rowspan="1"
+                                        <th>{{trans('features.id')}}</th>
+
+                                        <th class="sorting_asc" tabindex="0" aria-controls="example1" rowspan="1"
                                             colspan="1"
                                             aria-sort="ascending"
-                                            aria-label="Rendering engine: activate to sort column descending">{{trans('products.productName')}}
+                                            aria-label="Rendering engine: activate to sort column descending">{{trans('features.name')}}
                                         </th>
-                                        <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1"
+                                        <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1"
                                             colspan="1"
-                                            aria-label="Browser: activate to sort column ascending">{{trans('products.productDescription')}}
+                                            aria-label="Browser: activate to sort column ascending">{{trans('features.description')}}
                                         </th>
-                                        <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1"
+
+                                        <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1"
                                             colspan="1"
-                                            aria-label="Platform(s): activate to sort column ascending">{{trans('products.action')}}
+                                            aria-label="Platform(s): activate to sort column ascending">{{trans('features.action')}}
                                         </th>
 
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    @foreach($products as $key => $product)
+                                    @foreach($features as $key=>$feature)
                                         <tr role="row" class="odd">
                                             <td>{{$key + 1}}</td>
-                                            <td><img style="width: 30px;height: 30px;"
-                                                     src="{{asset($product->img_url)}}" alt=""></td>
-                                            <td class="sorting_1">{{$product->product_trans_lang[0]->name}}</td>
-                                            <td>{{$product->product_trans_lang[0]->description}}</td>
+                                            <td>{{$feature->feature_trans_lang[0]->name}}</td>
+                                            <td>{{$feature->feature_trans_lang[0]->description}}</td>
                                             <td>
-                                                <button class="btn btn-primary glyphicon glyphicon-ok"
+                                                <a href="{{route('showEditForm', $feature)}}"
+                                                   class="mb-1 glyphicon glyphicon-pencil btn btn-primary"
+                                                   data-toggle="tooltip"
+                                                   data-placement="top" title="تعديل"></a>
+                                                <button onclick="softDeleteFeature({{$feature->id}})"
+                                                        class="glyphicon glyphicon-remove btn btn-warning"
                                                         data-toggle="tooltip"
-                                                        data-placement="top"
-                                                        onclick="restoreProduct({{$product->id}})"
-                                                        id="restore{{$product->id}}"
-                                                        title="{{trans('products.restoreUser')}}">
-                                                </button>
-                                                <button onclick="softDeleteProduct({{$product->id}})"
-                                                        class="glyphicon glyphicon-remove btn btn-danger"
-                                                        data-toggle="tooltip"
-                                                        data-placement="top"
-                                                        title="{{trans('products.deleteForEver')}}"
-                                                        id="{{$product->id}}">
-                                                </button>
+                                                        data-placement="top" title="حذف"
+                                                        data-id=""
+                                                        id="{{$feature->id}}"></button>
                                             </td>
                                         </tr>
                                     @endforeach
                                     </tbody>
                                     <tfoot>
                                     <tr>
-                                        <th>#id</th>
-                                        <th>{{trans('products.productImage')}}</th>
-                                        <th rowspan="1" colspan="1">{{trans('products.productName')}}</th>
-                                        <th rowspan="1" colspan="1">{{trans('products.productDescription')}}</th>
-                                        <th rowspan="1" colspan="1">{{trans('products.action')}}</th>
+                                        <th>{{trans('features.id')}}</th>
+                                        <th rowspan="1" colspan="1">{{trans('features.name')}}</th>
+                                        <th rowspan="1" colspan="1">{{trans('features.description')}}</th>
+                                        <th rowspan="1" colspan="1">{{trans('features.action')}}</th>
                                     </tr>
                                     </tfoot>
                                 </table>
@@ -107,37 +101,22 @@
     </script>
 
     <script>
-        function restoreProduct(id) {
-            console.log(id)
-            axios({
-                method: 'post',
-                url: '{{route('restoreProduct')}}',
-                data: {
-                    id: id,
-                    _token: "{{csrf_token()}}"
-                }
-            }).then((res) => {
-                console.log(res.data);
-                $('#restore' + id).parent().parent().remove();
-            });
-        }
-
-        function softDeleteProduct(id) {
+        function softDeleteFeature(id) {
             Swal.fire({
-                title: 'Delet User',
+                title: 'Delete Type',
                 icon: 'warning',
                 showCancelButton: true,
                 confirmButtonText: 'Delete',
                 preConfirm: () => {
                     axios({
                         method: 'delete',
-                        url: '{{route('productForceDelete')}}',
+                        url: "{{route('deleteFeature')}}",
                         data: {
                             id: id,
                             _token: "{{csrf_token()}}",
                         }
                     }).then((res) => {
-                        console.log(res.data)
+                        console.log(res.data);
                         $('#' + id).parent().parent().remove();
                         const Toast = Swal.mixin({
                             toast: true,
@@ -153,7 +132,7 @@
 
                         Toast.fire({
                             icon: 'success',
-                            title: '{{trans('products.productDoneRemoving')}}'
+                            title: '{{trans('features.deleted')}}'
                         })
                     });
                 }
@@ -161,4 +140,3 @@
         }
     </script>
 @endsection
-
