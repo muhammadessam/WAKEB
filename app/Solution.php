@@ -3,10 +3,16 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Solution extends Model
 {
+
+    use SoftDeletes;
+
     protected $table = 'solutions';
+
+    protected $with = ['solution_trans_lang'];
 
 
     public function solution_trans()

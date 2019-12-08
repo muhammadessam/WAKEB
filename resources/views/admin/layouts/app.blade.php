@@ -185,11 +185,11 @@
 
                 <li class="{{request()->is('admin/services*') ? "active":''}} treeview">
                     <a href="#">
-                        <i class="fa fa-dashboard"></i> <span>{{trans('services.servicesShowAll')}}</span> <i
+                        <i class="fa fa-dashboard"></i> <span>{{trans('services.services')}}</span> <i
                             class="fa fa-angle-left pull-left"></i>
                     </a>
                     <ul class="treeview-menu">
-                        <li class="{{Request::path()=='admin/products' ? "active":''}}"><a
+                        <li class="{{Request::path()=='admin/services' ? "active":''}}"><a
                                 href="{{route('showAllServices')}}">{{trans('services.servicesShowAll')}}</a></li>
                         <li class="{{Request::path()=='admin/services/add' ? "active":''}}"><a
                                 href="{{route('serviceCreateView')}}">{{trans('services.servicesAdd')}}</a></li>
@@ -212,6 +212,22 @@
                                 href="{{route('showDeletedFeatures')}}">{{trans('features.deleted')}}</a></li>
                     </ul>
                 </li>
+
+                <li class="{{request()->is('admin/solutions*') ? "active":''}} treeview">
+                    <a href="#">
+                        <i class="fa fa-dashboard"></i> <span>{{trans('solutions.solutions')}}</span> <i
+                            class="fa fa-angle-left pull-left"></i>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li class="{{Request::path()=='admin/solutions' ? "active":''}}"><a
+                                href="{{route('showAllSolutions')}}">{{trans('features.all')}}</a></li>
+                        <li class="{{Request::path()=='admin/solutions/add' ? "active":''}}"><a
+                                href="{{route('showFeatureCreateView')}}">{{trans('features.Add')}}</a></li>
+                        <li class="{{Request::path()=='admin/solutions/deleted' ? "active":''}}"><a
+                                href="{{route('showDeletedFeatures')}}">{{trans('features.deleted')}}</a></li>
+                    </ul>
+                </li>
+
 
             </ul>
         </section>
