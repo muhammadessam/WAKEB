@@ -13,7 +13,6 @@
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
 
     <link rel="stylesheet" href="{{asset('bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css')}}">
-
     <!-- Theme style -->
     @php $locale = session()->get('locale'); @endphp
     @switch($locale)
@@ -181,6 +180,21 @@
                                 href="{{route('productCreateView')}}">{{trans('products.productsAdd')}}</a></li>
                         <li class="{{Request::path()=='admin/products/deleted' ? "active":''}}"><a
                                 href="{{route('getDeletedProducts')}}">{{trans('products.productsRemoved')}}</a></li>
+                    </ul>
+                </li>
+
+                <li class="{{request()->is('admin/services*') ? "active":''}} treeview">
+                    <a href="#">
+                        <i class="fa fa-dashboard"></i> <span>{{trans('services.servicesShowAll')}}</span> <i
+                            class="fa fa-angle-left pull-left"></i>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li class="{{Request::path()=='admin/products' ? "active":''}}"><a
+                                href="{{route('showAllServices')}}">{{trans('services.servicesShowAll')}}</a></li>
+                        <li class="{{Request::path()=='admin/services/add' ? "active":''}}"><a
+                                href="{{route('serviceCreateView')}}">{{trans('services.servicesAdd')}}</a></li>
+                        <li class="{{Request::path()=='admin/services/deleted' ? "active":''}}"><a
+                                href="{{route('getDeletedServices')}}">{{trans('services.servicesRemoved')}}</a></li>
                     </ul>
                 </li>
 

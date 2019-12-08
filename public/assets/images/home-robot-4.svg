@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="108.613" height="91.504" viewBox="0 0 108.613 91.504">
+  <defs>
+    <radialGradient id="radial-gradient" cx="0.5" cy="0.5" r="0.808" gradientTransform="matrix(0.585, 0.025, -0.007, 0.509, 0.211, 0.233)" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#4867a5"/>
+      <stop offset="1" stop-color="#4867a5" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="radial-gradient-2" cx="391.186" cy="-1445.269" r="42.392" gradientTransform="matrix(-0.545, -0.838, 0.838, -0.545, 1889.173, -2326.999)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#c0bff6"/>
+      <stop offset="1" stop-color="#393091"/>
+    </radialGradient>
+  </defs>
+  <g id="Group_413" data-name="Group 413" transform="translate(16759.359 -172.596)">
+    <g id="Group_320" data-name="Group 320" transform="matrix(0.966, 0.259, -0.259, 0.966, -16744.633, 183.984)" opacity="0.5">
+      <g id="Group_304" data-name="Group 304" transform="translate(0 0)">
+        <ellipse id="Ellipse_299" data-name="Ellipse 299" cx="48.6" cy="28.449" rx="48.6" ry="28.449" fill="url(#radial-gradient)"/>
+      </g>
+    </g>
+    <g id="Group_318" data-name="Group 318" transform="translate(-16736.135 172.596)">
+      <g id="Group_315" data-name="Group 315" transform="translate(0.002 0.002)">
+        <g id="Group_314" data-name="Group 314" transform="translate(0)">
+          <path id="Path_2136" data-name="Path 2136" d="M87.774,243.152a25.081,25.081,0,1,1-7.353,34.7A25.081,25.081,0,0,1,87.774,243.152Z" transform="translate(-76.363 -239.095)" fill="url(#radial-gradient-2)"/>
+        </g>
+      </g>
+      <g id="Group_317" data-name="Group 317" transform="translate(0)" opacity="0.6">
+        <g id="Group_316" data-name="Group 316">
+          <path id="Path_2137" data-name="Path 2137" d="M96.381,288.743a25.081,25.081,0,1,1,29.631-19.5A25.081,25.081,0,0,1,96.381,288.743Z" transform="translate(-76.362 -239.093)" fill="#29abe2"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

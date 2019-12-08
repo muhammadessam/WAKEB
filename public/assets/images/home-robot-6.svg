@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="125.574" height="126.149" viewBox="0 0 125.574 126.149">
+  <defs>
+    <radialGradient id="radial-gradient" cx="0.5" cy="0.5" r="0.808" gradientTransform="matrix(0.585, 0.025, -0.007, 0.509, 0.211, 0.233)" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#4867a5"/>
+      <stop offset="1" stop-color="#4867a5" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="radial-gradient-2" cx="56.579" cy="21.569" r="65.256" gradientTransform="matrix(0.865, -0.502, 0.502, 0.865, -3.183, 31.309)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#c0bff6"/>
+      <stop offset="1" stop-color="#393091"/>
+    </radialGradient>
+  </defs>
+  <g id="Group_414" data-name="Group 414" transform="translate(17104.051 -163.128)">
+    <g id="Group_305" data-name="Group 305" transform="translate(-17104.051 216.456)" opacity="0.5">
+      <g id="Group_304" data-name="Group 304" transform="translate(0 0)">
+        <ellipse id="Ellipse_299" data-name="Ellipse 299" cx="62.201" cy="36.411" rx="62.201" ry="36.411" fill="url(#radial-gradient)"/>
+      </g>
+    </g>
+    <g id="Group_310" data-name="Group 310" transform="translate(-17079.803 163.128)">
+      <g id="Group_307" data-name="Group 307" transform="translate(0 0)">
+        <g id="Group_306" data-name="Group 306" transform="translate(0)">
+          <ellipse id="Ellipse_155" data-name="Ellipse 155" cx="38.609" cy="38.609" rx="38.609" ry="38.609" transform="matrix(-0.392, -0.92, 0.92, -0.392, 30.3, 101.325)" fill="url(#radial-gradient-2)"/>
+        </g>
+      </g>
+      <g id="Group_309" data-name="Group 309" transform="translate(0 0)" opacity="0.6">
+        <g id="Group_308" data-name="Group 308" transform="translate(0)">
+          <ellipse id="Ellipse_156" data-name="Ellipse 156" cx="38.609" cy="38.609" rx="38.609" ry="38.609" transform="matrix(-0.392, -0.92, 0.92, -0.392, 30.3, 101.325)" fill="#29abe2"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

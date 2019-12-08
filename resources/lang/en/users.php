@@ -19,6 +19,6 @@ return [
     'deletedUsers' => 'Deleted Users',
     'restoreUser' => 'Restore User',
     'deleteForEver' => 'Delete For Ever',
-
+    'modify'=>'Modify User',
 
 ];

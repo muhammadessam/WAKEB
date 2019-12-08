@@ -1,11 +1,12 @@
 <?php
 return [
-    'features' => 'Features',
-    'all' => 'All Features',
+    'features' => 'features',
+    'all' => 'All features',
     'Add' => 'Add Feature',
     'Added' => 'Feature Added Successfully',
     'delete' => 'Delete Feature',
-    'deleted' => 'Feature Deleted Successfully',
+    'deleted' => 'All Deleted Features',
+    'doneDeleted'=>'Feature Deleted Successfully',
     'description'=>'Description',
     'action'=>'Action',
     'id'=>'ID',

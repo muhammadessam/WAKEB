@@ -12,19 +12,16 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
-    return view('auth.login');
-});
-
+Route::get('/', 'HomeController@index');
+Route::get('/about', 'HomeController@about')->name('about');
 Auth::routes();
-
 Route::get('lang/{locale}', 'LangController@lang')->name('changeLang');
+
 Route::group(['middleware' => 'auth', 'prefix' => '/admin'], function () {
 
     require_once 'Users/users.php';
     require_once 'Products/products.php';
     require_once 'Features/features.php';
-
+    require_once 'Services/services.php';
 
 });

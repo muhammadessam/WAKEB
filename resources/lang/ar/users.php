@@ -19,4 +19,6 @@ return [
     'deletedUsers' => 'المستخدمين المحذوفين',
     'restoreUser' => 'استعادة المستخدم',
     'deleteForEver' => 'حذف نهائي',
+    'modify'=>'تعديل المستخدم',
+
 ];

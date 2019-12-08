@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Feature;
 use App\Http\Requests\ProductRequest;
 use App\Lang;
 use App\Product;
@@ -79,26 +80,35 @@ class ProductController extends Controller
 
     }
 
-    public function delete(Request $request){
+    public function delete(Request $request)
+    {
         Product::find($request->id)->delete();
         return null;
     }
 
-    public function showAllDeletedProducts(){
+    public function showAllDeletedProducts()
+    {
         $products = Product::onlyTrashed()->where('type', 'product')->get();
         return view('admin.products.deleted', compact('products'));
     }
 
-    public function restoreProduct(Request $request){
-        $product = Product::onlyTrashed()->where('type','product')->find($request->id);
+    public function restoreProduct(Request $request)
+    {
+        $product = Product::onlyTrashed()->where('type', 'product')->find($request->id);
         $product->restore();
-        return ['message'=>'restored Successfully'];
+        return ['message' => 'restored Successfully'];
     }
 
-    public function forceDelete(Request $request){
+    public function forceDelete(Request $request)
+    {
         $product = Product::onlyTrashed()->where('type', 'product')->find($request->id);
-        unlink(public_path().$product->img_url);
+        unlink(public_path() . $product->img_url);
         $product->forceDelete();
-        return ['message'=>'deleted Successfully'];
+        return ['message' => 'deleted Successfully'];
+    }
+
+    public function show(Product $product, Request $request)
+    {
+        return view('admin.products.show', compact('product'));
     }
 }

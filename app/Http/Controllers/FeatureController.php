@@ -14,7 +14,7 @@ class FeatureController extends Controller
     public function index()
     {
         $features = Feature::all();
-        return view('admin.Features.index', compact('features'));
+        return view('admin.features.index', compact('features'));
 
     }
 
@@ -23,7 +23,7 @@ class FeatureController extends Controller
         $langs = Lang::all();
         $products = Product::all()->where('type', 'product');
         $services = Service::all()->where('type', 'service');
-        return view('admin.Features.create', compact(['langs', 'products', 'services']));
+        return view('admin.features.create', compact(['langs', 'products', 'services']));
     }
 
     public function store(Request $request)
@@ -60,7 +60,7 @@ class FeatureController extends Controller
         $langs = Lang::all();
         $products = Product::all();
         $services = Service::all();
-        return view('admin.Features.edit', compact(['feature', 'langs', 'products', 'services']));
+        return view('admin.features.edit', compact(['feature', 'langs', 'products', 'services']));
     }
 
     public function update(Feature $feature, Request $request)
@@ -83,7 +83,7 @@ class FeatureController extends Controller
 
     public function showDeletedFeatures(){
         $features = Feature::onlyTrashed()->get();
-        return view('admin.Features.deleted', compact('features'));
+        return view('admin.features.deleted', compact('features'));
     }
 
     public function restore(Request $request){

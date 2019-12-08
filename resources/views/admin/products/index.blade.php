@@ -54,6 +54,10 @@
                                             <td class="sorting_1">{{$product->product_trans_lang[0]->name}}</td>
                                             <td>{{$product->product_trans_lang[0]->description}}</td>
                                             <td>
+                                                <a href="{{route('showSingleProduct', $product)}}"
+                                                   class="mb-1 glyphicon glyphicon-eye-open btn btn-primary"
+                                                   data-toggle="tooltip"
+                                                   data-placement="top" title="مشاهدة"></a>
                                                 <a href="{{route('productEditView', $product)}}"
                                                    class="mb-1 glyphicon glyphicon-pencil btn btn-primary"
                                                    data-toggle="tooltip"

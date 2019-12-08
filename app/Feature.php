@@ -19,7 +19,7 @@ class Feature extends Model
 
     public function feature_trans_lang()
     {
-        $lang_id = Lang::where('lang', App::getLocale())->first()->id;
+        $lang_id = Lang::where('lang', session()->get('locale'))->first()->id;
         return $this->hasMany(Features_trans::class, 'feature_id', 'id')->where('lang_id', $lang_id);
     }
 

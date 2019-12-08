@@ -56,11 +56,11 @@
                                                 <a href="{{route('editView', $user)}}"
                                                    class="mb-1 glyphicon glyphicon-pencil btn btn-primary"
                                                    data-toggle="tooltip"
-                                                   data-placement="top" title="تعديل"></a>
+                                                   data-placement="top" title="{{trans('users.modify')}}"></a>
                                                 <button onclick="softDeletUser({{$user->id}})"
                                                         class="glyphicon glyphicon-remove btn btn-warning"
                                                         data-toggle="tooltip"
-                                                        data-placement="top" title="حذف"
+                                                        data-placement="top" title="{{trans('users.deleteUser')}}"
                                                         data-id="{{$user->id}}"
                                                         id="{{$user->id}}"></button>
                                             </td>
