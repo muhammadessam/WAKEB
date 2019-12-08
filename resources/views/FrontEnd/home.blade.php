@@ -17,169 +17,25 @@
 
             <div class="regular-slider-container">
                 <div class="regular slider mt-5">
-                    <div>
-                        <a href="service-1.html"><h1>AI & Machine Learning</h1></a>
-                        <div class="service">
-                            <img src="assets/images/service1-0.jpg">
-                            <div class="overlay ">
-                                <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr,
-                                    sed diam nonumy eirmod tempor invidunt ut labore
-                                    et dolore magna aliquyam
-                                </p>
-                                <div>
-                                    <a href="service-1.html">
-                                        <span class="mr-1">MORE</span>
-                                        <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
-                                    </a>
+                    @foreach($services as $service)
+                        <div>
+                            <a href="service-1.html"><h1>{{$service->service_trans_lang[0]->name}}</h1></a>
+                            <div class="service">
+                                <img src="{{asset($service->img_url)}}">
+                                <div class="overlay ">
+                                    <p>
+                                        {{$service->service_trans_lang[0]->description}}
+                                    </p>
+                                    <div>
+                                        <a href="service-1.html">
+                                            <span class="mr-1">MORE</span>
+                                            <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div>
-                        <a href="service-2.html"><h1>Business Intelligence</h1></a>
-                        <div class="service">
-                            <img src="assets/images/service2-0.jpg">
-                            <div class="overlay">
-                                <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr,
-                                    sed diam nonumy eirmod tempor invidunt ut labore
-                                    et dolore magna aliquyam
-                                </p>
-                                <div class="service">
-                                    <a href="service-2.html">
-                                        <span class="mr-1">MORE</span>
-                                        <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div>
-                        <a href="service-3.html"><h1>Predictive Analytics</h1></a>
-                        <div class="service">
-                            <img src="assets/images/service3-0.jpg">
-                            <div class="overlay">
-                                <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr,
-                                    sed diam nonumy eirmod tempor invidunt ut labore
-                                    et dolore magna aliquyam
-                                </p>
-                                <div>
-                                    <a href="service-3.html">
-                                        <span class="mr-1">MORE</span>
-                                        <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div>
-                        <a href="service-4.html"><h1>Data Management</h1></a>
-                        <div class="service">
-                            <img src="assets/images/service4-0.jpg">
-                            <div class="overlay">
-                                <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr,
-                                    sed diam nonumy eirmod tempor invidunt ut labore
-                                    et dolore magna aliquyam
-                                </p>
-                                <div>
-                                    <a href="service-4.html">
-                                        <span class="mr-1">MORE</span>
-                                        <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div>
-                        <a href="service-5.html"><h1>Big Data</h1></a>
-                        <div class="service">
-                            <img src="assets/images/service5-0.jpg">
-                            <div class="overlay">
-                                <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr,
-                                    sed diam nonumy eirmod tempor invidunt ut labore
-                                    et dolore magna aliquyam
-                                </p>
-                                <div>
-                                    <a href="service-5.html">
-                                        <span class="mr-1">MORE</span>
-                                        <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div>
-                        <a href="service-6.html"><h1>Technology Infrastructure</h1></a>
-                        <div class="service">
-                            <img src="assets/images/service6-0.jpg">
-                            <div class="overlay">
-                                <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr,
-                                    sed diam nonumy eirmod tempor invidunt ut labore
-                                    et dolore magna aliquyam
-                                </p>
-                                <div>
-                                    <a href="service-6.html">
-                                        <span class="mr-1">MORE</span>
-                                        <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div>
-                        <a href="service-7.html"><h1>Internet of things</h1></a>
-                        <div class="service">
-                            <img src="assets/images/service7-0.jpg">
-                            <div class="overlay">
-                                <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr,
-                                    sed diam nonumy eirmod tempor invidunt ut labore
-                                    et dolore magna aliquyam
-                                </p>
-                                <div>
-                                    <a href="service-7.html">
-                                        <span class="mr-1">MORE</span>
-                                        <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div>
-                        <a href="service-8.html"><h1>Mobile Applications</h1></a>
-                        <div class="service">
-                            <img src="assets/images/service8-0.jpg">
-                            <div class="overlay">
-                                <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr,
-                                    sed diam nonumy eirmod tempor invidunt ut labore
-                                    et dolore magna aliquyam
-                                </p>
-                                <div>
-                                    <a href="service-8.html">
-                                        <span class="mr-1">MORE</span>
-                                        <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div>
-                        <a href="service-9.html"><h1>Consulting & Custom Services</h1></a>
-                        <div class="service">
-                            <img src="assets/images/service9-0.jpg">
-                            <div class="overlay">
-                                <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr,
-                                    sed diam nonumy eirmod tempor invidunt ut labore
-                                    et dolore magna aliquyam
-                                </p>
-                                <div>
-                                    <a href="service-9.html">
-                                        <span class="mr-1">MORE</span>
-                                        <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
+                    @endforeach
                 </div> <!--slider end-->
             </div>
         </div>
@@ -236,106 +92,29 @@
             </div>
             <div class="product-slider regular-slider-container">
                 <div class="slider slider-for">
-                    <div>
-                        <div class="img-div">
-                            <img src="assets/images/product1-0.svg">
-                            <span class="line"></span>
+                    @foreach($products as $product)
+                        <div>
+                            <div class="img-div">
+                                <img src="{{asset($product->img_url)}}">
+                                <span class="line"></span>
+                            </div>
+                            <div class="caption">
+                                <h3>{{$product->product_trans_lang[0]->name}}</h3>
+                                <p>
+                                    {{$product->product_trans_lang[0]->description}}
+                                </p>
+                                <a href="product-1.html">
+                                    <span class="mr-1">MORE</span>
+                                    <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+                                </a>
+                            </div>
                         </div>
-                        <div class="caption">
-                            <h3>MASBAR</h3>
-                            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
-                                tempor invidunt ut labore et dolore magna justo aliquyam erat, sed diam voluptua.</p>
-                            <a href="product-1.html">
-                                <span class="mr-1">MORE</span>
-                                <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="img-div">
-                            <img src="assets/images/product2-0.svg">
-                            <span class="line"></span>
-                        </div>
-                        <div class="caption">
-                            <h3>Twittelab</h3>
-                            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
-                                tempor invidunt ut labore et dolore magna justo aliquyam erat, sed diam voluptua.</p>
-                            <a href="product-2.html">
-                                <span class="mr-1">MORE</span>
-                                <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="img-div">
-                            <img src="assets/images/product3-0.svg">
-                            <span class="line"></span>
-                        </div>
-                        <div class="caption">
-                            <h3>Mujib</h3>
-                            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
-                                tempor invidunt ut labore et dolore magna justo aliquyam erat, sed diam voluptua.</p>
-                            <a href="product-3.html">
-                                <span class="mr-1">MORE</span>
-                                <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="img-div">
-                            <img src="assets/images/product4-0.svg">
-                            <span class="line"></span>
-                        </div>
-                        <div class="caption">
-                            <h3>Image Analysis</h3>
-                            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
-                                tempor invidunt ut labore et dolore magna justo aliquyam erat, sed diam voluptua.</p>
-                            <a href="product-4.html">
-                                <span class="mr-1">MORE</span>
-                                <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="img-div">
-                            <img src="assets/images/product5-0.svg">
-                            <span class="line"></span>
-                        </div>
-                        <div class="caption">
-                            <h3>Nasih</h3>
-                            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
-                                tempor invidunt ut labore et dolore magna justo aliquyam erat, sed diam voluptua.</p>
-                            <a href="product-5.html">
-                                <span class="mr-1">MORE</span>
-                                <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="img-div">
-                            <img src="assets/images/product6-0.svg">
-                            <span class="line"></span>
-                        </div>
-                        <div class="caption">
-                            <h3>Predictive Analytics</h3>
-                            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
-                                tempor invidunt ut labore et dolore magna justo aliquyam erat, sed diam voluptua.</p>
-                            <a href="product-6.html">
-                                <span class="mr-1">MORE</span>
-                                <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
-                            </a>
-                        </div>
-                    </div>
-
-
+                    @endforeach
                 </div>
                 <div class="slider slider-nav">
-                    <div><img src="assets/images/product1-0.svg"></div>
-                    <div><img src="assets/images/product2-0.svg"></div>
-                    <div><img src="assets/images/product3-0.svg"></div>
-                    <div><img src="assets/images/product4-0.svg"></div>
-                    <div><img src="assets/images/product5-0.svg"></div>
-                    <div><img src="assets/images/product6-0.svg"></div>
+                    @foreach($products as $product)
+                        <div><img src="{{asset($product->img_url)}}"></div>
+                    @endforeach
                 </div>
             </div>
         </div>

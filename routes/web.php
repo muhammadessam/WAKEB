@@ -12,8 +12,9 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/', 'HomeController@index');
+Route::get('/', 'HomeController@index')->name('home');
 Route::get('/about', 'HomeController@about')->name('about');
+Route::get('/contact', 'HomeController@contact')->name('contact');
 Auth::routes();
 Route::get('lang/{locale}', 'LangController@lang')->name('changeLang');
 

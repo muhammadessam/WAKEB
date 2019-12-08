@@ -4,15 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Wakeb</title>
     @php $locale = session()->get('locale'); @endphp
 
-    <link rel="stylesheet" href="{{asset('assets/css/bootstrap.min.css')}}">
+    @if($locale=='en')
+        <link rel="stylesheet" href="{{asset('assets/css/bootstrap.min.css')}}">
+    @endif
+    @if($locale=='ar')
+        <link rel="stylesheet" href="{{asset('assets/css/bootstrap.rtl.min.css')}}">
+    @endif
     <link rel="stylesheet" href="{{asset('assets/css/font-awesome.min.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/slick.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/animate.min.css')}}">
-    <link rel="stylesheet" href="{{asset('ass')}}">
     <link rel="stylesheet" href="{{asset('assets/css/home.css')}}">
+    @if($locale=='ar')
+        <link rel="stylesheet" href="{{asset('assets/css/style.rtl.css')}}">
+    @endif
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cairo&display=swap">
 </head>
 <body>
@@ -28,7 +35,7 @@
     <div id="menu">
         <div class="container-fluid">
             <div class="navigation">
-                <a class="navbar-brand brand-logo" href="index.html">
+                <a class="navbar-brand brand-logo" href="{{route('home')}}">
                     <img src="{{asset('assets/images/wakeb-logo.svg')}}" alt="Wakeb" title="Wakeb">
                 </a>
                 <span id="toggle-menu">Menu</span>
@@ -60,32 +67,22 @@
                         @endswitch
                     </li>
                     <li class="active">
-                        <a href="#">Home</a>
+                        <a href="{{route('home')}}">{{trans('Home')}}</a>
                     </li>
                     <li class="has-menu">
                         <a>{{trans('products.products')}}</a>
                         <ul class="sub-menu">
-                            <li><a href="product-1.html">Object Detection and Recognition (MASBAR)</a></li>
-                            <li><a href="product-2.html">Social Media Analysis (Twittelab)</a></li>
-                            <li><a href="product-3.html">Chatbot (Mujib)</a></li>
-                            <li><a href="product-4.html">Image Analysis</a></li>
-                            <li><a href="product-5.html">Recommendation Engine (Nasih)</a></li>
-                            <li><a href="product-6.html">Predictive Analytics</a></li>
+                            @foreach($products as $product)
+                                <li><a href="product-1.html">{{$product->product_trans_lang[0]->name}}</a></li>
+                            @endforeach
                         </ul>
                     </li>
                     <li class="has-menu">
-                        <a>Services</a>
+                        <a>{{trans('services.services')}}</a>
                         <ul class="sub-menu">
-                            <li><a href="service-1.html">Artificial Intelligence & Machine Learning</a></li>
-                            <li><a href="service-2.html">Business Intelligence</a></li>
-                            <li><a href="service-3.html">Predictive Analytics</a></li>
-                            <li><a href="service-4.html">Data Management</a></li>
-                            <li><a href="service-5.html">Big Data</a></li>
-                            <li><a href="service-6.html">Technology Infrastructure </a></li>
-                            <li><a href="service-7.html">Internet of things</a></li>
-                            <li><a href="service-8.html">Mobile Applications </a></li>
-                            <li><a href="service-9.html">Consulting & Custom Services</a></li>
-
+                            @foreach($services as $service)
+                                <li><a href="service-1.html">{{$service->service_trans_lang[0]->name}}</a></li>
+                            @endforeach
                         </ul>
                     </li>
                     <li class="has-menu">
@@ -106,15 +103,10 @@
                         <a href="blogs.html">Blogs</a>
                     </li>
                     <li>
-                        @if(session()->get('locale')=='en')
-                            <a href="{{route('about')}}">About Us</a>
-                        @endif
-                        @if(session()->get('locale')=='ar')
-                            <a href="{{route('about')}}">About Us</a>
-                        @endif
+                        <a href="{{route('about')}}">{{trans('About us')}}</a>
                     </li>
                     <li>
-                        <a href="contact-us.html">Contact US</a>
+                        <a href="{{route('contact')}}">{{trans('Contact us')}}</a>
                     </li>
                 </ul>
             </div>
@@ -190,13 +182,13 @@
         <div class="container-fluid">
             <ul>
                 <li>
-                    <a href="index.html">Home</a>
+                    <a href="{{route('home')}}">Home</a>
                 </li>
                 <li>
-                    <a href="products.html">Products</a>
+                    <a href="products.html">{{trans('products.products')}}</a>
                 </li>
                 <li>
-                    <a href="services.html">Services</a>
+                    <a href="services.html">{{trans('services.services')}}</a>
                 </li>
                 <li>
                     <a href="solutions.html">Solutions</a>
@@ -205,10 +197,10 @@
                     <a href="blogs.html">Blog</a>
                 </li>
                 <li>
-                    <a href="about-us.html">About Us</a>
+                    <a href="{{route('about')}}">{{trans('About us')}}</a>
                 </li>
                 <li>
-                    <a href="contact-us.html">Contact Us</a>
+                    <a href="{{route('contact')}}">{{trans('Contact us')}}</a>
                 </li>
             </ul>
             <ul class="list">

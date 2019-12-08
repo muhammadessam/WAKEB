@@ -13,11 +13,17 @@ class HomeController extends Controller
     {
         $products = Product::all();
         $services = Service::all();
-        return view('FrontEnd.home', compact([$products, $services]));
+        return view('FrontEnd.home', compact(['products', 'services']));
     }
 
-    public function about(){
+    public function about()
+    {
         return view('FrontEnd.about');
+    }
+
+    public function contact()
+    {
+        return view('FrontEnd.contact');
     }
 
 
