@@ -224,7 +224,7 @@
                         <li class="{{Request::path()=='admin/solutions/add' ? "active":''}}"><a
                                 href="{{route('solutionCreateView')}}">{{trans('solutions.add')}}</a></li>
                         <li class="{{Request::path()=='admin/solutions/deleted' ? "active":''}}"><a
-                                href="{{route('showDeletedFeatures')}}">{{trans('features.deleted')}}</a></li>
+                                href="{{route('solutionDeleted')}}">{{trans('features.deleted')}}</a></li>
                     </ul>
                 </li>
 

@@ -2,7 +2,7 @@
 @section('content')
     <div class="box">
         <div class="box-header with-border">
-            <h3 class="box-title">{{trans('solutions.showAll')}}</h3>
+            <h3 class="box-title">{{trans('solutions.deleted')}}</h3>
 
             <div class="box-tools pull-right">
                 <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title=""
@@ -54,27 +54,31 @@
                                             <td class="sorting_1">{{$solution->trans_lang[0]->name}}</td>
                                             <td>{{$solution->trans_lang[0]->description}}</td>
                                             <td>
-                                                <a href="{{route('solutionEditView', $solution)}}"
-                                                   class="mb-1 glyphicon glyphicon-pencil btn btn-primary"
-                                                   data-toggle="tooltip"
-                                                   data-placement="top" title="تعديل"></a>
-                                                <button onclick="softDeleteProducts({{$solution->id}})"
-                                                        class="glyphicon glyphicon-remove btn btn-warning"
+                                                <button class="btn btn-primary glyphicon glyphicon-ok"
                                                         data-toggle="tooltip"
-                                                        data-placement="top" title="حذف"
-                                                        data-id="{{$solution->id}}"
-                                                        id="{{$solution->id}}"></button>
+                                                        data-placement="top"
+                                                        onclick="restoreSolution({{$solution->id}})"
+                                                        id="restore{{$solution->id}}"
+                                                        title="{{trans('products.restoreUser')}}">
+                                                </button>
+                                                <button onclick="softDelete({{$solution->id}})"
+                                                        class="glyphicon glyphicon-remove btn btn-danger"
+                                                        data-toggle="tooltip"
+                                                        data-placement="top"
+                                                        title="{{trans('products.deleteForEver')}}"
+                                                        id="{{$solution->id}}">
+                                                </button>
                                             </td>
                                         </tr>
                                     @endforeach
                                     </tbody>
                                     <tfoot>
                                     <tr>
-                                        <th>{{trans('solutions.id')}}</th>
-                                        <th>{{trans('solutions.img')}}</th>
-                                        <th rowspan="1" colspan="1">{{trans('solutions.name')}}</th>
-                                        <th rowspan="1" colspan="1">{{trans('solutions.description')}}</th>
-                                        <th rowspan="1" colspan="1">{{trans('solutions.action')}}</th>
+                                        <th>#id</th>
+                                        <th>{{trans('products.productImage')}}</th>
+                                        <th rowspan="1" colspan="1">{{trans('products.productName')}}</th>
+                                        <th rowspan="1" colspan="1">{{trans('products.productDescription')}}</th>
+                                        <th rowspan="1" colspan="1">{{trans('products.action')}}</th>
                                     </tr>
                                     </tfoot>
                                 </table>
@@ -103,22 +107,37 @@
     </script>
 
     <script>
-        function softDeleteProducts(id) {
+        function restoreSolution(id) {
+            console.log(id)
+            axios({
+                method: 'post',
+                url: '{{route('solutionRestore')}}',
+                data: {
+                    id: id,
+                    _token: "{{csrf_token()}}"
+                }
+            }).then((res) => {
+                console.log(res.data);
+                $('#restore' + id).parent().parent().remove();
+            });
+        }
+
+        function softDelete(id) {
             Swal.fire({
-                title: 'Delete Type',
+                title: 'Delet User',
                 icon: 'warning',
                 showCancelButton: true,
                 confirmButtonText: 'Delete',
                 preConfirm: () => {
                     axios({
                         method: 'delete',
-                        url: "{{route('solutionDelete')}}",
+                        url: '{{route('solutionForceDelete')}}',
                         data: {
                             id: id,
                             _token: "{{csrf_token()}}",
                         }
                     }).then((res) => {
-                        console.log(res.data);
+                        console.log(res.data)
                         $('#' + id).parent().parent().remove();
                         const Toast = Swal.mixin({
                             toast: true,
@@ -142,3 +161,4 @@
         }
     </script>
 @endsection
+
