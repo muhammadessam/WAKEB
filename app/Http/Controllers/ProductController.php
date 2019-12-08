@@ -2,15 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Feature;
 use App\Http\Requests\ProductRequest;
 use App\Lang;
 use App\Product;
-use App\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\App;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Support\Facades\File;
 
 
 class ProductController extends Controller

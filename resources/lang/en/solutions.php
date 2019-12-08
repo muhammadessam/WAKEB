@@ -6,5 +6,8 @@ return [
     'name'=>'Name',
     'description'=>'Description',
     'action'=>'Action',
-    'id'=>'ID'
+    'id'=>'ID',
+    'add'=>'Add Solution',
+    'added'=>'Solution Added Successfully',
+
 ];

@@ -51,8 +51,8 @@
                                             <td>{{$key + 1}}</td>
                                             <td><img style="width: 30px;height: 30px;"
                                                      src="{{asset($solution->img_url)}}" alt=""></td>
-                                            <td class="sorting_1">{{$solution->solution_trans_lang[0]->name}}</td>
-                                            <td>{{$solution->solution_trans_lang[0]->description}}</td>
+                                            <td class="sorting_1">{{$solution->trans_lang[0]->name}}</td>
+                                            <td>{{$solution->trans_lang[0]->description}}</td>
                                             <td>
                                                 <a href="{{route('showSingleProduct', $solution)}}"
                                                    class="mb-1 glyphicon glyphicon-eye-open btn btn-primary"

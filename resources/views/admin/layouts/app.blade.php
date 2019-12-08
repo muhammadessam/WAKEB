@@ -220,9 +220,9 @@
                     </a>
                     <ul class="treeview-menu">
                         <li class="{{Request::path()=='admin/solutions' ? "active":''}}"><a
-                                href="{{route('showAllSolutions')}}">{{trans('features.all')}}</a></li>
+                                href="{{route('showAllSolutions')}}">{{trans('solutions.showAll')}}</a></li>
                         <li class="{{Request::path()=='admin/solutions/add' ? "active":''}}"><a
-                                href="{{route('showFeatureCreateView')}}">{{trans('features.Add')}}</a></li>
+                                href="{{route('solutionCreateView')}}">{{trans('solutions.add')}}</a></li>
                         <li class="{{Request::path()=='admin/solutions/deleted' ? "active":''}}"><a
                                 href="{{route('showDeletedFeatures')}}">{{trans('features.deleted')}}</a></li>
                     </ul>
