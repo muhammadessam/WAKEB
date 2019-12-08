@@ -228,6 +228,21 @@
                     </ul>
                 </li>
 
+                <li class="{{request()->is('admin/usecases*') ? "active":''}} treeview">
+                    <a href="#">
+                        <i class="fa fa-dashboard"></i> <span>{{trans('usecases.usecase')}}</span> <i
+                            class="fa fa-angle-left pull-left"></i>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li class="{{Request::path()=='admin/usecases' ? "active":''}}"><a
+                                href="{{route('useCasesShowAll')}}">{{trans('usecases.showAll')}}</a></li>
+                        <li class="{{Request::path()=='admin/usecases/add' ? "active":''}}"><a
+                                href="{{route('usecasesCreateView')}}">{{trans('usecases.add')}}</a></li>
+                        <li class="{{Request::path()=='admin/usecases/deleted' ? "active":''}}"><a
+                                href="{{route('usecasesshowDeleted')}}">{{trans('usecases.deleted')}}</a></li>
+                    </ul>
+                </li>
+
 
             </ul>
         </section>

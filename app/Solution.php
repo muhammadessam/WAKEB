@@ -22,4 +22,10 @@ class Solution extends Model
         $lang_id = Lang::all()->where('lang', session()->get('locale'))->first()->id;
         return $this->hasMany(Solution_trans::class, 'solution_id', 'id')->where('lang_id', $lang_id);
     }
+
+    public function useCases(){
+        return $this->hasMany(UseCase::class, 'solution_id', 'id');
+    }
+
+
 }
