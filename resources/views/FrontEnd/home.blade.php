@@ -64,7 +64,7 @@
         <div class="container-fluid">
             <div class="row sec-title text-center ">
                 <div class="col-lg-12">
-                    <h3 class="title animated wow fadeInUp" style="animation-delay:0.25s">Services</h3>
+                    <h3 class="title animated wow fadeInUp" style="animation-delay:0.25s">{{trans('services.services')}}</h3>
                 </div>
                 <div class="col-lg-6 col-md-8  offset-md-2  offset-lg-3">
                     <p class="title-p animated wow fadeInUp" style="animation-delay:0.25s">
@@ -140,7 +140,7 @@
         <div class="container-fluid">
             <div class="row sec-title text-center ">
                 <div class="col-lg-12">
-                    <h3 class="title animated wow fadeInUp" style="animation-delay: 0.25s">Products</h3>
+                    <h3 class="title animated wow fadeInUp" style="animation-delay: 0.25s">{{trans('products.products')}}</h3>
                 </div>
                 <div class="col-lg-6 col-md-8  offset-md-2  offset-lg-3">
                     <p class="title-p animated wow fadeInUp" style="animation-delay:0.25s">
