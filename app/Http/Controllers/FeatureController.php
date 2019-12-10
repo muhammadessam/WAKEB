@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Feature;
+use App\Http\Requests\FeaturesRquest;
 use App\Lang;
 use App\Product;
 use App\Service;
@@ -26,7 +27,7 @@ class FeatureController extends Controller
         return view('admin.features.create', compact(['langs', 'products', 'services']));
     }
 
-    public function store(Request $request)
+    public function store(FeaturesRquest $request)
     {
         if ($request->has('product')) {
             $product = Product::find($request->product);
@@ -63,7 +64,7 @@ class FeatureController extends Controller
         return view('admin.features.edit', compact(['feature', 'langs', 'products', 'services']));
     }
 
-    public function update(Feature $feature, Request $request)
+    public function update(Feature $feature, FeaturesRquest $request)
     {
         $langs = Lang::all();
         foreach ($langs as $lang) {

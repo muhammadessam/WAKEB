@@ -47,7 +47,7 @@
                                 </div>
                             @endforeach
                         </div>
-                        <div class="form-group">
+                        <div class="form-group {{$errors->has('product') ? 'has-error' : ''}}">
                             <label>{{trans('features.product')}}</label>
                             <select class="form-control select2 select2-hidden-accessible" name="product"
                                     style="width: 100%;" tabindex="-1" aria-hidden="true">
@@ -57,7 +57,7 @@
                                 @endforeach
                             </select>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group {{$errors->has('service') ? 'has-error' : ''}}">
                             <label>{{trans('features.service')}}</label>
                             <select class="form-control select2 select2-hidden-accessible" name="service"
                                     style="width: 100%;" tabindex="-1" aria-hidden="true">

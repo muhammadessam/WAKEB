@@ -28,7 +28,8 @@ class FeaturesRquest extends FormRequest
             'description_ar'=>'required',
             'name_en'=>'required',
             'description_en'=>'required',
-            'img'=>'required',
+            'product'=>'required_without_all:service',
+            'service'=>'required_without_all:product'
         ];
     }
 }

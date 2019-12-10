@@ -35,6 +35,7 @@ class UseCaseRequest extends FormRequest
             'opportunities_en'=>'required',
             'whyWakeb_ar'=>'required',
             'whyWakeb_en'=>'required',
+            'solution'=>'required',
         ];
     }
 }
