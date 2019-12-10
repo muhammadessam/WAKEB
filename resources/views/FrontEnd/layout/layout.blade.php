@@ -73,7 +73,7 @@
                         <a>{{trans('products.products')}}</a>
                         <ul class="sub-menu">
                             @foreach($products as $product)
-                                <li><a href="product-1.html">{{$product->product_trans_lang[0]->name}}</a></li>
+                                <li><a href="{{route('showProductFront', $product)}}">{{$product->product_trans_lang[0]->name}}</a></li>
                             @endforeach
                         </ul>
                     </li>
@@ -81,26 +81,17 @@
                         <a>{{trans('services.services')}}</a>
                         <ul class="sub-menu">
                             @foreach($services as $service)
-                                <li><a href="service-1.html">{{$service->service_trans_lang[0]->name}}</a></li>
+                                <li><a href="{{route('showServiceFront', $service)}}">{{$service->service_trans_lang[0]->name}}</a></li>
                             @endforeach
                         </ul>
                     </li>
                     <li class="has-menu">
-                        <a>Solutions</a>
+                        <a>{{trans('solutions.solutions')}}</a>
                         <ul class="sub-menu">
-                            <li><a href="solution-1.html">Financial Services</a></li>
-                            <li><a href="solution-2.html">Insurance</a></li>
-                            <li><a href="solution-3.html">Healthcare</a></li>
-                            <li><a href="solution-4.html">Marketing</a></li>
-                            <li><a href="solution-5.html">Telecom</a></li>
-                            <li><a href="solution-6.html">Manufacturing</a></li>
-                            <li><a href="solution-7.html">Retail</a></li>
-                            <li><a href="solution-8.html">Human Resources</a></li>
-                            <li><a href="solution-9.html">Media and Advertising</a></li>
+                        @foreach($solutions as $solution)
+                            <li><a href="{{route('showSolutionFront', $solution)}}">{{$solution->trans_lang[0]->name}}</a></li>
+                        @endforeach
                         </ul>
-                    </li>
-                    <li>
-                        <a href="blogs.html">Blogs</a>
                     </li>
                     <li>
                         <a href="{{route('about')}}">{{trans('About us')}}</a>
@@ -115,65 +106,7 @@
     <!--/. menu -->
 
     <!-- header -->
-    <header class="home-header ">
-        <div class="container-fluid sec-pt">
-            <div class="row position-relative content mt-5">
-                <div class="col-lg-6 col-md-10">
-                    <h6>We are offering</h6>
-                    <div class="vertical-slider mt-4">
-                        <div>
-                            <h3>Artificial Intelligence at one stop</h3>
-                            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr,
-                                sed diam nonumy eirmod tempor invidunt ut labore et dolore
-                                magna aliquyam erat, sed diam voluptua. At vero eos et
-                                accusam et justo duo dolores et ea rebum.</p>
-                        </div>
-                        <div>
-                            <h3>Data Management Maturity by CMMI</h3>
-                            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr,
-                                sed diam nonumy eirmod tempor invidunt ut labore et dolore
-                                magna aliquyam erat, sed diam voluptua. At vero eos et
-                                accusam et justo duo dolores et ea rebum.</p>
-                        </div>
-                        <div>
-                            <h3>Predictive Analytics</h3>
-                            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr,
-                                sed diam nonumy eirmod tempor invidunt ut labore et dolore
-                                magna aliquyam erat, sed diam voluptua. At vero eos et
-                                accusam et justo duo dolores et ea rebum.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class=" col-lg-5 col-md-4 header-animation">
-                    <div class="h-side-imgs ">
-                        <img src="assets/images/home-robot-1.svg" class="part1">
-                        <img src="assets/images/home-robot-2.svg" class="part2">
-                        <img src="assets/images/home-robot-3.svg" class="part3">
-                        <img src="assets/images/home-robot-4.svg" class="part4">
-                        <img src="assets/images/home-robot-5.svg" class="part5">
-                        <img src="assets/images/home-robot-6.svg" class="part6">
-                        <img src="assets/images/home-robot-7.svg" class="part7">
-                        <img src="assets/images/home-robot-8.svg" class="part8">
-                        <img src="assets/images/home-robot-9.svg" class="part9">
-                        <img src="assets/images/home-robot-10.svg" class="part10">
-                        <img src="assets/images/home-robot-11.svg" class="part11">
-                        <!-- <img src="assets/images/integrated.svg" class="integrated"> -->
-                        <!-- <div class="robot">
-                            <img src="assets/images/home-robot.png" class="parent" >
-                        </div> -->
-                    </div>
 
-                </div>
-            </div>
-            <div class="scroll-next" data-scroll="scroll-target">
-                <div class=" d-flex">
-                    <img src="assets/images/mouse.png" alt="Down" class="mr-2 animated-up-down">
-                    <span class="mt-1">Scroll Down</span>
-                </div>
-            </div>
-        </div>
-        <div class="integrated"><img src="assets/images/integrated.svg" alt=""></div>
-    </header>
     <!--/. header -->
 @yield('content')
 
@@ -182,19 +115,16 @@
         <div class="container-fluid">
             <ul>
                 <li>
-                    <a href="{{route('home')}}">Home</a>
+                    <a href="{{route('home')}}">{{trans('Home')}}</a>
                 </li>
                 <li>
-                    <a href="products.html">{{trans('products.products')}}</a>
+                    <a href="{{route('showAllProductsFront')}}">{{trans('products.products')}}</a>
                 </li>
                 <li>
-                    <a href="services.html">{{trans('services.services')}}</a>
+                    <a href="{{route('showAllServicesFront')}}">{{trans('services.services')}}</a>
                 </li>
                 <li>
-                    <a href="solutions.html">Solutions</a>
-                </li>
-                <li>
-                    <a href="blogs.html">Blog</a>
+                    <a href="{{route('showAllSolutionsFront')}}">{{trans('solutions.solutions')}}</a>
                 </li>
                 <li>
                     <a href="{{route('about')}}">{{trans('About us')}}</a>
@@ -234,7 +164,7 @@
 <!-- slick JS -->
 <script src="{{asset('assets/js/slick.min.js')}}"></script>
 <!-- WOW JS -->
-<script src="{{'assets/js/wow.min.js'}}"></script>
+<script src="{{asset('assets/js/wow.min.js')}}"></script>
 <script>
     new WOW().init();
 </script>

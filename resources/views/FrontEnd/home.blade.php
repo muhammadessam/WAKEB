@@ -1,5 +1,64 @@
 @extends('FrontEnd.layout.layout')
 @section('content')
+    <header class="home-header ">
+        <div class="container-fluid sec-pt">
+            <div class="row position-relative content mt-5">
+                <div class="col-lg-6 col-md-10">
+                    <h6>We are offering</h6>
+                    <div class="vertical-slider mt-4">
+                        <div>
+                            <h3>Artificial Intelligence at one stop</h3>
+                            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr,
+                                sed diam nonumy eirmod tempor invidunt ut labore et dolore
+                                magna aliquyam erat, sed diam voluptua. At vero eos et
+                                accusam et justo duo dolores et ea rebum.</p>
+                        </div>
+                        <div>
+                            <h3>Data Management Maturity by CMMI</h3>
+                            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr,
+                                sed diam nonumy eirmod tempor invidunt ut labore et dolore
+                                magna aliquyam erat, sed diam voluptua. At vero eos et
+                                accusam et justo duo dolores et ea rebum.</p>
+                        </div>
+                        <div>
+                            <h3>Predictive Analytics</h3>
+                            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr,
+                                sed diam nonumy eirmod tempor invidunt ut labore et dolore
+                                magna aliquyam erat, sed diam voluptua. At vero eos et
+                                accusam et justo duo dolores et ea rebum.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class=" col-lg-5 col-md-4 header-animation">
+                    <div class="h-side-imgs ">
+                        <img src="assets/images/home-robot-1.svg" class="part1">
+                        <img src="assets/images/home-robot-2.svg" class="part2">
+                        <img src="assets/images/home-robot-3.svg" class="part3">
+                        <img src="assets/images/home-robot-4.svg" class="part4">
+                        <img src="assets/images/home-robot-5.svg" class="part5">
+                        <img src="assets/images/home-robot-6.svg" class="part6">
+                        <img src="assets/images/home-robot-7.svg" class="part7">
+                        <img src="assets/images/home-robot-8.svg" class="part8">
+                        <img src="assets/images/home-robot-9.svg" class="part9">
+                        <img src="assets/images/home-robot-10.svg" class="part10">
+                        <img src="assets/images/home-robot-11.svg" class="part11">
+                        <!-- <img src="assets/images/integrated.svg" class="integrated"> -->
+                        <!-- <div class="robot">
+                            <img src="assets/images/home-robot.png" class="parent" >
+                        </div> -->
+                    </div>
+
+                </div>
+            </div>
+            <div class="scroll-next" data-scroll="scroll-target">
+                <div class=" d-flex">
+                    <img src="assets/images/mouse.png" alt="Down" class="mr-2 animated-up-down">
+                    <span class="mt-1">Scroll Down</span>
+                </div>
+            </div>
+        </div>
+        <div class="integrated"><img src="assets/images/integrated.svg" alt=""></div>
+    </header>
     <!-- services -->
     <section class=" scroll-target vh flex-center" class="pt-5" id="services">
         <div class="container-fluid">

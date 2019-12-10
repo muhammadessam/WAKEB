@@ -10,7 +10,7 @@ class Solution extends Model
     use SoftDeletes;
 
     protected $table = 'solutions';
-    protected $with = ['trans_lang', 'trans'];
+    protected $with = ['trans_lang', 'trans','useCases'];
     protected $fillable = ['img_url', 'user_id'];
     public function trans()
     {
