@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\SolutionRequest;
 use App\Lang;
 use App\Solution;
 use Illuminate\Http\Request;
@@ -20,7 +21,7 @@ class SolutionController extends Controller
         return view('admin.solutions.create', compact('langs'));
     }
 
-    public function store(Request $request)
+    public function store(SolutionRequest $request)
     {
         $name = time() . $request->file('img')->getClientOriginalName();
         $request->file('img')->move('solutions/imgs', $name);
@@ -48,7 +49,7 @@ class SolutionController extends Controller
         return view('admin.solutions.edit', compact(['langs', 'solution']));
     }
 
-    public function update(Solution $solution, Request $request)
+    public function update(Solution $solution, SolutionRequest $request)
     {
         $langs = Lang::all();
         if ($request->has('img')) {

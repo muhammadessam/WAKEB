@@ -52,7 +52,7 @@ class ServiceController extends Controller
         return view('admin.services.edit', compact(['service', 'langs']));
     }
 
-    public function update(Service $service, Request $request)
+    public function update(Service $service, ProductRequest $request)
     {
         $langs = Lang::all();
         if ($request->has('img')) {

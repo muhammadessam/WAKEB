@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UseCaseRequest;
 use App\Lang;
 use App\Solution;
 use App\UseCase;
@@ -23,7 +24,7 @@ class UseCaseController extends Controller
         return view('admin.useCases.create', compact(['langs', 'solutions']));
     }
 
-    public function store(Request $request)
+    public function store(UseCaseRequest $request)
     {
         $name = time() . $request->file('img')->getClientOriginalName();
         $request->file('img')->move('useCases/imgs', $name);
@@ -58,7 +59,7 @@ class UseCaseController extends Controller
         return view('admin.useCases.edit', compact(['langs', 'solutions', 'useCase']));
     }
 
-    public function update(UseCase $useCase, Request $request)
+    public function update(UseCase $useCase, UseCaseRequest $request)
     {
         $langs = Lang::all();
         if ($request->has('img')) {
