@@ -4,6 +4,17 @@
     "Home": "الرئيسية",
     "Please Enter Solution Name": "من فضلك ادخل الاسم",
     "Please Enter Solution Description": "من فضلك ادخل الوصف",
-    "About": "حول"
-
+    "About": "حول",
+    "Show All": "عرض الكل",
+    "Edit": "تعديل",
+    "Image": "الصورة",
+    "ID": "م",
+    "Description": "الوصف",
+    "Name": "الاسم",
+    "Action": "اجراء",
+    "Add": "اضف",
+    "Remove": "حذف",
+    "Removed": "المحذوف",
+    "Successfully Removed": "تم الحذف بنجاح",
+    "Successfully Added": "تم الاضافة بنجاح"
 }
