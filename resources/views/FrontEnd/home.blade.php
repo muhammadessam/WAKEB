@@ -5,29 +5,14 @@
             <div class="row position-relative content mt-5">
                 <div class="col-lg-6 col-md-10">
                     <h6>We are offering</h6>
-                    <div class="vertical-slider mt-4">
-                        <div>
-                            <h3>Artificial Intelligence at one stop</h3>
-                            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr,
-                                sed diam nonumy eirmod tempor invidunt ut labore et dolore
-                                magna aliquyam erat, sed diam voluptua. At vero eos et
-                                accusam et justo duo dolores et ea rebum.</p>
+                    @foreach($sliders as $slider)
+                        <div class="vertical-slider mt-4">
+                            <div>
+                                <h3>{{$slider->trans_lang->name}}</h3>
+                                <p>{{$slider->trans_lang->description}}</p>
+                            </div>
                         </div>
-                        <div>
-                            <h3>Data Management Maturity by CMMI</h3>
-                            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr,
-                                sed diam nonumy eirmod tempor invidunt ut labore et dolore
-                                magna aliquyam erat, sed diam voluptua. At vero eos et
-                                accusam et justo duo dolores et ea rebum.</p>
-                        </div>
-                        <div>
-                            <h3>Predictive Analytics</h3>
-                            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr,
-                                sed diam nonumy eirmod tempor invidunt ut labore et dolore
-                                magna aliquyam erat, sed diam voluptua. At vero eos et
-                                accusam et justo duo dolores et ea rebum.</p>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
                 <div class=" col-lg-5 col-md-4 header-animation">
                     <div class="h-side-imgs ">
@@ -64,7 +49,8 @@
         <div class="container-fluid">
             <div class="row sec-title text-center ">
                 <div class="col-lg-12">
-                    <h3 class="title animated wow fadeInUp" style="animation-delay:0.25s">{{trans('services.services')}}</h3>
+                    <h3 class="title animated wow fadeInUp"
+                        style="animation-delay:0.25s">{{trans('services.services')}}</h3>
                 </div>
                 <div class="col-lg-6 col-md-8  offset-md-2  offset-lg-3">
                     <p class="title-p animated wow fadeInUp" style="animation-delay:0.25s">
@@ -140,7 +126,8 @@
         <div class="container-fluid">
             <div class="row sec-title text-center ">
                 <div class="col-lg-12">
-                    <h3 class="title animated wow fadeInUp" style="animation-delay: 0.25s">{{trans('products.products')}}</h3>
+                    <h3 class="title animated wow fadeInUp"
+                        style="animation-delay: 0.25s">{{trans('products.products')}}</h3>
                 </div>
                 <div class="col-lg-6 col-md-8  offset-md-2  offset-lg-3">
                     <p class="title-p animated wow fadeInUp" style="animation-delay:0.25s">

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Product;
 use App\Service;
+use App\Slider;
 use App\Solution;
 use App\UseCase;
 use Illuminate\Http\Request;
@@ -16,7 +17,8 @@ class HomeController extends Controller
         $products = Product::all();
         $services = Service::all();
         $solutions = Solution::all();
-        return view('FrontEnd.home', compact(['products', 'services', 'solutions']));
+        $sliders = Slider::all();
+        return view('FrontEnd.home', compact(['products', 'services', 'solutions', 'sliders']));
     }
 
     public function about()
