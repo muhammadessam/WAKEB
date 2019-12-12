@@ -5,14 +5,16 @@
             <div class="row position-relative content mt-5">
                 <div class="col-lg-6 col-md-10">
                     <h6>We are offering</h6>
-                    @foreach($sliders as $slider)
-                        <div class="vertical-slider mt-4">
-                            <div>
-                                <h3>{{$slider->trans_lang->name}}</h3>
-                                <p>{{$slider->trans_lang->description}}</p>
+                    <div class="vertical-slider mt-4">
+                        @foreach($sliders as $slider)
+                            <div class="vertical-slider mt-4">
+                                <div>
+                                    <h3>{{$slider->trans_lang->name}}</h3>
+                                    <p>{{$slider->trans_lang->description}}</p>
+                                </div>
                             </div>
-                        </div>
-                    @endforeach
+                        @endforeach
+                    </div>
                 </div>
                 <div class=" col-lg-5 col-md-4 header-animation">
                     <div class="h-side-imgs ">
