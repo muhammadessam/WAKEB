@@ -15,7 +15,7 @@ Route::get('/useCases/{useCase}', 'HomeController@showUseCase')->name('showUseCa
 Route::get('/allProduct', 'HomeController@showProducts')->name('showAllProductsFront');
 Route::get('/allServices', 'HomeController@showServices')->name('showAllServicesFront');
 Route::get('/allSolutions', 'HomeController@showSolutions')->name('showAllSolutionsFront');
-
+Route::post('/contactUS', 'ContactController@contact')->name('contactUs');
 
 Route::group(['middleware' => 'auth', 'prefix' => '/admin'], function () {
 

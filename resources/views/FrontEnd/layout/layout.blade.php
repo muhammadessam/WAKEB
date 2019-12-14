@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="{{asset('assets/css/slick.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/animate.min.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/home.css')}}">
+
     @if($locale=='ar')
         <link rel="stylesheet" href="{{asset('assets/css/style.rtl.css')}}">
     @endif
@@ -73,7 +74,9 @@
                         <a>{{trans('products.products')}}</a>
                         <ul class="sub-menu">
                             @foreach($products as $product)
-                                <li><a href="{{route('showProductFront', $product)}}">{{$product->product_trans_lang[0]->name}}</a></li>
+                                <li>
+                                    <a href="{{route('showProductFront', $product)}}">{{$product->product_trans_lang[0]->name}}</a>
+                                </li>
                             @endforeach
                         </ul>
                     </li>
@@ -81,16 +84,20 @@
                         <a>{{trans('services.services')}}</a>
                         <ul class="sub-menu">
                             @foreach($services as $service)
-                                <li><a href="{{route('showServiceFront', $service)}}">{{$service->service_trans_lang[0]->name}}</a></li>
+                                <li>
+                                    <a href="{{route('showServiceFront', $service)}}">{{$service->service_trans_lang[0]->name}}</a>
+                                </li>
                             @endforeach
                         </ul>
                     </li>
                     <li class="has-menu">
                         <a>{{trans('solutions.solutions')}}</a>
                         <ul class="sub-menu">
-                        @foreach($solutions as $solution)
-                            <li><a href="{{route('showSolutionFront', $solution)}}">{{$solution->trans_lang[0]->name}}</a></li>
-                        @endforeach
+                            @foreach($solutions as $solution)
+                                <li>
+                                    <a href="{{route('showSolutionFront', $solution)}}">{{$solution->trans_lang[0]->name}}</a>
+                                </li>
+                            @endforeach
                         </ul>
                     </li>
                     <li>
@@ -165,11 +172,31 @@
 <script src="{{asset('assets/js/slick.min.js')}}"></script>
 <!-- WOW JS -->
 <script src="{{asset('assets/js/wow.min.js')}}"></script>
+<script src="{{asset('js/sweetalert.js')}}"></script>
+@if(session()->has('message'))
+    <script>
+        const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            onOpen: (toast) => {
+                toast.addEventListener('mouseenter', Swal.stopTimer)
+                toast.addEventListener('mouseleave', Swal.resumeTimer)
+            }
+        })
+
+        Toast.fire({
+            icon: 'success',
+            title: '{{trans('Message Received Successfully')}}'
+        })
+    </script>
+@endif
 <script>
     new WOW().init();
 </script>
 <!-- functions JS -->
 <script src="{{asset('assets/js/functions.js')}}"></script>
-
 </body>
 </html>

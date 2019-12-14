@@ -18,17 +18,17 @@
                 </div>
                 <div class=" col-lg-5 col-md-4 header-animation">
                     <div class="h-side-imgs ">
-                        <img src="assets/images/home-robot-1.svg" class="part1">
-                        <img src="assets/images/home-robot-2.svg" class="part2">
-                        <img src="assets/images/home-robot-3.svg" class="part3">
-                        <img src="assets/images/home-robot-4.svg" class="part4">
-                        <img src="assets/images/home-robot-5.svg" class="part5">
-                        <img src="assets/images/home-robot-6.svg" class="part6">
-                        <img src="assets/images/home-robot-7.svg" class="part7">
-                        <img src="assets/images/home-robot-8.svg" class="part8">
-                        <img src="assets/images/home-robot-9.svg" class="part9">
-                        <img src="assets/images/home-robot-10.svg" class="part10">
-                        <img src="assets/images/home-robot-11.svg" class="part11">
+                        <img src="{{asset('assets/images/home-robot-1.svg')}}" class="part1">
+                        <img src="{{asset('assets/images/home-robot-2.svg')}}" class="part2">
+                        <img src="{{asset('assets/images/home-robot-3.svg')}}" class="part3">
+                        <img src="{{asset('assets/images/home-robot-4.svg')}}" class="part4">
+                        <img src="{{asset('assets/images/home-robot-5.svg')}}" class="part5">
+                        <img src="{{asset('assets/images/home-robot-6.svg')}}" class="part6">
+                        <img src="{{asset('assets/images/home-robot-7.svg')}}" class="part7">
+                        <img src="{{asset('assets/images/home-robot-8.svg')}}" class="part8">
+                        <img src="{{asset('assets/images/home-robot-9.svg')}}" class="part9">
+                        <img src="{{asset('assets/images/home-robot-10.svg')}}" class="part10">
+                        <img src="{{asset('assets/images/home-robot-11.svg')}}" class="part11">
                         <!-- <img src="assets/images/integrated.svg" class="integrated"> -->
                         <!-- <div class="robot">
                             <img src="assets/images/home-robot.png" class="parent" >
@@ -258,3 +258,9 @@
     </section>
     <!--/. Partners  -->
 @endsection
+@section('scripts')
+    @if(session()->has('message'))
+
+    @endif
+@endsection
+

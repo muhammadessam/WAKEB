@@ -51,25 +51,26 @@
                         <h3 class="color font-weight-bold d-inline-block">Get In Touch</h3>
                     </div>
                     <div class="row">
-                        <form action="#" class="col-lg-8 offset-lg-2">
+                        <form action="{{route('contactUs')}}" method="post" class="col-lg-8 offset-lg-2">
+                            @csrf
                             <div class="form-group">
                                 <label for="name">Name</label>
                                 <input type="text" class="form-control" id="name" aria-describedby="nameHelp"
-                                       placeholder="">
+                                       placeholder="" name="name">
                             </div>
                             <div class="form-group">
                                 <label for="email">Email Address</label>
                                 <input type="email" class="form-control" id="email" aria-describedby="emailHelp"
-                                       placeholder="">
+                                       placeholder="" name="email">
                             </div>
                             <div class="form-group">
                                 <label for="phone">Phone</label>
                                 <input type="number" class="form-control" id="phone" aria-describedby="nameHelp"
-                                       placeholder="">
+                                       placeholder="" name="phone">
                             </div>
                             <div class="form-group">
                                 <label for="message">Message</label>
-                                <textarea class="form-control" id="message" rows="4"></textarea>
+                                <textarea class="form-control" id="message" rows="4" name="message"></textarea>
                             </div>
                             <button type="submit" class="btn  btn-lg btn-block send">Send Message</button>
                         </form>
