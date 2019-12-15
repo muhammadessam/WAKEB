@@ -54,9 +54,9 @@
                                             <td>{{$key + 1}}</td>
                                             <td class="sorting_1">{{$message->name}}</td>
                                             <td>{{$message->phone}}</td>
-                                            <td>{{$message->phone}}</td>
+                                            <td>{{$message->read ?"Read":'Not Read'}}</td>
                                             <td>
-                                                <a href="{{route('showSingleProduct', $message)}}"
+                                                <a href="{{route('showSingleMessage', $message)}}"
                                                    class="mb-1 glyphicon glyphicon-eye-open btn btn-primary"
                                                    data-toggle="tooltip"
                                                    data-placement="top" title="مشاهدة"></a>
