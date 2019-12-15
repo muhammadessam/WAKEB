@@ -2,7 +2,7 @@
 @section('content')
     <div class="box">
         <div class="box-header with-border">
-            <h3 class="box-title">{{trans('products.productsShowAll')}}</h3>
+            <h3 class="box-title">{{trans('Show All')}}</h3>
 
             <div class="box-tools pull-right">
                 <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title=""
@@ -27,58 +27,50 @@
                                        aria-describedby="example2_info">
                                     <thead>
                                     <tr role="row">
-                                        <th>#id</th>
-                                        <th>{{trans('products.productImage')}}</th>
+                                        <th>{{trans('ID')}}</th>
                                         <th class="sorting_asc" tabindex="0" aria-controls="example2" rowspan="1"
                                             colspan="1"
                                             aria-sort="ascending"
-                                            aria-label="Rendering engine: activate to sort column descending">{{trans('products.productName')}}
+                                            aria-label="Rendering engine: activate to sort column descending">{{trans('Name')}}
                                         </th>
                                         <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1"
                                             colspan="1"
-                                            aria-label="Browser: activate to sort column ascending">{{trans('products.productDescription')}}
+                                            aria-label="Browser: activate to sort column ascending">{{trans('Phone')}}
                                         </th>
                                         <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1"
                                             colspan="1"
-                                            aria-label="Platform(s): activate to sort column ascending">{{trans('products.action')}}
+                                            aria-label="Browser: activate to sort column ascending">{{trans('Status')}}
+                                        </th>
+                                        <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1"
+                                            colspan="1"
+                                            aria-label="Platform(s): activate to sort column ascending">{{trans('Action')}}
                                         </th>
 
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    @foreach($products as $key => $product)
+                                    @foreach($messages as $key => $message)
                                         <tr role="row" class="odd">
                                             <td>{{$key + 1}}</td>
-                                            <td><img style="width: 30px;height: 30px;"
-                                                     src="{{asset($product->img_url)}}" alt=""></td>
-                                            <td class="sorting_1">{{$product->product_trans_lang[0]->name}}</td>
-                                            <td>{{$product->product_trans_lang[0]->description}}</td>
+                                            <td class="sorting_1">{{$message->name}}</td>
+                                            <td>{{$message->phone}}</td>
+                                            <td>{{$message->phone}}</td>
                                             <td>
-                                                <a href="{{route('showSingleProduct', $product)}}"
+                                                <a href="{{route('showSingleProduct', $message)}}"
                                                    class="mb-1 glyphicon glyphicon-eye-open btn btn-primary"
                                                    data-toggle="tooltip"
                                                    data-placement="top" title="مشاهدة"></a>
-                                                <a href="{{route('productEditView', $product)}}"
-                                                   class="mb-1 glyphicon glyphicon-pencil btn btn-primary"
-                                                   data-toggle="tooltip"
-                                                   data-placement="top" title="تعديل"></a>
-                                                <button onclick="softDeleteProducts({{$product->id}})"
-                                                        class="glyphicon glyphicon-remove btn btn-warning"
-                                                        data-toggle="tooltip"
-                                                        data-placement="top" title="حذف"
-                                                        data-id="{{$product->id}}"
-                                                        id="{{$product->id}}"></button>
                                             </td>
                                         </tr>
                                     @endforeach
                                     </tbody>
                                     <tfoot>
                                     <tr>
-                                        <th>#id</th>
-                                        <th>{{trans('products.productImage')}}</th>
-                                        <th rowspan="1" colspan="1">{{trans('products.productName')}}</th>
-                                        <th rowspan="1" colspan="1">{{trans('products.productDescription')}}</th>
-                                        <th rowspan="1" colspan="1">{{trans('products.action')}}</th>
+                                        <th>{{trans('ID')}}</th>
+                                        <th>{{trans('Name')}}</th>
+                                        <th rowspan="1" colspan="1">{{trans('Phone')}}</th>
+                                        <th rowspan="1" colspan="1">{{trans('Status')}}</th>
+                                        <th rowspan="1" colspan="1">{{trans('Action')}}</th>
                                     </tr>
                                     </tfoot>
                                 </table>
@@ -106,43 +98,4 @@
         })
     </script>
 
-    <script>
-        function softDeleteProducts(id) {
-            Swal.fire({
-                title: 'Delete Type',
-                icon: 'warning',
-                showCancelButton: true,
-                confirmButtonText: 'Delete',
-                preConfirm: () => {
-                    axios({
-                        method: 'delete',
-                        url: "{{route('deleteProduct')}}",
-                        data: {
-                            id: id,
-                            _token: "{{csrf_token()}}",
-                        }
-                    }).then((res) => {
-                        console.log(res.data);
-                        $('#' + id).parent().parent().remove();
-                        const Toast = Swal.mixin({
-                            toast: true,
-                            position: 'top-end',
-                            showConfirmButton: false,
-                            timer: 3000,
-                            timerProgressBar: true,
-                            onOpen: (toast) => {
-                                toast.addEventListener('mouseenter', Swal.stopTimer)
-                                toast.addEventListener('mouseleave', Swal.resumeTimer)
-                            }
-                        })
-
-                        Toast.fire({
-                            icon: 'success',
-                            title: '{{trans('products.productDoneRemoving')}}'
-                        })
-                    });
-                }
-            })
-        }
-    </script>
 @endsection

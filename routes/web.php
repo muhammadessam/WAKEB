@@ -26,5 +26,6 @@ Route::group(['middleware' => 'auth', 'prefix' => '/admin'], function () {
     require_once 'Solutions/solutions.php';
     require_once 'Usecases/useCases.php';
     require_once 'Sliders/slider.php';
+    require_once 'contact/contact.php';
 
 });

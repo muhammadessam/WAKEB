@@ -17,5 +17,7 @@
     "Removed": "المحذوف",
     "Successfully Removed": "تم الحذف بنجاح",
     "Successfully Added": "تم الاضافة بنجاح",
-    "Message Received Successfully": "تم وصل الرسالة بنجاح"
+    "Message Received Successfully": "تم وصل الرسالة بنجاح",
+    "Status": "الحالة",
+    "Phone": "الهاتف"
 }

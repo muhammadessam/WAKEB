@@ -13,4 +13,9 @@ class ContactController extends Controller
         ContactUs::create($request->all());
         return redirect()->back()->with(['message' => 'success']);
     }
+
+    public function show(){
+        $messages = ContactUs::all();
+        return view('admin.contact.index', compact('messages'));
+    }
 }
