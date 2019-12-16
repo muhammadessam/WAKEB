@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use Illuminate\Support\Facades\Artisan;
 
 Auth::routes();
 Route::get('lang/{locale}', 'LangController@lang')->name('changeLang');
@@ -16,7 +16,9 @@ Route::get('/allProduct', 'HomeController@showProducts')->name('showAllProductsF
 Route::get('/allServices', 'HomeController@showServices')->name('showAllServicesFront');
 Route::get('/allSolutions', 'HomeController@showSolutions')->name('showAllSolutionsFront');
 Route::post('/contactUS', 'ContactController@contact')->name('contactUs');
-
+Route::get('/migrate', function () {
+    Artisan::call('migrate');
+});
 Route::group(['middleware' => 'auth', 'prefix' => '/admin'], function () {
 
     require_once 'Users/users.php';
