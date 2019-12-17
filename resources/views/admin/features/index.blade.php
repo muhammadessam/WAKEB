@@ -55,12 +55,12 @@
                                     @foreach($features as $key=>$feature)
                                         <tr role="row" class="odd">
                                             <td>{{$key + 1}}</td>
-                                            <td>{{$feature->feature_trans_lang[0]->name}}</td>
-                                            <td>{{$feature->feature_trans_lang[0]->description}}</td>
+                                            <td>{{$feature->feature_trans_lang->name}}</td>
+                                            <td>{{$feature->feature_trans_lang->description}}</td>
                                             @if($feature->featurable->product_trans_lang)
-                                                <td>{{$feature->featurable->product_trans_lang[0]->name}}</td>
+                                                <td>{{$feature->featurable->product_trans_lang->name}}</td>
                                             @else
-                                                <td>{{$feature->featurable->service_trans_lang[0]->name}}</td>
+                                                <td>{{$feature->featurable->service_trans_lang->name}}</td>
                                             @endif
                                             <td>
                                                 <a href="{{route('showEditForm', $feature)}}"

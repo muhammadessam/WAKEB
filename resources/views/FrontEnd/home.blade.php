@@ -66,15 +66,15 @@
                 <div class="regular slider mt-5">
                     @foreach($services as $service)
                         <div>
-                            <a href="service-1.html"><h1>{{$service->service_trans_lang[0]->name}}</h1></a>
+                            <a href="service-1.html"><h1>{{$service->service_trans_lang->name}}</h1></a>
                             <div class="service">
                                 <img src="{{asset($service->img_url)}}">
                                 <div class="overlay ">
                                     <p>
-                                        {{$service->service_trans_lang[0]->description}}
+                                        {{Str::words($service->service_trans_lang->description, 10, '....')}}
                                     </p>
                                     <div>
-                                        <a href="service-1.html">
+                                        <a href="{{route('showServiceFront', $service)}}">
                                             <span class="mr-1">MORE</span>
                                             <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
                                         </a>
@@ -147,11 +147,11 @@
                                 <span class="line"></span>
                             </div>
                             <div class="caption">
-                                <h3>{{$product->product_trans_lang[0]->name}}</h3>
+                                <h3>{{$product->product_trans_lang->name}}</h3>
                                 <p>
-                                    {{$product->product_trans_lang[0]->description}}
+                                    {{Str::words($product->product_trans_lang->description, 10, '....')}}
                                 </p>
-                                <a href="product-1.html">
+                                <a href="{{route('showProductFront', $product)}}">
                                     <span class="mr-1">MORE</span>
                                     <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
                                 </a>
@@ -186,25 +186,25 @@
             <div class="row">
                 <div class="col-lg-10 offset-lg-1 partener slider animated wow fadeInUp" style="animation-delay:0.25s">
                     <div>
-                        <img src="assets/images/p1.svg" style="fill: #000;">
+                        <img src="{{asset('assets/images/p1.svg')}}" style="fill: #000;">
                     </div>
                     <div>
-                        <img src="assets/images/p2.svg">
+                        <img src="{{asset('assets/images/p2.svg')}}">
                     </div>
                     <div>
-                        <img src="assets/images/p3.svg">
+                        <img src="{{asset('assets/images/p3.svg')}}">
                     </div>
                     <div>
-                        <img src="assets/images/p4.svg">
+                        <img src="{{asset('assets/images/p4.svg')}}">
                     </div>
                     <div>
-                        <img src="assets/images/p5.svg">
+                        <img src="{{asset('assets/images/p5.svg')}}">
                     </div>
                     <div>
-                        <img src="assets/images/p6.png">
+                        <img src="{{asset('assets/images/p6.png')}}">
                     </div>
                     <div>
-                        <img src="assets/images/p7.svg">
+                        <img src="{{asset('assets/images/p7.svg')}}">
                     </div>
                 </div>
             </div>
@@ -229,19 +229,19 @@
             <div class=" animated wow fadeInUp" style="animation-delay:0.25s">
                 <div class="client slider col-lg-6  offset-lg-3 col-md-8 offset-md-2">
                     <div>
-                        <img src="assets/images/c1.jpg">
+                        <img src="{{asset('assets/images/c1.jpg')}}">
                     </div>
                     <div>
-                        <img src="assets/images/c2.jpg">
+                        <img src="{{asset('assets/images/c2.jpg')}}">
                     </div>
                     <div>
-                        <img src="assets/images/c6.jpg">
+                        <img src="{{asset('assets/images/c6.jpg')}}">
                     </div>
                     <div>
-                        <img src="assets/images/c3.jpg">
+                        <img src="{{asset('assets/images/c3.jpg')}}">
                     </div>
                     <div>
-                        <img src="assets/images/c5.jpg">
+                        <img src="{{asset('assets/images/c5.jpg')}}">
                     </div>
                     <div>
                         <img src="assets/images/c4.jpg">

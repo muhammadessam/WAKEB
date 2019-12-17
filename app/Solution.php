@@ -20,7 +20,7 @@ class Solution extends Model
     public function trans_lang()
     {
         $lang_id = Lang::all()->where('lang', session()->get('locale'))->first()->id;
-        return $this->hasMany(Solution_trans::class, 'solution_id', 'id')->where('lang_id', $lang_id);
+        return $this->hasOne(Solution_trans::class, 'solution_id', 'id')->where('lang_id', $lang_id);
     }
 
     public function useCases(){

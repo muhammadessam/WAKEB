@@ -6,8 +6,8 @@
                 <div class="container sec-pt">
                     <div class="row flex-reverse">
                         <div class="col-md-6">
-                            <h3 class="title mb-5">{{$product->product_trans_lang[0]->name}}<span></span></h3>
-                            <p class="mt-3">{!! $product->product_trans_lang[0]->description !!}</p>
+                            <h3 class="title mb-5">{{$product->product_trans_lang->name}}<span></span></h3>
+                            <p class="mt-3">{!! $product->product_trans_lang->description !!}</p>
                             <a href="#" type="text" class="btn  btn-lg  send px-5 mt-5">Try it now</a>
                         </div>
                         <div class="col-md-6 col-lg-5 offset-lg-1">
@@ -92,15 +92,15 @@
                 <div class="row mt-5">
                     <div class="col-md-6">
                         <h3 class="font-weight-bold text-uppercase mb-5">{{trans('About')}}</h3>
-                        <p class="mb-5">{!!$product->product_trans_lang[0]->description!!}</p>
+                        <p class="mb-5">{!!$product->product_trans_lang->description!!}</p>
 
                     </div>
                     <div class="col-md-6 col-lg-5 offset-lg-1">
                         <h3 class="font-weight-bold text-uppercase mb-5">{{trans('features.features')}}</h3>
                         @foreach($product->features as $feature)
                             <div class="mb-4">
-                                <h3 class="side-title font-weight-bold">{{$feature->feature_trans_lang[0]->name}}</h3>
-                                <p>{!!$feature->feature_trans_lang[0]->description!!}</p>
+                                <h3 class="side-title font-weight-bold">{{$feature->feature_trans_lang->name}}</h3>
+                                <p>{!!$feature->feature_trans_lang->description!!}</p>
                             </div>
                         @endforeach
                     </div>

@@ -48,8 +48,8 @@
                                     @foreach($features as $key => $feature)
                                         <tr role="row" class="odd">
                                             <td>{{$key + 1}}</td>
-                                            <td class="sorting_1">{{$feature->feature_trans_lang[0]->name}}</td>
-                                            <td>{{$feature->feature_trans_lang[0]->description}}</td>
+                                            <td class="sorting_1">{{$feature->feature_trans_lang->name}}</td>
+                                            <td>{{$feature->feature_trans_lang->description}}</td>
                                             <td>
                                                 <button class="btn btn-primary glyphicon glyphicon-ok"
                                                         data-toggle="tooltip"

@@ -4,7 +4,7 @@
         <div class="container mt-lg">
             <div class="row mb-5">
                 <div class="col-sm-12 text-center">
-                    <div class="title">{{$service->service_trans_lang[0]->name}}</div>
+                    <div class="title">{{$service->service_trans_lang->name}}</div>
                 </div>
             </div>
         </div>
@@ -16,7 +16,7 @@
                     </div>
                     <div class="media-body">
                         <h3 class="mt-0 font-weight-bold text-uppercase">{{trans('About')}}</h3>
-                        <p>{!!$service->service_trans_lang[0]->description!!}</p>
+                        <p>{!!$service->service_trans_lang->description!!}</p>
                     </div>
                 </div>
             </div>
@@ -27,8 +27,8 @@
                 <div class="row">
                     @foreach($service->features as $feature)
                         <div class="col-md-6 mb-5">
-                            <h3 class="side-title font-weight-bold">{{$feature->feature_trans_lang[0]->name}}</h3>
-                            <p>{!! $feature->feature_trans_lang[0]->description  !!}</p>
+                            <h3 class="side-title font-weight-bold">{{$feature->feature_trans_lang->name}}</h3>
+                            <p>{!! $feature->feature_trans_lang->description  !!}</p>
                         </div>
                     @endforeach
                 </div>

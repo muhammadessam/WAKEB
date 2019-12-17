@@ -53,7 +53,7 @@
                                     style="width: 100%;" tabindex="-1" aria-hidden="true">
                                 <option disabled selected>{{trans('features.product')}}</option>
                                 @foreach($products as $product)
-                                    <option value="{{$product->id}}">{{$product->product_trans_lang[0]->name}}</option>
+                                    <option value="{{$product->id}}">{{$product->product_trans_lang->name}}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -63,7 +63,7 @@
                                     style="width: 100%;" tabindex="-1" aria-hidden="true">
                                 <option disabled selected>{{trans('features.service')}}</option>
                                 @foreach($services as $service)
-                                    <option value="{{$service->id}}">{{$service->service_trans_lang[0]->name}}</option>
+                                    <option value="{{$service->id}}">{{$service->service_trans_lang->name}}</option>
                                 @endforeach
                             </select>
                         </div>

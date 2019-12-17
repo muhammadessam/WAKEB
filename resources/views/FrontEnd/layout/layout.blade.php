@@ -75,7 +75,7 @@
                         <ul class="sub-menu">
                             @foreach($products as $product)
                                 <li>
-                                    <a href="{{route('showProductFront', $product)}}">{{$product->product_trans_lang[0]->name}}</a>
+                                    <a href="{{route('showProductFront', $product)}}">{{$product->product_trans_lang->name}}</a>
                                 </li>
                             @endforeach
                         </ul>
@@ -85,7 +85,7 @@
                         <ul class="sub-menu">
                             @foreach($services as $service)
                                 <li>
-                                    <a href="{{route('showServiceFront', $service)}}">{{$service->service_trans_lang[0]->name}}</a>
+                                    <a href="{{route('showServiceFront', $service)}}">{{$service->service_trans_lang->name}}</a>
                                 </li>
                             @endforeach
                         </ul>
@@ -95,7 +95,7 @@
                         <ul class="sub-menu">
                             @foreach($solutions as $solution)
                                 <li>
-                                    <a href="{{route('showSolutionFront', $solution)}}">{{$solution->trans_lang[0]->name}}</a>
+                                    <a href="{{route('showSolutionFront', $solution)}}">{{$solution->trans_lang->name}}</a>
                                 </li>
                             @endforeach
                         </ul>

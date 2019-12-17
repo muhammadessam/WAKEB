@@ -8,9 +8,9 @@
                 <img class="img-responsive img-circle" style="margin: 0 auto; width: 100px;height: 100px;"
                      src="{{asset($service->img_url)}}" alt="User profile picture">
 
-                <h3 class="profile-username text-center">{{$service->service_trans_lang[0]->name}}</h3>
+                <h3 class="profile-username text-center">{{$service->service_trans_lang->name}}</h3>
 
-                <p class="text-muted text-center">{{$service->service_trans_lang[0]->description}}</p>
+                <p class="text-muted text-center">{{$service->service_trans_lang->description}}</p>
 
                 <ul class="list-group list-group-unbordered">
                     @foreach($service->features as $feature)

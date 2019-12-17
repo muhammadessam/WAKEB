@@ -32,8 +32,8 @@ class Product extends Model
 
     public function product_trans_lang()
     {
-        $lang_id = Lang::all()->where('lang', session()->get('locale'))->first()->id;
-        return $this->hasMany(Product_trans::class, 'type_id', 'id')->where('lang_id', $lang_id);
+        $lang_id = Lang::where('lang', session()->get('locale'))->first()->id;
+        return $this->hasOne(Product_trans::class, 'type_id', 'id')->where('lang_id', $lang_id);
     }
 
     public function features()
