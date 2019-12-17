@@ -17,7 +17,7 @@
                         <li class="list-group-item">
                             <div class="row">
                                 <div class="col-md-6">
-                                    <b>{{$feature->feature_trans_lang[0]->name}}</b>
+                                    <b>{{$feature->feature_trans_lang->name}}</b>
                                 </div>
                                 <div class="col-md-6">
                                     <button class="btn btn-primary glyphicon glyphicon-remove">

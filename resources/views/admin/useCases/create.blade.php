@@ -89,7 +89,7 @@
                                     style="width: 100%;" tabindex="-1" aria-hidden="true">
                                 <option disabled selected>{{trans('usecases.solution')}}</option>
                                 @foreach($solutions as $solution)
-                                    <option value="{{$solution->id}}">{{$solution->trans_lang[0]->name}}</option>
+                                    <option value="{{$solution->id}}">{{$solution->trans_lang->name}}</option>
                                 @endforeach
                             </select>
                         </div>
