@@ -8,7 +8,7 @@
                         <div class="col-md-6">
                             <h3 class="title mb-5">{{$product->product_trans_lang->name}}<span></span></h3>
                             <p class="mt-3">{!! $product->product_trans_lang->description !!}</p>
-                            <a href="#" type="text" class="btn  btn-lg  send px-5 mt-5">Try it now</a>
+                            <a href="#" type="text" class="btn  btn-lg  send px-5 mt-5">{{trans('Try it now')}}</a>
                         </div>
                         <div class="col-md-6 col-lg-5 offset-lg-1">
                             <div class=" mb-5 twittelab-animate">
