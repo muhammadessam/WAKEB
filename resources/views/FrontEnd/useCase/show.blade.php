@@ -22,13 +22,13 @@
                 <div class="col-lg-10 offset-lg-1">
                     <div class="row my-5">
                         <div class="col-md-6 ">
-                            <h3 class="font-weight-bold text-uppercase">challenges</h3>
+                            <h3 class="font-weight-bold text-uppercase">{{trans('usecases.challenges')}}</h3>
                             <p class="mb-5">{{$useCase->trans_lang->challenges}}</p>
-                            <h3 class="font-weight-bold text-uppercase">WHY WAKEB</h3>
+                            <h3 class="font-weight-bold text-uppercase">{{trans('usecases.whyWakeb')}}</h3>
                             <p class="mb-5">{{$useCase->trans_lang->why_wakeb}}</p>
                         </div>
                         <div class="col-md-6">
-                            <h3 class="font-weight-bold text-uppercase">OPPORTUNITY</h3>
+                            <h3 class="font-weight-bold text-uppercase">{{trans('usecases.opportunities')}}</h3>
                             <p class="mb-5">{{$useCase->trans_lang->opportunities}}</p>
                         </div>
                     </div>

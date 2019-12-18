@@ -56,8 +56,7 @@
                 </div>
                 <div class="col-lg-6 col-md-8  offset-md-2  offset-lg-3">
                     <p class="title-p animated wow fadeInUp" style="animation-delay:0.25s">
-                        Lorem ipsum dolor sit amet, consetetur sadipscing elitr,
-                        sed diam nonumy eirmod tempor invidunt ut labore et dolore
+
                     </p>
                 </div>
             </div>
@@ -66,16 +65,18 @@
                 <div class="regular slider mt-5">
                     @foreach($services as $service)
                         <div>
-                            <a href="service-1.html"><h1>{{$service->service_trans_lang->name}}</h1></a>
+                            <a href="{{route('showServiceFront', $service)}}">
+                                <h1>{{$service->service_trans_lang->name}}</h1></a>
                             <div class="service">
-                                <img src="{{asset($service->img_url)}}">
+                                <a href="{{route('showServiceFront', $service)}}"><img
+                                        src="{{asset($service->img_url)}}"></a>
                                 <div class="overlay ">
                                     <p>
                                         {{Str::words($service->service_trans_lang->description, 10, '....')}}
                                     </p>
                                     <div>
                                         <a href="{{route('showServiceFront', $service)}}">
-                                            <span class="mr-1">MORE</span>
+                                            <span class="mr-1">{{trans('MORE')}}</span>
                                             <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
                                         </a>
                                     </div>
@@ -94,11 +95,12 @@
         <div class="container">
             <div class="row sec-title text-center ">
                 <div class="col-lg-12">
-                    <h3 class="title fadeInUp animated wow " style="animation-delay: 0.25s">How we work</h3>
+                    <h3 class="title fadeInUp animated wow "
+                        style="animation-delay: 0.25s">{{trans('How we work')}}</h3>
                 </div>
                 <div class="col-lg-6 col-md-8  offset-md-2  offset-lg-3">
                     <p class="title-p animated wow fadeInUp" style="animation-delay: 0.25s">
-                        Lorem ipsum dolor sit amet, consetetur sadipscing elitr
+
                     </p>
                 </div>
             </div>
@@ -133,8 +135,7 @@
                 </div>
                 <div class="col-lg-6 col-md-8  offset-md-2  offset-lg-3">
                     <p class="title-p animated wow fadeInUp" style="animation-delay:0.25s">
-                        Lorem ipsum dolor sit amet, consetetur sadipscing elitr,
-                        sed diam nonumy eirmod tempor invidunt ut
+
                     </p>
                 </div>
             </div>
@@ -143,16 +144,18 @@
                     @foreach($products as $product)
                         <div>
                             <div class="img-div">
-                                <img src="{{asset($product->img_url)}}">
+                                <a href="{{route('showProductFront', $product)}}"><img
+                                        src="{{asset($product->img_url)}}"></a>
                                 <span class="line"></span>
                             </div>
                             <div class="caption">
-                                <h3>{{$product->product_trans_lang->name}}</h3>
+                                <a href="{{route('showProductFront', $product)}}">
+                                    <h3>{{$product->product_trans_lang->name}}</h3></a>
                                 <p>
                                     {{Str::words($product->product_trans_lang->description, 10, '....')}}
                                 </p>
                                 <a href="{{route('showProductFront', $product)}}">
-                                    <span class="mr-1">MORE</span>
+                                    <span class="mr-1">{{trans('MORE')}}</span>
                                     <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
                                 </a>
                             </div>
@@ -161,7 +164,9 @@
                 </div>
                 <div class="slider slider-nav">
                     @foreach($products as $product)
-                        <div><img src="{{asset($product->img_url)}}"></div>
+                        <a href="{{route('showProductFront', $product)}}">
+                            <div><img src="{{asset($product->img_url)}}"></div>
+                        </a>
                     @endforeach
                 </div>
             </div>
@@ -174,12 +179,11 @@
         <div class="container">
             <div class="row sec-title text-center ">
                 <div class="col-lg-12">
-                    <h3 class="title animated wow fadeInUp" style="animation-delay:0.25s">Partners</h3>
+                    <h3 class="title animated wow fadeInUp" style="animation-delay:0.25s">{{trans('Partners')}}</h3>
                 </div>
                 <div class="col-lg-6 col-md-8  offset-md-2  offset-lg-3">
                     <p class="title-p animated wow fadeInUp" style="animation-delay:0.25s">
-                        Lorem ipsum dolor sit amet, consetetur sadipscing elitr,
-                        sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
+
                     </p>
                 </div>
             </div>
@@ -217,12 +221,11 @@
         <div class="container">
             <div class=" sec-title text-center ">
                 <div class="col-lg-12">
-                    <h3 class="title animated wow fadeInUp" style="animation-delay:0.25s">Clients</h3>
+                    <h3 class="title animated wow fadeInUp" style="animation-delay:0.25s">{{trans('Clients')}}</h3>
                 </div>
                 <div class="col-lg-6  offset-lg-3 col-md-8  offset-md-2">
                     <p class="title-p animated wow fadeInUp" style="animation-delay:0.25s">
-                        Lorem ipsum dolor sit amet, consetetur sadipscing elitr,
-                        sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
+
                     </p>
                 </div>
             </div>
