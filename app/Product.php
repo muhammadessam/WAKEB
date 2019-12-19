@@ -14,7 +14,7 @@ class Product extends Model
 
     protected $table = 'types';
 
-    protected $with = ['product_trans_lang', 'product_trans'];
+    protected $with = ['product_trans_lang', 'product_trans','svgs'];
 
     protected $fillable = ['img_url', 'user_id', 'type'];
 
@@ -39,6 +39,11 @@ class Product extends Model
     public function features()
     {
         return $this->morphMany(Feature::class, 'featurable');
+    }
+
+    public function svgs()
+    {
+        return $this->hasMany(SVGS::class, 'product_id', 'id');
     }
 
 

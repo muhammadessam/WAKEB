@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
+
 Route::prefix('/products')->group(function () {
 
     Route::get('/', 'ProductController@index')->name('showAllProducts');
@@ -12,5 +14,5 @@ Route::prefix('/products')->group(function () {
     Route::post('/restore', 'ProductController@restoreProduct')->name('restoreProduct');
     Route::delete('/delete/foreDelete', 'ProductController@forceDelete')->name('productForceDelete');
     Route::get('/{product}/show', 'ProductController@show')->name('showSingleProduct');
-
+    Route::post('{product}/uploadProductSVG', 'ProductController@uploadSVG')->name('uploadSVG');
 });

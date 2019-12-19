@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
 
     <link rel="stylesheet" href="{{asset('bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{asset('css/dropzone.min.css')}}">
     <!-- Theme style -->
     @php $locale = session()->get('locale'); @endphp
     @switch($locale)
@@ -497,6 +498,7 @@
 <!-- AdminLTE for demo purposes -->
 <script src="{{asset('js/demo.js')}}"></script>
 <script src="{{asset('js/sweetalert.js')}}"></script>
+<script src="{{asset('js/dropzone.min.js')}}"></script>
 <script src="{{asset('js/axios.min.js')}}"></script>
 @yield('scripts')
 </body>

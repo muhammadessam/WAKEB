@@ -28,9 +28,13 @@
                     @endforeach
                 </ul>
             </div>
-            <!-- /.box-body -->
+            <form action="{{route('uploadSVG', $product)}}"
+                  class="dropzone"
+                  id="my-awesome-dropzone">@csrf</form>
         </div>
-        <!-- /.box -->
     </div>
+@endsection
+
+@section('scripts')
 
 @endsection
