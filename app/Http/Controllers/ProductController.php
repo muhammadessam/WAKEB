@@ -107,13 +107,13 @@ class ProductController extends Controller
         return view('admin.products.show', compact('product'));
     }
 
-    public function uploadSVG(Product $product, Request $request)
-    {
-        $name = time() . $request->file('file')->getClientOriginalName();
-        $request->file('file')->move('products/svg/' . $product->id . '/', $name);
-        $path = '/products/svg/' . $product->id . '/' . $name;
-        $product->svgs()->create([
-            'img_url' => $path
-        ]);
-    }
+//    public function uploadSVG(Product $product, Request $request)
+//    {
+//        $name = time() . $request->file('file')->getClientOriginalName();
+//        $request->file('file')->move('products/svg/' . $product->id . '/', $name);
+//        $path = '/products/svg/' . $product->id . '/' . $name;
+//        $product->svgs()->create([
+//            'img_url' => $path
+//        ]);
+//    }
 }

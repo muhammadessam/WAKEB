@@ -20,21 +20,20 @@
                                     <b>{{$feature->feature_trans_lang->name}}</b>
                                 </div>
                                 <div class="col-md-6">
-                                    <button class="btn btn-primary glyphicon glyphicon-remove">
-                                    </button>
+                                    <form action="{{route('deleteFeature')}}" method="post">
+                                        @csrf
+                                        @method('delete')
+                                        <input type="hidden" name="id" id="" value="{{$feature->id}}">
+                                        <button type="submit" class="btn btn-primary glyphicon glyphicon-remove">
+                                        </button>
+                                    </form>
                                 </div>
                             </div>
                         </li>
                     @endforeach
                 </ul>
             </div>
-            <form action="{{route('uploadSVG', $product)}}"
-                  class="dropzone"
-                  id="my-awesome-dropzone">@csrf</form>
+
         </div>
     </div>
-@endsection
-
-@section('scripts')
-
 @endsection
