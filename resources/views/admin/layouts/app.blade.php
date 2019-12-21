@@ -267,8 +267,13 @@
                     <ul class="treeview-menu">
                         <li class="{{Request::path()=='admin/contact' ? "active":''}}"><a
                                 href="{{route('contactShowAll')}}">{{trans('contactUs.Messages')}}</a></li>
-
                     </ul>
+                </li>
+                <li class="{{request()->is('admin/contact*') ? "active":''}}">
+                    <a href="{{route('getAboutEditPage')}}">
+                        <i class="fa fa-dashboard"></i> <span>{{trans('About')}}</span> <i
+                            class="fa fa-angle-left pull-left"></i>
+                    </a>
                 </li>
 
             </ul>

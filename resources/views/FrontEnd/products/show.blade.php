@@ -11,24 +11,32 @@
                             <a href="#" type="text" class="btn  btn-lg  send px-5 mt-5">{{trans('Try it now')}}</a>
                         </div>
                         <div class="col-md-6 col-lg-5 offset-lg-1">
-                                @if($product->id==1)
-                                    @include('FrontEnd.products.twittelab')
-                                @endif
-                                @if($product->id==2)
-                                    @include('FrontEnd.products.mujib')
-                                @endif
-                                @if($product->id==9)
-                                    @include('FrontEnd.products.msbar')
-                                @endif
-                                @if($product->id==10)
-                                    @include('FrontEnd.products.nasih')
-                                @endif
-                                @if($product->id ==11)
-                                    @include('FrontEnd.products.preanalysis')
-                                @endif
-                                @if($product->id==12)
-                                    @include('FrontEnd.products.imganalysis')
-                                @endif
+                            @if($product->id==1)
+                                @include('FrontEnd.products.twittelab')
+                            @endif
+                            @if($product->id==2)
+                                @include('FrontEnd.products.mujib')
+                            @endif
+                            @if($product->id==9)
+                                @include('FrontEnd.products.msbar')
+                            @endif
+                            @if($product->id==10)
+                                @include('FrontEnd.products.nasih')
+                            @endif
+                            @if($product->id ==11)
+                                @include('FrontEnd.products.preanalysis')
+                            @endif
+                            @if($product->id==12)
+                                @include('FrontEnd.products.imganalysis')
+                            @endif
+                            @if($product->id==13)
+                                @include('FrontEnd.products.rasad')
+                            @endif
+                            @if($product->id==14)
+                                @include('FrontEnd.products.IPMS')
+                            @endif
+
+
                         </div>
                     </div>
 

@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\About;
+use App\Lang;
 use App\Product;
 use App\Service;
 use App\Slider;
@@ -26,7 +28,9 @@ class HomeController extends Controller
         $products = Product::all();
         $services = Service::all();
         $solutions = Solution::all();
-        return view('FrontEnd.about', compact(['products', 'services', 'solutions']));
+        $lang_id = Lang::where('lang', session()->get('locale'))->first()->id;
+        $about = About::all()->where('lang_id', $lang_id);
+        return view('FrontEnd.about', compact(['about', 'products', 'services', 'solutions']));
     }
 
     public function contact()
