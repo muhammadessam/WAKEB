@@ -23,9 +23,9 @@
                                     <img src="{{$product->img_url}}" class="card-img-top">
                                     <div class="card-body">
                                         <h3 class="card-title font-weight-bold">
-                                            <a href="{{route('showProductFront', $product)}}">{{$product->product_trans_lang[0]->name}}</a>
+                                            <a href="{{route('showProductFront', $product)}}">{{$product->product_trans_lang->name}}</a>
                                         </h3>
-                                        <p class="card-text">{{Str::limit($product->product_trans_lang[0]->description, 30, ' (...)')}}</p>
+                                        <p class="card-text">{{Str::limit($product->product_trans_lang->description, 30, ' (...)')}}</p>
                                         <div class="  d-flex flex-row-reverse">
                                             <a href="product-1.html" class="more">
                                                 <i class="fa fa-long-arrow-right"></i>

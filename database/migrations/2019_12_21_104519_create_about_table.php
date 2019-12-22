@@ -15,11 +15,11 @@ class CreateAboutTable extends Migration
     {
         Schema::create('about', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->text('title');
-            $table->longText('about_us');
-            $table->longText('our_goals');
-            $table->longText('vision');
-            $table->longText('how_we_work');
+            $table->text('title')->nullable();
+            $table->longText('about_us')->nullable();
+            $table->longText('our_goals')->nullable();
+            $table->longText('vision')->nullable();
+            $table->longText('how_we_work')->nullable();
             $table->unsignedBigInteger('lang_id');
             $table->foreign('lang_id')->references('id')->on('langs')->onDelete('cascade');
             $table->timestamps();
