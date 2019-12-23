@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Str;
 
 class UseCase extends Model
 {
@@ -11,7 +12,9 @@ class UseCase extends Model
     protected $table = 'use_cases';
     protected $fillable = ['img_url', 'user_id','solution_id'];
     protected $with = ['trans', 'trans_lang'];
-
+    public function path(){
+        return url("/useCases/{$this->id}".Str::slug($this->trans_lang->name));
+    }
 
     public function trans()
     {

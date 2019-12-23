@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Facades\App;
+use Illuminate\Support\Str;
 
 class Service extends Model
 {
@@ -13,6 +14,11 @@ class Service extends Model
     protected $table = 'types';
     protected $fillable = ['img_url', 'user_id', 'type'];
     protected $with = ['service_trans','service_trans_lang'];
+
+
+    public function path(){
+        return url("/services/{$this->id}".Str::slug($this->service_trans_lang->name));
+    }
 
     public static function all($columns = ['*'])
     {

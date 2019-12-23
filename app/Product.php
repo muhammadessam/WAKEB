@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
 
 class Product extends Model
 {
@@ -19,6 +20,11 @@ class Product extends Model
     protected $fillable = ['img_url', 'user_id', 'type'];
 
     protected $primaryKey = 'id';
+
+    public function path(){
+        return url("/products/{$this->id}".Str::slug($this->product_trans_lang->name));
+    }
+
 
     public static function all($columns = ['*'])
     {

@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Str;
 
 class Solution extends Model
 {
@@ -12,6 +13,11 @@ class Solution extends Model
     protected $table = 'solutions';
     protected $with = ['trans_lang', 'trans','useCases'];
     protected $fillable = ['img_url', 'user_id'];
+
+
+    public function path(){
+        return url("/solutions/{$this->id}".Str::slug($this->trans_lang->name));
+    }
     public function trans()
     {
         return $this->hasMany(Solution_trans::class, 'solution_id', 'id');
