@@ -7,17 +7,17 @@
                     <div class="title mt-3">{{trans("Let's partner up!")}}</div>
                     <div class="address">
                         <div>
-                            <h3 class="d-inline-block m-1 font-weight-bold">Adress</h3>
-                            <span>7563 St. Vicent Place, Glasgow, Greater Newyork NH7689, UK </span>
+                            <h3 class="d-inline-block m-1 font-weight-bold">{{trans('Address')}}</h3>
+                            <span>{{$settings->first()->address}}</span>
                         </div>
                         <div>
-                            <h3 class="d-inline-block m-1 font-weight-bold">Phone</h3>
+                            <h3 class="d-inline-block m-1 font-weight-bold">{{trans('Phone')}}</h3>
 
-                            <a href="tel:+966531089888"><span>+966531089888</span></a>
+                            <a href="tel:+966531089888"><span>{{$settings->first()->mobile}}</span></a>
                         </div>
                         <div>
-                            <h3 class="d-inline-block m-1 font-weight-bold">Email</h3>
-                            <a href="mailto:info@wakeb.tech?subject=" Home msil"><span>Organic@example.com</span></a>
+                            <h3 class="d-inline-block m-1 font-weight-bold">{{trans('Email')}}</h3>
+                            <a href="mailto:info@wakeb.tech?subject=" Home msil"><span>{{$settings->first()->email}}</span></a>
 
                         </div>
                     </div>

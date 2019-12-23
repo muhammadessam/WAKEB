@@ -6,6 +6,7 @@ use App\About;
 use App\Lang;
 use App\Product;
 use App\Service;
+use App\Settings;
 use App\Slider;
 use App\Solution;
 use App\UseCase;
@@ -20,7 +21,9 @@ class HomeController extends Controller
         $services = Service::all();
         $solutions = Solution::all();
         $sliders = Slider::all();
-        return view('FrontEnd.home', compact(['products', 'services', 'solutions', 'sliders']));
+        $lang_id = Lang::where('lang', session()->get('locale'))->first()->id;
+        $settings = Settings::all()->where('lang_id', $lang_id);
+        return view('FrontEnd.home', compact(['products', 'services', 'solutions', 'sliders', 'settings']));
     }
 
     public function about()
@@ -30,7 +33,8 @@ class HomeController extends Controller
         $solutions = Solution::all();
         $lang_id = Lang::where('lang', session()->get('locale'))->first()->id;
         $about = About::all()->where('lang_id', $lang_id);
-        return view('FrontEnd.about', compact(['about', 'products', 'services', 'solutions']));
+        $settings = Settings::all()->where('lang_id', $lang_id);
+        return view('FrontEnd.about', compact(['about', 'products', 'services', 'solutions', 'settings']));
     }
 
     public function contact()
@@ -38,7 +42,9 @@ class HomeController extends Controller
         $products = Product::all();
         $services = Service::all();
         $solutions = Solution::all();
-        return view('FrontEnd.contact', compact(['products', 'services', 'solutions']));
+        $lang_id = Lang::where('lang', session()->get('locale'))->first()->id;
+        $settings = Settings::all()->where('lang_id', $lang_id);
+        return view('FrontEnd.contact', compact(['products', 'services', 'solutions', 'settings']));
     }
 
     public function showProduct(Product $product, Request $request)
@@ -46,7 +52,9 @@ class HomeController extends Controller
         $products = Product::all();
         $services = Service::all();
         $solutions = Solution::all();
-        return view('FrontEnd.products.show', compact(['product', 'products', 'services', 'solutions']));
+        $lang_id = Lang::where('lang', session()->get('locale'))->first()->id;
+        $settings = Settings::all()->where('lang_id', $lang_id);
+        return view('FrontEnd.products.show', compact(['product', 'products', 'services', 'solutions', 'settings']));
     }
 
     public function showService(Service $service, Request $request)
@@ -54,7 +62,9 @@ class HomeController extends Controller
         $products = Product::all();
         $services = Service::all();
         $solutions = Solution::all();
-        return view('FrontEnd.services.show', compact(['service', 'products', 'services', 'solutions']));
+        $lang_id = Lang::where('lang', session()->get('locale'))->first()->id;
+        $settings = Settings::all()->where('lang_id', $lang_id);
+        return view('FrontEnd.services.show', compact(['service', 'products', 'services', 'solutions', 'settings','settings']));
     }
 
     public function showSolution(Solution $solution, Request $request)
@@ -62,7 +72,9 @@ class HomeController extends Controller
         $products = Product::all();
         $services = Service::all();
         $solutions = Solution::all();
-        return view('FrontEnd.solutions.show', compact(['solution', 'products', 'services', 'solutions']));
+        $lang_id = Lang::where('lang', session()->get('locale'))->first()->id;
+        $settings = Settings::all()->where('lang_id', $lang_id);
+        return view('FrontEnd.solutions.show', compact(['solution', 'products', 'services', 'solutions','settings']));
     }
 
     public function showUseCase(UseCase $useCase, Request $request)
@@ -70,7 +82,9 @@ class HomeController extends Controller
         $products = Product::all();
         $services = Service::all();
         $solutions = Solution::all();
-        return view('FrontEnd.useCase.show', compact(['useCase', 'products', 'services', 'solutions']));
+        $lang_id = Lang::where('lang', session()->get('locale'))->first()->id;
+        $settings = Settings::all()->where('lang_id', $lang_id);
+        return view('FrontEnd.useCase.show', compact(['useCase', 'products', 'services', 'solutions','settings']));
     }
 
     public function showProducts(Request $request)
@@ -78,7 +92,9 @@ class HomeController extends Controller
         $products = Product::all();
         $services = Service::all();
         $solutions = Solution::all();
-        return view('FrontEnd.products', compact(['products', 'services', 'solutions']));
+        $lang_id = Lang::where('lang', session()->get('locale'))->first()->id;
+        $settings = Settings::all()->where('lang_id', $lang_id);
+        return view('FrontEnd.products', compact(['products', 'services', 'solutions','settings']));
     }
 
     public function showServices(Request $request)
@@ -86,7 +102,9 @@ class HomeController extends Controller
         $products = Product::all();
         $services = Service::all();
         $solutions = Solution::all();
-        return view('FrontEnd.services', compact(['products', 'services', 'solutions']));
+        $lang_id = Lang::where('lang', session()->get('locale'))->first()->id;
+        $settings = Settings::all()->where('lang_id', $lang_id);
+        return view('FrontEnd.services', compact(['products', 'services', 'solutions','settings']));
     }
 
     public function showSolutions(Request $request)
@@ -94,7 +112,9 @@ class HomeController extends Controller
         $products = Product::all();
         $services = Service::all();
         $solutions = Solution::all();
-        return view('FrontEnd.solutions', compact(['products', 'services', 'solutions']));
+        $lang_id = Lang::where('lang', session()->get('locale'))->first()->id;
+        $settings = Settings::all()->where('lang_id', $lang_id);
+        return view('FrontEnd.solutions', compact(['products', 'services', 'solutions','settings']));
     }
 
 }

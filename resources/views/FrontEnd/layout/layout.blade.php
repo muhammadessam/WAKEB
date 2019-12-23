@@ -2,9 +2,21 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Wakeb</title>
+    <title>{{$settings->first()->name}}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="author" content="{{$settings->first()->author}}">
+    <meta name="keywords" content="{{$settings->first()->keywords}}">
+    <meta name="title" content="{{$settings->first()->name}}">
+    <meta name="description" content="{{$settings->first()->description}}">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{$settings->first()->url}}">
+    <meta property="og:title" content="{{$settings->first()->name}}">
+    <meta property="og:description" content="{{$settings->first()->description}}">
+    <meta property="og:image" content="شركة واكب للذكاء الاصطناعي">
+
+
     @php $locale = session()->get('locale'); @endphp
 
     @if($locale=='en')
@@ -27,7 +39,7 @@
 <!-- Loading Animation-->
 <div id="layout-loading">
     <!-- <h1 class="font-weight-bold">WAKEB</h1> -->
-    <img src="{{asset('assets/images/wakeb-logo.svg')}}" class="wakeb">
+    <img src="{{asset($settings->first()->img_url)}}" class="wakeb">
     <div class="loader-effect"></div>
 </div>
 
@@ -37,7 +49,7 @@
         <div class="container-fluid">
             <div class="navigation">
                 <a class="navbar-brand brand-logo" href="{{route('home')}}">
-                    <img src="{{asset('assets/images/wakeb-logo.svg')}}" alt="Wakeb" title="Wakeb">
+                    <img src="{{asset($settings->first()->img_url)}}" alt="Wakeb" title="Wakeb">
                 </a>
                 <span id="toggle-menu">Menu</span>
             </div>
