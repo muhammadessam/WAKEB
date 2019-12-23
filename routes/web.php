@@ -21,6 +21,9 @@ Route::post('/contactUS', 'ContactController@contact')->name('contactUs');
 Route::get('/migrate', function () {
     Artisan::call('migrate');
 });
+Route::get('/migraterollback', function () {
+    Artisan::call('migrate:rollback');
+});
 Route::group(['middleware' => 'auth', 'prefix' => '/admin'], function () {
 
     require_once 'Users/users.php';
@@ -32,4 +35,5 @@ Route::group(['middleware' => 'auth', 'prefix' => '/admin'], function () {
     require_once 'Sliders/slider.php';
     require_once 'contact/contact.php';
     require_once 'About/about.php';
+    require_once 'Settings/settings.php';
 });

@@ -7,8 +7,10 @@ use App\Http\Requests\FeaturesRquest;
 use App\Lang;
 use App\Product;
 use App\Service;
+use Dotenv\Validator;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
+use Laravel\Ui\Presets\React;
 
 class FeatureController extends Controller
 {
@@ -64,35 +66,49 @@ class FeatureController extends Controller
         return view('admin.features.edit', compact(['feature', 'langs', 'products', 'services']));
     }
 
-    public function update(Feature $feature, FeaturesRquest $request)
+    public function update(Feature $feature, Request $request)
     {
-        $langs = Lang::all();
-        foreach ($langs as $lang) {
-            $feature->features_trans()->where('lang_id', '=', $lang->id)->update([
-                'name' => $request['name_' . $lang->lang],
-                'description' => $request['description_' . $lang->lang],
-            ]);
+        $validator = $request->validate([
+            'name_ar' => 'required',
+            'description_ar' => 'required',
+            'name_en' => 'required',
+            'description_en' => 'required'
+        ]);
+        if ($validator) {
+            $langs = Lang::all();
+            foreach ($langs as $lang) {
+                $feature->features_trans()->where('lang_id', '=', $lang->id)->update([
+                    'name' => $request['name_' . $lang->lang],
+                    'description' => $request['description_' . $lang->lang],
+                ]);
+            }
+            $feature->save();
+            return redirect()->route('showAllFeatures');
+        } else {
+            return redirect()->back();
         }
-        $feature->save();
-        return redirect()->route('showAllFeatures');
     }
 
-    public function delete(Request $request){
+    public function delete(Request $request)
+    {
         Feature::find($request->id)->delete();
         return null;
     }
 
-    public function showDeletedFeatures(){
+    public function showDeletedFeatures()
+    {
         $features = Feature::onlyTrashed()->get();
         return view('admin.features.deleted', compact('features'));
     }
 
-    public function restore(Request $request){
+    public function restore(Request $request)
+    {
         Feature::onlyTrashed()->find($request->id)->restore();
         return null;
     }
 
-    public function forceDelete(Request $request){
+    public function forceDelete(Request $request)
+    {
         Feature::onlyTrashed()->find($request->id)->forceDelete();
         return null;
     }

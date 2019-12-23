@@ -4,12 +4,7 @@
         <div class="container mt-lg">
             <div class="row mt-5">
                 <div class="col-md-6">
-                    <div class="title mt-3">Let's partner up!</div>
-                    <p class="text">Lorem ipsum dolor sit amet, consetetur sadipscing elitr,
-                        sed diam nonumy eirmod tempor invidunt ut labore et dolore magna
-                        aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.
-                        Stet clita kasd gubergren, no sea takimata sanctus est Lorem
-                    </p>
+                    <div class="title mt-3">{{trans("Let's partner up!")}}</div>
                     <div class="address">
                         <div>
                             <h3 class="d-inline-block m-1 font-weight-bold">Adress</h3>

@@ -275,6 +275,12 @@
                             class="fa fa-angle-left pull-left"></i>
                     </a>
                 </li>
+                <li class="{{request()->is('admin/settings*') ? "active":''}}">
+                    <a href="{{route('getSettingsPage')}}">
+                        <i class="fa fa-dashboard"></i> <span>{{trans('Settings')}}</span> <i
+                            class="fa fa-angle-left pull-left"></i>
+                    </a>
+                </li>
 
             </ul>
         </section>

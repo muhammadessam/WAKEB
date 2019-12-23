@@ -16,7 +16,7 @@
                             </li>
                         @endforeach
                     </ul>
-                    <form role="form" action="{{route('updateFeature', $feature)}}" method="post"
+                    <form role="form" action="{{route('featureUpdate', $feature)}}" method="post"
                           enctype="multipart/form-data">
                         @csrf
                         @method('patch')
@@ -49,7 +49,7 @@
                         </div>
                         <div class="box-footer">
                             <button type="submit"
-                                    class="btn btn-primary">{{trans('features.Add')}}</button>
+                                    class="btn btn-primary">{{trans('Edit')}}</button>
                         </div>
                     </form>
                 </div>

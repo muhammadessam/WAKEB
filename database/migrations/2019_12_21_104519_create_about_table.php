@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use App\About;
 
 class CreateAboutTable extends Migration
 {
@@ -24,6 +25,9 @@ class CreateAboutTable extends Migration
             $table->foreign('lang_id')->references('id')->on('langs')->onDelete('cascade');
             $table->timestamps();
         });
+        DB::table('about')->insert(['lang_id' => 1]);
+        DB::table('about')->insert(['lang_id' => 2]);
+
     }
 
     /**
