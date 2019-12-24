@@ -7,6 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 class About extends Model
 {
     protected $table = 'about';
-    protected $fillable = 'lang_id';
+    protected $fillable = ['lang_id'];
 
 }
