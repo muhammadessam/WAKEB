@@ -107,7 +107,7 @@
                         <ul class="sub-menu">
                             @foreach($solutions as $solution)
                                 <li>
-                                    <a href="{{route('showSolutionFront', $solution)}}">{{$solution->trans_lang->name}}</a>
+                                    <a href="{{$solution->path()}}">{{$solution->trans_lang->name}}</a>
                                 </li>
                             @endforeach
                         </ul>
