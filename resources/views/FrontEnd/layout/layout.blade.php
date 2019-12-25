@@ -9,7 +9,6 @@
     <meta name="keywords" content="{{$settings->first()->keywords}}">
     <meta name="title" content="{{$settings->first()->name}}">
     <meta name="description" content="{{$settings->first()->description}}">
-
     <meta property="og:type" content="website">
     <meta property="og:url" content="{{$settings->first()->url}}">
     <meta property="og:title" content="{{$settings->first()->name}}">
@@ -18,7 +17,7 @@
 
     @php $locale = session()->get('locale'); @endphp
 
-    @if($locale=='en')
+@if($locale=='en')
         <link rel="stylesheet" href="{{asset('assets/css/bootstrap.min.css')}}">
     @endif
     @if($locale=='ar')

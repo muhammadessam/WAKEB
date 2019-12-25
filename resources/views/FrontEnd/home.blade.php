@@ -39,12 +39,12 @@
             </div>
             <div class="scroll-next" data-scroll="scroll-target">
                 <div class=" d-flex">
-                    <img src="assets/images/mouse.png" alt="Down" class="mr-2 animated-up-down">
+                    <img src="{{asset('assets/images/mouse.png')}}" alt="Down" class="mr-2 animated-up-down">
                     <span class="mt-1">Scroll Down</span>
                 </div>
             </div>
         </div>
-        <div class="integrated"><img src="assets/images/integrated.svg" alt=""></div>
+        <div class="integrated"><img src="{{asset('assets/images/integrated.svg')}}" alt=""></div>
     </header>
     <!-- services -->
     <section class=" scroll-target vh flex-center" class="pt-5" id="services">
