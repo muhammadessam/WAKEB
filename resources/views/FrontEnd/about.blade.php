@@ -1,6 +1,6 @@
 @extends('FrontEnd.layout.layout')
 @section('content')
-    @if($about->count() > 0)
+    @if(count($about) > 0)
         <section class="about-us sec-pt  ">
             <div class="container mt-lg">
                 <div class="row mb-5">
