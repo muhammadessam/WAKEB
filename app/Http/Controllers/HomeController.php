@@ -18,9 +18,9 @@ class HomeController extends Controller
     public function index(Request $request)
     {
         if (session()->get('locale') == 'ar')
-            $title = 'واكب';
+            $title = 'شركة واكب للذكاء الاصطناعي وخدمات إدارة البيانات';
         else
-            $title = 'Wakeb';
+            $title = 'Wakeb companey for AI and Data mangment';
         $products = Product::all();
         $services = Service::all();
         $solutions = Solution::all();
