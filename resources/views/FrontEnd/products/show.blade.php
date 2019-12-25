@@ -38,8 +38,6 @@
                             @if($product->id==15)
                                 @include('FrontEnd.products.date')
                             @endif
-
-
                         </div>
                     </div>
 

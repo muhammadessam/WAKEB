@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>{{$settings->first()->name}}</title>
+    <title>{{$title}}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="author" content="{{$settings->first()->author}}">
     <meta name="keywords" content="{{$settings->first()->keywords}}">
@@ -15,7 +15,6 @@
     <meta property="og:title" content="{{$settings->first()->name}}">
     <meta property="og:description" content="{{$settings->first()->description}}">
     <meta property="og:image" content="شركة واكب للذكاء الاصطناعي">
-
 
     @php $locale = session()->get('locale'); @endphp
 
