@@ -35,6 +35,9 @@
                             @if($product->id==14)
                                 @include('FrontEnd.products.IPMS')
                             @endif
+                            @if($product->id==15)
+                                @include('FrontEnd.products.date')
+                            @endif
 
 
                         </div>

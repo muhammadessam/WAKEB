@@ -155,17 +155,17 @@
             <ul class="list">
                 <li>
                     <a target="_blank" href="https://www.facebook.com/Wakeb.tech/"><i class="fa fa-facebook"
-                                                                                      title="facebook"></i></a>
+                                                                                      title="Visit Wakeb on Facebok"></i></a>
                 </li>
                 <li>
                     <a target="_blank" href="https://www.linkedin.com/company/wakeb-data"><i class="fa fa-linkedin"
-                                                                                             title="linkedin"></i></a>
+                                                                                             title="Visit Wakeb on linkedin"></i></a>
                 </li>
                 <li>
                     <a target="_blank" href="https://twitter.com/WAKEB_Data"><i class="fa fa-twitter"
-                                                                                title="twitter"></i></a>
+                                                                                title="Visit Wakeb on Twitter"></i></a>
                 </li>
-                <li><a target="_blank" href="https://www.instagram.com/wakeb.data/" title="instagram"><i
+                <li><a target="_blank" href="https://www.instagram.com/wakeb.data/" title="Visit Wakeb on instagram"><i
                             class="fa fa-instagram"></i></a>
                 </li>
             </ul>

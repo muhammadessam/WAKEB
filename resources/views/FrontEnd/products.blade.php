@@ -5,12 +5,10 @@
         <div class="container">
             <div class="row mb-5">
                 <div class="col-sm-12 text-center">
-                    <div class="title">Stay updated with our products</div>
+                    <div class="title">{{trans('Stay updated with our products')}}</div>
                 </div>
                 <div class="col-lg-6 col-md-8  offset-md-2  offset-lg-3">
                     <p class="title-p text-center">
-                        Lorem ipsum dolor sit amet, consetetur sadipscing elitr,
-                        sed diam nonumy eirmod tempor invidunt ut
                     </p>
                 </div>
             </div>
