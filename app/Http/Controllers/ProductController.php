@@ -34,7 +34,6 @@ class ProductController extends Controller
         ]);
 
         $langs = Lang::all();
-
         foreach ($langs as $lang) {
             $product->product_trans()->create([
                 'name' => $request['name_' . $lang->lang],

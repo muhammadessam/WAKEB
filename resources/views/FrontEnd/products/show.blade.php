@@ -55,7 +55,7 @@
                 <div class="row mt-5">
                     <div class="col-md-6">
                         <h3 class="font-weight-bold text-uppercase mb-5">{{trans('About')}}</h3>
-                        <p class="mb-5">{!!$product->product_trans_lang->description!!}</p>
+                        <p class="mb-5">{!!$product->product_trans_lang->about!!}</p>
 
                     </div>
                     <div class="col-md-6 col-lg-5 offset-lg-1">
