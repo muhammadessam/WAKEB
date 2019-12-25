@@ -39,6 +39,7 @@ class ProductController extends Controller
             $product->product_trans()->create([
                 'name' => $request['name_' . $lang->lang],
                 'description' => $request['description_' . $lang->lang],
+                'about' => $request['about_' . $lang->lang],
                 'lang_id' => $lang->id,
             ]);
         }
@@ -68,6 +69,7 @@ class ProductController extends Controller
             $product->product_trans()->where('lang_id', '=', $lang->id)->update([
                 'name' => $request['name_' . $lang->lang],
                 'description' => $request['description_' . $lang->lang],
+                'about' => $request['about_' . $lang->lang],
             ]);
         }
         $product->save();

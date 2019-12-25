@@ -44,6 +44,18 @@
                                         <span class="help-block">{{$message}}</span>
                                         @enderror
                                     </div>
+                                    <div
+                                        class="form-group {{$errors->has('about_'.$lang->lang) ? 'has-error' : ''}}">
+                                        <label for="description">{{trans('About')}}</label>
+                                        <textarea
+                                            class="form-control"
+                                            id="description" name="about_{{$lang->lang}}"
+                                            placeholder="{{trans('products.productDescriptionEnter_'.$lang->lang)}}">{{old('about_'.$lang->lang)}}</textarea>
+                                        @error('about_'.$lang->lang)
+                                        <span class="help-block">{{$message}}</span>
+                                        @enderror
+
+                                    </div>
                                 </div>
                             @endforeach
                         </div>

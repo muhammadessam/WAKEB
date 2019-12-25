@@ -9,9 +9,10 @@
                      src="{{asset($product->img_url)}}" alt="User profile picture">
 
                 <h3 class="profile-username text-center">{{$product->product_trans_lang->name}}</h3>
-
+                <h4>{{trans('products.productDescription')}}</h4>
                 <p class="text-muted text-center">{{$product->product_trans_lang->description}}</p>
-
+                <h4>{{trans('About')}}</h4>
+                <p class="text-muted text-center">{{$product->product_trans_lang->about}}</p>
                 <ul class="list-group list-group-unbordered">
                     @foreach($product->features as $feature)
                         <li class="list-group-item">
