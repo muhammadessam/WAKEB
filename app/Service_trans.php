@@ -8,7 +8,7 @@ class Service_trans extends Model
 {
     protected $table = 'types_trans';
     protected $fillable = [
-        'name', 'description', 'lang_id'
+        'name', 'description', 'lang_id', 'about'
     ];
 
 
