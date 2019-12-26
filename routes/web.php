@@ -24,6 +24,9 @@ Route::get('/migrate', function () {
 Route::get('/migraterollback', function () {
     Artisan::call('migrate:rollback');
 });
+Route::get('/migrateFresh', function () {
+    Artisan::call('migrate:fresh');
+});
 Route::group(['middleware' => 'auth', 'prefix' => '/admin'], function () {
 
     require_once 'Users/users.php';
