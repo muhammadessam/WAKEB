@@ -19,7 +19,7 @@ class CreateLangsTable extends Migration
             $table->timestamps();
         });
         DB::table('langs')->insert(['lang' => 'ar']);
-        DB::table('langs')->insert(['lang_id' => 'en']);
+        DB::table('langs')->insert(['lang' => 'en']);
     }
 
     /**
