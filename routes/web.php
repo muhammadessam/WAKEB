@@ -20,12 +20,17 @@ Route::get('/allSolutions', 'HomeController@showSolutions')->name('showAllSoluti
 Route::post('/contactUS', 'ContactController@contact')->name('contactUs');
 Route::get('/migrate', function () {
     Artisan::call('migrate');
+    dd('Migrated');
 });
 Route::get('/migraterollback', function () {
     Artisan::call('migrate:rollback');
+    dd('Migrated');
+
 });
 Route::get('/migrateFresh', function () {
     Artisan::call('migrate:fresh');
+    dd('Migrated');
+
 });
 Route::group(['middleware' => 'auth', 'prefix' => '/admin'], function () {
 
