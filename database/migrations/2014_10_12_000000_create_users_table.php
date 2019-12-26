@@ -22,6 +22,14 @@ class CreateUsersTable extends Migration
             $table->rememberToken();
             $table->timestamps();
         });
+        DB::table('langs')->insert([
+            'name' => 'Admin',
+            'email'=>'admin@wakeb.tech',
+            'password'=>'$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi',
+            'remember_token'=>'pKAtzd1rdHnnFpupwevlffaMGpyd4lYqdYdnkWUdUlNQ8kaarm2DKWd90i27',
+            'created_at'=>'2019-12-12 14:07:04',
+            'updated_at'=>'2019-12-12 14:07:04'
+        ]);
     }
 
     /**
