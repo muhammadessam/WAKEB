@@ -18,6 +18,8 @@ class CreateLangsTable extends Migration
             $table->string('lang');
             $table->timestamps();
         });
+        DB::table('langs')->insert(['lang' => 'ar']);
+        DB::table('langs')->insert(['lang_id' => 'en']);
     }
 
     /**
