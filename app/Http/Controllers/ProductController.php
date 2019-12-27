@@ -31,6 +31,7 @@ class ProductController extends Controller
         $product = Product::create([
             'img_url' => $path,
             'user_id' => auth()->user()->id,
+            'type'=>'product'
         ]);
 
         $langs = Lang::all();
@@ -42,7 +43,6 @@ class ProductController extends Controller
                 'lang_id' => $lang->id,
             ]);
         }
-        $product->type = 'product';
         $product->save();
         return redirect()->back()->with(['message' => 'success']);
     }

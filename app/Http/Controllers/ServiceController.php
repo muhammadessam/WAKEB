@@ -30,6 +30,7 @@ class ServiceController extends Controller
         $service = Service::create([
             'img_url' => $path,
             'user_id' => auth()->user()->id,
+            'type' => 'service'
         ]);
 
         $langs = Lang::all();
@@ -41,7 +42,6 @@ class ServiceController extends Controller
                 'lang_id' => $lang->id,
             ]);
         }
-        $service->type = 'service';
         $service->save();
         return redirect()->back()->with(['message' => 'success']);
     }
