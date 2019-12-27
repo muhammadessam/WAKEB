@@ -17,7 +17,7 @@ class Service extends Model
 
 
     public function path(){
-        return url("/services/{$this->id}".Str::slug($this->service_trans[1]->name));
+        return url("/services/{$this->id}-".Str::slug($this->service_trans[1]->name));
     }
 
     public static function all($columns = ['*'])
