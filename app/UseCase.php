@@ -13,7 +13,7 @@ class UseCase extends Model
     protected $fillable = ['img_url', 'user_id','solution_id'];
     protected $with = ['trans', 'trans_lang'];
     public function path(){
-        return url("/useCases/{$this->id}-".Str::slug($this->trans_lang->name));
+        return url("/useCases/".Str::slug($this->trans_lang->name));
     }
 
     public function trans()

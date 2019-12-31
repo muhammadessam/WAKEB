@@ -22,7 +22,7 @@ class Product extends Model
     protected $primaryKey = 'id';
 
     public function path(){
-        return url("/products/{$this->id}-".Str::slug($this->product_trans[1]->name));
+        return url("/products/".Str::slug($this->product_trans[1]->name, '-'));
     }
 
 

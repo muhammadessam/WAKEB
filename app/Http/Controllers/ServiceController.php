@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ProductRequest;
+use App\Http\Requests\ServiceRequest;
 use App\Lang;
 use App\Service;
 use Illuminate\Http\Request;
@@ -21,7 +22,7 @@ class ServiceController extends Controller
         return view('admin.services.create', compact('langs'));
     }
 
-    public function store(ProductRequest $request)
+    public function store(ServiceRequest $request)
     {
         $name = time() . $request->file('img')->getClientOriginalName();
         $request->file('img')->move('services/imgs', $name);
@@ -52,7 +53,7 @@ class ServiceController extends Controller
         return view('admin.services.edit', compact(['service', 'langs']));
     }
 
-    public function update(Service $service, ProductRequest $request)
+    public function update(Service $service, ServiceRequest $request)
     {
         $langs = Lang::all();
         if ($request->has('img')) {

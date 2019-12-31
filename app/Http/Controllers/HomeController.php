@@ -5,13 +5,18 @@ namespace App\Http\Controllers;
 use App\About;
 use App\Lang;
 use App\Product;
+use App\Product_trans;
 use App\Service;
+use App\Service_trans;
 use App\Settings;
 use App\Slider;
 use App\Solution;
+use App\Solution_trans;
 use App\UseCase;
+use App\UseCase_trans;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
+use Psy\Util\Str;
 
 class HomeController extends Controller
 {
@@ -53,8 +58,11 @@ class HomeController extends Controller
         return view('FrontEnd.contact', compact(['products', 'services', 'solutions', 'settings', 'title']));
     }
 
-    public function showProduct(Product $product, Request $request)
+    public function showProduct($productName, Request $request)
     {
+        $productName = str_replace('-', ' ', $productName);
+        $productTrans = Product_trans::where('name', $productName)->first();
+        $product = $productTrans->product;
         $title = $product->product_trans_lang->name;
         $products = Product::all();
         $services = Service::all();
@@ -64,8 +72,11 @@ class HomeController extends Controller
         return view('FrontEnd.products.show', compact(['product', 'products', 'services', 'solutions', 'settings', 'title']));
     }
 
-    public function showService(Service $service, Request $request)
+    public function showService($serviceName, Request $request)
     {
+        $serviceName = str_replace('-', ' ', $serviceName);
+        $serviceTrans = Service_trans::where('name', $serviceName)->first();
+        $service = $serviceTrans->service;
         $title = $service->service_trans_lang->name;
         $products = Product::all();
         $services = Service::all();
@@ -75,8 +86,11 @@ class HomeController extends Controller
         return view('FrontEnd.services.show', compact(['service', 'products', 'services', 'solutions', 'settings', 'title']));
     }
 
-    public function showSolution(Solution $solution, Request $request)
+    public function showSolution($solutionName, Request $request)
     {
+        $solutionName = str_replace('-', ' ', $solutionName);
+        $solutionTrans = Solution_trans::where('name', $solutionName)->first();
+        $solution = $solutionTrans->solution;
         $title = $solution->trans_lang->name;
         $products = Product::all();
         $services = Service::all();
@@ -86,8 +100,11 @@ class HomeController extends Controller
         return view('FrontEnd.solutions.show', compact(['solution', 'products', 'services', 'solutions', 'settings', 'title']));
     }
 
-    public function showUseCase(UseCase $useCase, Request $request)
+    public function showUseCase($useCaseName, Request $request)
     {
+        $useCaseName = str_replace('-', ' ', $useCaseName);
+        $useCaseTrans = UseCase_trans::where('title', $useCaseName)->first();
+        $useCase = $useCaseTrans->useCase;
         $title = $useCase->trans_lang->title;
         $products = Product::all();
         $services = Service::all();
