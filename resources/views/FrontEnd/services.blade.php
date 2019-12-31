@@ -21,11 +21,11 @@
                                     <img src="{{$service->img_url}}" class="card-img-top">
                                     <div class="card-body">
                                         <h3 class="card-title font-weight-bold">
-                                            <a href="{{route('showServiceFront', $service)}}">{{$service->service_trans_lang->name}}</a>
+                                            <a href="{{$service->path()}}">{{$service->service_trans_lang->name}}</a>
                                         </h3>
                                         <p class="card-text">{{Str::limit($service->service_trans_lang->description, 30, ' (...)')}}</p>
                                         <div class="  d-flex flex-row-reverse">
-                                            <a href="product-1.html" class="more">
+                                            <a href="{{$service->path()}}" class="more">
                                                 <i class="fa fa-long-arrow-right"></i>
                                             </a>
                                         </div>

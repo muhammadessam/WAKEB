@@ -10,10 +10,12 @@ class UseCase extends Model
 {
     use SoftDeletes;
     protected $table = 'use_cases';
-    protected $fillable = ['img_url', 'user_id','solution_id'];
+    protected $fillable = ['img_url', 'user_id', 'solution_id'];
     protected $with = ['trans', 'trans_lang'];
-    public function path(){
-        return url("/useCases/".Str::slug($this->trans_lang->name));
+
+    public function path()
+    {
+        return url("/useCases/".Str::slug($this->trans[1]->title, '-'));
     }
 
     public function trans()

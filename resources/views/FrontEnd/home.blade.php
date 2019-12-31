@@ -65,17 +65,17 @@
                 <div class="regular slider mt-5">
                     @foreach($services as $service)
                         <div>
-                            <a href="{{route('showServiceFront', $service)}}">
+                            <a href="{{$service->path()}}">
                                 <h1>{{$service->service_trans_lang->name}}</h1></a>
                             <div class="service">
-                                <a href="{{route('showServiceFront', $service)}}"><img
+                                <a href="{{$service->path()}}"><img
                                         src="{{asset($service->img_url)}}"></a>
                                 <div class="overlay ">
                                     <p>
                                         {{Str::words($service->service_trans_lang->description, 10, '....')}}
                                     </p>
                                     <div>
-                                        <a href="{{route('showServiceFront', $service)}}">
+                                        <a href="{{$service->path()}}">
                                             <span class="mr-1">{{trans('MORE')}}</span>
                                             <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
                                         </a>
@@ -144,17 +144,17 @@
                     @foreach($products as $product)
                         <div>
                             <div class="img-div">
-                                <a href="{{route('showProductFront', $product)}}"><img
+                                <a href="{{$product->path()}}"><img
                                         src="{{asset($product->img_url)}}"></a>
                                 <span class="line"></span>
                             </div>
                             <div class="caption">
-                                <a href="{{route('showProductFront', $product)}}">
+                                <a href="{{$product->path()}}">
                                     <h3>{{$product->product_trans_lang->name}}</h3></a>
                                 <p>
                                     {{Str::words($product->product_trans_lang->description, 10, '....')}}
                                 </p>
-                                <a href="{{route('showProductFront', $product)}}">
+                                <a href="{{$product->path()}}">
                                     <span class="mr-1">{{trans('MORE')}}</span>
                                     <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
                                 </a>
@@ -164,7 +164,7 @@
                 </div>
                 <div class="slider slider-nav">
                     @foreach($products as $product)
-                        <a href="{{route('showProductFront', $product)}}">
+                        <a href="{{$product->path()}}">
                             <div><img src="{{asset($product->img_url)}}"></div>
                         </a>
                     @endforeach

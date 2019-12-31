@@ -116,7 +116,7 @@ class HomeController extends Controller
 
     public function showProducts(Request $request)
     {
-        $title = trans('Products');
+        $title = trans('Products.products');
         $products = Product::all();
         $services = Service::all();
         $solutions = Solution::all();

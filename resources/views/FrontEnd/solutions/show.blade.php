@@ -31,11 +31,11 @@
                                     <img src="{{asset($useCase->img_url)}}" class="card-img-top">
                                     <div class="card-body">
                                         <h3 class="card-title font-weight-bold"><a
-                                                href="{{route('showUseCaseFront', $useCase)}}">{{$useCase->trans_lang->title}}</a>
+                                                href="{{$useCase->path()}}">{{$useCase->trans_lang->title}}</a>
                                         </h3>
                                         <p class="card-text">{{Str::words($useCase->trans_lang->description,10,'....')}}</p>
                                         <div class="  d-flex flex-row-reverse">
-                                            <a href="{{route('showUseCaseFront', $useCase)}}" class="more">
+                                            <a href="{{$useCase->path()}}" class="more">
                                                 <i class="fa fa-long-arrow-right"></i>
                                             </a>
                                         </div>
