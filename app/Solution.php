@@ -16,7 +16,7 @@ class Solution extends Model
 
 
     public function path(){
-        return url("/solutions/".Str::slug($this->trans[1]->name, '-'));
+        return url("/solutions/".Str::slug($this->trans->where('lang_id', 2)->first()->name, '-'));
     }
     public function trans()
     {

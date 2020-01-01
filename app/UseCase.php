@@ -15,7 +15,7 @@ class UseCase extends Model
 
     public function path()
     {
-        return url("/useCases/".Str::slug($this->trans[1]->title, '-'));
+        return url("/useCases/".Str::slug($this->trans->where('lang_id', 2)->first()->title, '-'));
     }
 
     public function trans()

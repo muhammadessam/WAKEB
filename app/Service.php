@@ -17,7 +17,7 @@ class Service extends Model
 
 
     public function path(){
-        return url("/services/".Str::slug($this->service_trans[1]->name, '-'));
+        return url("/services/".Str::slug($this->service_trans->where('lang_id', 2)->first()->name, '-'));
     }
 
     public static function all($columns = ['*'])
