@@ -19,65 +19,49 @@
     @php $locale = session()->get('locale'); @endphp
 
     @if($locale=='en')
-    <link rel="stylesheet" href="{{asset('assets/css/bootstrap.min.css')}}">
+        <link rel="stylesheet" href="{{asset('assets/css/bootstrap.min.css')}}">
     @endif
     @if($locale=='ar')
-    <link rel="stylesheet" href="{{asset('assets/css/bootstrap.rtl.min.css')}}">
+        <link rel="stylesheet" href="{{asset('assets/css/bootstrap.rtl.min.css')}}">
     @endif
     <link rel="stylesheet" href="{{asset('assets/css/font-awesome.min.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/slick.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/animate.min.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/home.css')}}">
 
-    <link rel="apple-touch-icon" sizes="57x57" href="{{asset('apple-icon-57x57.png')}}">
-    <link rel="apple-touch-icon" sizes="60x60" href="{{asset('apple-icon-60x60.png')}}">
-    <link rel="apple-touch-icon" sizes="72x72" href="{{asset('apple-icon-72x72.png')}}">
-    <link rel="apple-touch-icon" sizes="76x76" href="{{asset('apple-icon-76x76.png')}}">
-    <link rel="apple-touch-icon" sizes="114x114" href="{{asset('apple-icon-114x114.png')}}">
-    <link rel="apple-touch-icon" sizes="120x120" href="{{asset('apple-icon-120x120.png')}}">
-    <link rel="apple-touch-icon" sizes="144x144" href="{{asset('apple-icon-144x144.png')}}">
-    <link rel="apple-touch-icon" sizes="152x152" href="{{asset('apple-icon-152x152.png')}}">
-    <link rel="apple-touch-icon" sizes="180x180" href="{{asset('apple-icon-180x180.png')}}">
-    <link rel="icon" type="image/png" sizes="192x192" href="{{asset('android-icon-192x192.png')}}">
-    <link rel="icon" type="image/png" sizes="32x32" href="{{asset('favicon-32x32.png">')}}
-    <link rel="icon" type="image/png" sizes="96x96" href="{{asset('favicon-96x96.png">')}}
-    <link rel="icon" type="image/png" sizes="16x16" href="{{asset('favicon-16x16.png">')}}
-    <link rel="manifest" href="/manifest.json">
-    <meta name="msapplication-TileColor" content="#ffffff">
-    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
-    <meta name="theme-color" content="#ffffff">
+    <link rel="icon" type="icon" href="{{asset('favicon.ico')}}">
 
     @if($locale=='ar')
-    <link rel="stylesheet" href="{{asset('assets/css/style.rtl.css')}}">
+        <link rel="stylesheet" href="{{asset('assets/css/style.rtl.css')}}">
     @endif
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cairo&display=swap">
 </head>
 
 <body>
-    <!-- Loading Animation-->
-    <div id="layout-loading">
-        <!-- <h1 class="font-weight-bold">WAKEB</h1> -->
-        <img src="{{asset($settings->first()->img_url)}}" class="wakeb">
-        <div class="loader-effect"></div>
-    </div>
+<!-- Loading Animation-->
+<div id="layout-loading">
+    <!-- <h1 class="font-weight-bold">WAKEB</h1> -->
+    <img src="{{asset($settings->first()->img_url)}}" class="wakeb">
+    <div class="loader-effect"></div>
+</div>
 
-    <div id="wrap">
-        <!-- menu -->
-        <div id="menu">
-            <div class="container-fluid">
-                <div class="navigation">
-                    <a class="navbar-brand brand-logo" href="{{route('home')}}">
-                        <img src="{{asset($settings->first()->img_url)}}" alt="Wakeb" title="Wakeb">
-                    </a>
-                    <span id="toggle-menu">Menu</span>
-                </div>
+<div id="wrap">
+    <!-- menu -->
+    <div id="menu">
+        <div class="container-fluid">
+            <div class="navigation">
+                <a class="navbar-brand brand-logo" href="{{route('home')}}">
+                    <img src="{{asset($settings->first()->img_url)}}" alt="Wakeb" title="Wakeb">
+                </a>
+                <span id="toggle-menu">Menu</span>
             </div>
-            <div id="menu-content">
-                <div class="container-fluid menu-list">
-                    <ul>
-                        <li>
+        </div>
+        <div id="menu-content">
+            <div class="container-fluid menu-list">
+                <ul>
+                    <li>
 
-                            @switch($locale)
+                        @switch($locale)
                             @case('en')
                             <a href="{{route('changeLang', 'ar')}}" class="mb-2 font-weight-normal">
                                 <img src="{{asset('assets/images/lang.png')}}" class="mr-1" width="22px">
@@ -95,73 +79,40 @@
                                 <img src="{{asset('assets/images/lang.png')}}" class="mr-1" width="22px">
                                 <span>العربية</span>
                             </a>
-                            @endswitch
-                        </li>
-                        <li class="active">
-                            <a href="{{route('home')}}">{{trans('Home')}}</a>
-                        </li>
-                        <li class="has-menu">
-                            <a>{{trans('products.products')}}</a>
-                            <ul class="sub-menu">
-                                @foreach($products as $product)
+                        @endswitch
+                    </li>
+                    <li class="active">
+                        <a href="{{route('home')}}">{{trans('Home')}}</a>
+                    </li>
+                    <li class="has-menu">
+                        <a>{{trans('products.products')}}</a>
+                        <ul class="sub-menu">
+                            @foreach($products as $product)
                                 <li>
                                     <a href="{{$product->path()}}">{{$product->product_trans_lang->name}}</a>
                                 </li>
-                                @endforeach
-                            </ul>
-                        </li>
-                        <li class="has-menu">
-                            <a>{{trans('services.services')}}</a>
-                            <ul class="sub-menu">
-                                @foreach($services as $service)
+                            @endforeach
+                        </ul>
+                    </li>
+                    <li class="has-menu">
+                        <a>{{trans('services.services')}}</a>
+                        <ul class="sub-menu">
+                            @foreach($services as $service)
                                 <li>
                                     <a href="{{$service->path()}}">{{$service->service_trans_lang->name}}</a>
                                 </li>
-                                @endforeach
-                            </ul>
-                        </li>
-                        <li class="has-menu">
-                            <a>{{trans('solutions.solutions')}}</a>
-                            <ul class="sub-menu">
-                                @foreach($solutions as $solution)
+                            @endforeach
+                        </ul>
+                    </li>
+                    <li class="has-menu">
+                        <a>{{trans('solutions.solutions')}}</a>
+                        <ul class="sub-menu">
+                            @foreach($solutions as $solution)
                                 <li>
                                     <a href="{{$solution->path()}}">{{$solution->trans_lang->name}}</a>
                                 </li>
-                                @endforeach
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="{{route('about')}}">{{trans('About us')}}</a>
-                        </li>
-                        <li>
-                            <a href="{{route('contact')}}">{{trans('Contact us')}}</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <!--/. menu -->
-
-        <!-- header -->
-
-        <!--/. header -->
-        @yield('content')
-
-        <!-- Footer  -->
-        <footer class="footer">
-            <div class="container-fluid">
-                <ul>
-                    <li>
-                        <a href="{{route('home')}}">{{trans('Home')}}</a>
-                    </li>
-                    <li>
-                        <a href="{{route('showAllProductsFront')}}">{{trans('products.products')}}</a>
-                    </li>
-                    <li>
-                        <a href="{{route('showAllServicesFront')}}">{{trans('services.services')}}</a>
-                    </li>
-                    <li>
-                        <a href="{{route('showAllSolutionsFront')}}">{{trans('solutions.solutions')}}</a>
+                            @endforeach
+                        </ul>
                     </li>
                     <li>
                         <a href="{{route('about')}}">{{trans('About us')}}</a>
@@ -170,36 +121,73 @@
                         <a href="{{route('contact')}}">{{trans('Contact us')}}</a>
                     </li>
                 </ul>
-                <ul class="list">
-                    <li>
-                        <a target="_blank" href="https://www.facebook.com/Wakeb.tech/"><i class="fa fa-facebook" title="Visit Wakeb on Facebok"></i></a>
-                    </li>
-                    <li>
-                        <a target="_blank" href="https://www.linkedin.com/company/wakeb-data"><i class="fa fa-linkedin" title="Visit Wakeb on linkedin"></i></a>
-                    </li>
-                    <li>
-                        <a target="_blank" href="https://twitter.com/WAKEB_Data"><i class="fa fa-twitter" title="Visit Wakeb on Twitter"></i></a>
-                    </li>
-                    <li><a target="_blank" href="https://www.instagram.com/wakeb.data/" title="Visit Wakeb on instagram"><i class="fa fa-instagram"></i></a>
-                    </li>
-                </ul>
-                <p>Wakeb © 2019, All copyrights reserved</p>
             </div>
-        </footer>
-        <!--/. Footer  -->
-
+        </div>
     </div>
+    <!--/. menu -->
 
-    <!--jquery-->
-    <script src="{{asset('assets/js/jquery-min.js')}}"></script>
-    <!-- Bootstrap JS -->
-    <script src="{{asset('assets/js/bootstrap.min.js')}}"></script>
-    <!-- slick JS -->
-    <script src="{{asset('assets/js/slick.min.js')}}"></script>
-    <!-- WOW JS -->
-    <script src="{{asset('assets/js/wow.min.js')}}"></script>
-    <script src="{{asset('js/sweetalert.js')}}"></script>
-    @if(session()->has('message'))
+    <!-- header -->
+
+    <!--/. header -->
+@yield('content')
+
+<!-- Footer  -->
+    <footer class="footer">
+        <div class="container-fluid">
+            <ul>
+                <li>
+                    <a href="{{route('home')}}">{{trans('Home')}}</a>
+                </li>
+                <li>
+                    <a href="{{route('showAllProductsFront')}}">{{trans('products.products')}}</a>
+                </li>
+                <li>
+                    <a href="{{route('showAllServicesFront')}}">{{trans('services.services')}}</a>
+                </li>
+                <li>
+                    <a href="{{route('showAllSolutionsFront')}}">{{trans('solutions.solutions')}}</a>
+                </li>
+                <li>
+                    <a href="{{route('about')}}">{{trans('About us')}}</a>
+                </li>
+                <li>
+                    <a href="{{route('contact')}}">{{trans('Contact us')}}</a>
+                </li>
+            </ul>
+            <ul class="list">
+                <li>
+                    <a target="_blank" href="https://www.facebook.com/Wakeb.tech/"><i class="fa fa-facebook"
+                                                                                      title="Visit Wakeb on Facebok"></i></a>
+                </li>
+                <li>
+                    <a target="_blank" href="https://www.linkedin.com/company/wakeb-data"><i class="fa fa-linkedin"
+                                                                                             title="Visit Wakeb on linkedin"></i></a>
+                </li>
+                <li>
+                    <a target="_blank" href="https://twitter.com/WAKEB_Data"><i class="fa fa-twitter"
+                                                                                title="Visit Wakeb on Twitter"></i></a>
+                </li>
+                <li><a target="_blank" href="https://www.instagram.com/wakeb.data/" title="Visit Wakeb on instagram"><i
+                            class="fa fa-instagram"></i></a>
+                </li>
+            </ul>
+            <p>Wakeb © 2019, All copyrights reserved</p>
+        </div>
+    </footer>
+    <!--/. Footer  -->
+
+</div>
+
+<!--jquery-->
+<script src="{{asset('assets/js/jquery-min.js')}}"></script>
+<!-- Bootstrap JS -->
+<script src="{{asset('assets/js/bootstrap.min.js')}}"></script>
+<!-- slick JS -->
+<script src="{{asset('assets/js/slick.min.js')}}"></script>
+<!-- WOW JS -->
+<script src="{{asset('assets/js/wow.min.js')}}"></script>
+<script src="{{asset('js/sweetalert.js')}}"></script>
+@if(session()->has('message'))
     <script>
         const Toast = Swal.mixin({
             toast: true,
@@ -219,12 +207,12 @@
             Message Received Successfully ')}}'
         })
     </script>
-    @endif
-    <script>
-        new WOW().init();
-    </script>
-    <!-- functions JS -->
-    <script src="{{asset('assets/js/functions.js')}}"></script>
+@endif
+<script>
+    new WOW().init();
+</script>
+<!-- functions JS -->
+<script src="{{asset('assets/js/functions.js')}}"></script>
 </body>
 
 </html>

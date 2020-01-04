@@ -25,7 +25,7 @@
                                         </h3>
                                         <p class="card-text">{{Str::limit($product->product_trans_lang->description, 30, ' (...)')}}</p>
                                         <div class="  d-flex flex-row-reverse">
-                                            <a href="product-1.html" class="more">
+                                            <a href="{{$product->path()}}" class="more">
                                                 <i class="fa fa-long-arrow-right"></i>
                                             </a>
                                         </div>
