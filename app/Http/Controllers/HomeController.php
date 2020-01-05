@@ -63,6 +63,9 @@ class HomeController extends Controller
         $productName = str_replace('-', ' ', $productName);
         $productTrans = Product_trans::where('name', $productName)->first();
         $product = $productTrans->product;
+        if (! $product){
+            return abort(404);
+        }
         $title = $product->product_trans_lang->name;
         $products = Product::all();
         $services = Service::all();
@@ -77,6 +80,9 @@ class HomeController extends Controller
         $serviceName = str_replace('-', ' ', $serviceName);
         $serviceTrans = Service_trans::where('name', $serviceName)->first();
         $service = $serviceTrans->service;
+        if (! $service){
+            return abort(404);
+        }
         $title = $service->service_trans_lang->name;
         $products = Product::all();
         $services = Service::all();

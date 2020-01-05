@@ -13,7 +13,7 @@ class Product_trans extends Model
 
     public function product()
     {
-        return $this->belongsTo(Product::class, 'type_id', 'id');
+        return $this->belongsTo(Product::class, 'type_id', 'id')->where('type', 'product');
     }
 
 }

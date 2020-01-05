@@ -14,6 +14,6 @@ class Service_trans extends Model
 
     public function service()
     {
-        return $this->belongsTo(Service::class, 'type_id', 'id');
+        return $this->belongsTo(Service::class, 'type_id', 'id')->where('type', 'service');
     }
 }
